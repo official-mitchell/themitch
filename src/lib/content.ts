@@ -63,6 +63,11 @@ export function getFeaturedCaseStudies(): ContentMeta[] {
     .slice(0, 3);
 }
 
+export function getLatestBlogs(limit: number = 3): ContentMeta[] {
+  const allBlogs = getAllContent("blogs");
+  return allBlogs.slice(0, limit);
+}
+
 function getAllMdxFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
 

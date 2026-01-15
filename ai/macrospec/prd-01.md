@@ -107,10 +107,10 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 3.4 Blog Preview Section
 
-- [ ] Latest 3 blog posts
-- [ ] Post card: title, date, description, tags
-- [ ] Pull data from `content/blogs/**/*.mdx`
-- [ ] "View All Posts" link
+- [x] Latest 3 blog posts
+- [x] Post card: title, date, description, tags
+- [x] Pull data from `content/blogs/**/*.mdx`
+- [x] "View All Posts" link
 
 ### 3.5 Testimonials Section
 
