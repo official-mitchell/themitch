@@ -114,9 +114,9 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 3.5 Testimonials Section
 
-- [ ] Testimonial card component: quote, name, role, company, avatar
-- [ ] Store testimonials in `src/data/testimonials.ts`
-- [ ] Carousel or grid layout (finalize from Figma)
+- [x] Testimonial card component: quote, name, role, company, avatar
+- [x] Store testimonials in `src/data/testimonials.ts`
+- [x] Carousel or grid layout (finalize from Figma)
 
 ### 3.6 Homepage CTA Banner
 

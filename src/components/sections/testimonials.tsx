@@ -3,49 +3,10 @@
 
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
-interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  avatar: string;
-  gradient: string;
-}
+import { testimonials } from '@/data/testimonials';
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const testimonials: Testimonial[] = [
-    {
-      id: '1',
-      name: 'Sarah Mitchell',
-      role: 'CEO & Founder',
-      company: 'TechVentures Inc',
-      content: "Mitchell's strategic insights were instrumental in helping us secure our Series A. His positioning framework helped us articulate our value proposition in a way that resonated with investors. We raised $8M in just 6 weeks.",
-      avatar: 'https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2ODM0NTc5N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      gradient: 'from-purple-600 to-pink-600',
-    },
-    {
-      id: '2',
-      name: 'David Chen',
-      role: 'Head of Product',
-      company: 'DeFi Protocol',
-      content: 'Working with Mitchell transformed how we think about product-market fit. His data-driven approach helped us reduce our iteration cycles by 35% and increase user retention by 3x. Truly exceptional work.',
-      avatar: 'https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2ODM0NTc5N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      gradient: 'from-blue-600 to-purple-600',
-    },
-    {
-      id: '3',
-      name: 'Emily Rodriguez',
-      role: 'Co-Founder',
-      company: 'BuildSpace',
-      content: "Mitchell doesn't just give advice—he partners with you. His game theory approach to competitive positioning helped us identify and dominate a niche market. Revenue grew 10x in 8 months.",
-      avatar: 'https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2ODM0NTc5N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      gradient: 'from-pink-600 to-purple-600',
-    },
-  ];
 
   const nextTestimonial = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
@@ -66,7 +27,7 @@ export function Testimonials() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Client <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Testimonials</span>
+            What People <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Say About Me</span>
           </h2>
           <p className="text-gray-400 text-lg">
             Hear from founders and leaders who've partnered with me
@@ -160,27 +121,6 @@ export function Testimonials() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-6 mt-16">
-          {[
-            { value: '50+', label: 'Projects Completed' },
-            { value: '98%', label: 'Client Satisfaction' },
-            { value: '$200M+', label: 'Capital Raised' },
-          ].map((stat, index) => (
-            <div key={index} className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
-              <div className="relative bg-gradient-to-br from-[#2C1250]/60 to-[#1a0b2e]/60 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20 text-center">
-                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-400 text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

@@ -13,13 +13,13 @@ const containerVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.12 },
+    transition: { duration: 0.6, staggerChildren: 0.12 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export function Hero() {

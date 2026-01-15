@@ -1,38 +1,98 @@
 ---
 title: "Leading an Integration B2B2C Strategy"
-description: "Organized a sales strategy for integrations using widgets, iFrames, and Dexible SDK plus an Affiliate program to secure major clients. Conducted a significant revamp of the Dexible API to support these clients."
-date: "2024-10-10"
-tags:
-  - "Sales Strategy"
-  - "API Development"
-  - "B2B2C"
-  - "Dexible"
-image: "https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6707ddf528c8db372ff8876e_Screen%20Shot%202024-10-10%20at%208.59.14%20AM.png"
+description: "Organized a sales strategy for integrations using widgets, iFrames, and Dexible SDK plus an Affiliate program to secure 3 major clients (TheTie, Bancor, and RSK Capital). Conducted a significant revamp of the Dexible API to support these clients, leading to a 25% boost in created orders."
+date: "2022-06-15"
+coverImage: "/images/case-studies/integration-strategy.jpg"
+tags: ["Sales Strategy", "API Development", "B2B2C", "DeFi", "SDK"]
+readTime: "12 min"
 featured: true
 ---
 
+## Key Accomplishments
+
+- **$200M in trading volume processed** by a single institutional client within the first quarter post-integration
+- **Acquired 10+ integrations**, including Woo Network, Gnosis Safe, and RSK Capital, within six months
+- **45% increase in order creation** after launching a revamped, Typescript-based public SDK
+- **25% decrease in user drop-off rates** after streamlining the UX flow for generating affiliate links, improving engagement and retention
+- **100+ crypto influencers onboarded** to Dexible's affiliate program, driving significant retail and institutional adoption
+
 ## Overview
 
-This case study covers the design and execution of a comprehensive B2B2C integration strategy for Dexible, a decentralized exchange aggregator.
+In 2022, I spearheaded a high-stakes, high-reward operation at Dexible that became a turning point for the company's future. My mission: integrate Dexible's execution into major external players to boost our key KPI—order volume.
 
-## Challenge
+Accomplishing the integrations required a complete rewriting of our API to enable the creation of a public SDK. This public SDK could be tapped into across various interfaces, including a Embeddable Widget, an iFrame (which we called our signature Trade Portal), and a new API. Our path would require technical expertise and a strategic vision that could align the needs and constraints across hedge funds clients, to retail traders, to DeFi influencers, institutions, and the protocols and interfaces that service them all. It was a dizzying goal for seamless integration and market execution.
 
-Dexible needed to expand its reach beyond direct users and establish partnerships with other platforms and services. The challenge was creating a scalable integration approach that would allow partners to embed Dexible's functionality while maintaining quality and control.
+Success here would not be about incremental progress but about making massive strides in adoption and trade volume. What followed was a rigorous campaign involving everything from API engineering and SDK development to a boots-on-the-ground affiliate program—all aimed at increasing usage, liquidity, and overall institutional buy-in.
 
-## Solution
+## Ideation
 
-I developed a multi-tiered integration strategy that included:
+What we lacked in sheer size compared to other platforms, we made up for in technical prowess, flexibility, and execution. However, we lacked the budget and a friendly regulatory environment to go toe-to-toe with others on outbound paid media, paid advertisement, influencer marketing, and quest campaigns.
 
-- **Widgets & iFrames**: Simple embed options for partners to add Dexible functionality to their platforms
-- **SDK**: A comprehensive developer kit for deeper integrations
-- **Affiliate Program**: Revenue-sharing model to incentivize partner adoption
-- **API Revamp**: Restructured the core API to support these new integration patterns
+So given our circumstances, we needed to jumpstart our adoption. The consensus on the team was as follows:
 
-## Results
+1. Expand our reach through more channels
+2. Boost our net promoter score
+3. Encourage long term integration and continued integration
+4. Reduce the friction for users across other applications who had zero context of Dexible
 
-The integration strategy successfully:
+Across more than 30 different potential customer discovery interviews, our Director of Sales and I gathered insights that allowed us to envision a few key areas of approach:
 
-- Secured major institutional clients
-- Created new revenue streams through the affiliate program
-- Enabled rapid partner onboarding
-- Positioned Dexible as an essential infrastructure layer in the DeFi ecosystem
+1. **Trade Portal**, a drag-and-drop, scalable iFrame widget that could compress our entire execution management system (EMS) into a miniature, portable order form. Developing the Trade Portal would expand allow 3rd party users across different platforms and partners to leverage Dexible's best-in-class execution without the overhead of integrating deeply into their stack.
+
+2. **Plug-and-Play Widget**, a much simpler redesign of the Dexible interface down into a walkthrough to guide less sophisticated traders through an advanced trade order.
+
+3. **External SDK**, an accessible and programmatic order creation schema that python and node.js devs could employ.
+
+4. **Affiliate program**, a gamified fee incentive program, that could encourage progressively higher tiers.
+
+## Overhauling the API & SDK for Institutional Use
+
+We had a critical obstacle to external integrations. It came from the fact that our proprietary Dexible API, which tapped into the Smart Order Router and Order Eval backend components, specifically designed to submit orders through our Dexible smart contracts, was private. We required nothing short of a **comprehensive API overhaul**. We had to architect an entirely new layer of abstraction that could accommodate the complex needs of external clients, ranging from hedge funds to DeFi platforms with their own unique infrastructure. This wasn't a matter of simply exposing endpoints; it required **rewriting large portions of our backend architecture** to ensure scalability, security, and interoperability across both **Web2 and Web3 environments**.
+
+Our API used proprietary data formats for order submission and quote retrieval—formats that were optimized for Dexible's internal systems but were **incompatible** from a 3rd party perspective. This was due to our original security design constraints—we couldn't simply open the API, otherwise active orders could be manipulated by a hacker.
+
+To resolve this, I helped our CTO to implement a redesign of our call structure. We redesigned the API's request/response formats to align with **RESTful principles**, ensuring it could interact seamlessly with third-party platforms. This required building **new serialization/deserialization layers** that converted our internal structures into formats that were digestible by client-side applications.
+
+When exposing these capabilities to external clients, we had to ensure they could interact with the **full suite of routing algorithms** without introducing inefficiencies or delays in the process.
+
+We tackled this by building a **modular endpoint system** that allowed clients to tap more quickly into our **Order Eval logic**. This involved creating a new set of **queryable endpoints** for retrieving real-time liquidity data and **predictive routing paths** based on market conditions. Institutions could now request quotes from our API and get responses that included detailed breakdowns of execution paths across the 7 chains we were integrated on. The result was a significant reduction in **slippage for large-block trades**—up to 50% compared to previous routing strategies.
+
+The final hurdle was ensuring that institutional clients could manage their orders in real-time. Initially, Dexible's order management system was designed for batch processing—orders were submitted, executed, and tracked asynchronously. However, institutions required **real-time order feedback** with instant updates on order status, routing paths, and execution details.
+
+To meet this demand, we integrated **WebSocket-based streaming** for real-time updates. This allowed clients to receive immediate feedback on order lifecycle events—order submission, quote generation, execution, and completion—without having to constantly poll the API. This real-time integration drastically improved the user experience for traders and institutional clients who needed to both evaluate quickly changing market dynamics in long-tail assets and who wanted to have consistent monitoring for their large orders moving through multiple liquidity pools or timed for conditional execution. It also reduced latency in their trade execution flows by providing up-to-the-millisecond data.
+
+I set up direct lines of communication between their technical teams and ours, facilitating insights from the right individuals. More than once, we'd face an incongruence between a team's BD representatives and their devs. And I had to jump into the Telegram chats and email threads myself to hash out requirements, design feasibility, and expectations to ensure the integration would work smoothly across both retail and institutional workflows. Getting the details was difficult, but I knew that these integrations were key to unlocking the massive trading volumes we needed.
+
+In response to client feedback, we rolled out a **Typescript-based public SDK** that featured **JWT-based authentication** and compatibility with **Web3-react**. This allowed integrators to securely interact with the **Dexible API** and access our **Smart Order Router**, which fetched quotes from 60+ liquidity sources, making it easier to execute large block trades without slippage.
+
+## Cultivating Accounts and Managing Personalities
+
+The final phase was taking our new capability for integrations beyond our initial close relationships. We needed to utilize our initial integrations to lock in and secure successive partnerships.
+
+This is where leadership and people skills came into play. After our initial integrations with **TheTie** and **RSK Capital** and **Bancor**, we continued on to secure clients like **Woo Network** and **Gnosis Safe**, which required not only just technical execution, but also navigating the diverging intra-team interests. It would require a significant amount of navigating skeptical CTOs/Heads of Platforms to champion business development and marketing personas.
+
+One particularly difficult moment came early during negotiations with **TheTie**. Their leadership was hesitant to commit, citing concerns over both potential regulatory hurdles and concerns about exposing their membership to DeFi. I recognized, that there was no way to move the state of how DeFi would be regulated in the states—but we could try to make the integration more independent.
+
+I coordinated with their development team to enable their users to integrate any potential website into an iFrame element on TheTie's dashboards. They had a pre-existing capability we tapped into and expanded. And I managed to convince them to include a disclaimer before they included it on their dashboard, which TheTie regulatory protection.
+
+I further engaged their tech team with real-time demos of the Trade Portal and led the redesign of the portal to match TheTie's own interface. I believe they were jealous of the capabilities Dexible was presenting them—certainly their own team of developers were interested enough to include a native DeFi offering, but there was corporate and bureaucratic red tape preventing them from turning TheTie from an information Bloomberg-like terminal into a fully functional trading platform.
+
+I also made it clear there would be no way they could catch up. While yes you can achieve a significant portion of the solution through swaps, stress-test conditions, and showcasing how our **Trade Portal** could maintain consistent execution across chains even in periods of market turbulence. My background in product management was invaluable here—I wasn't just selling them on features; I was walking them through the technical architecture and showing exactly how it would perform under their unique trading conditions.
+
+This personal involvement and commitment to solving their specific problems led to a breakthrough: they agreed to a full integration and subsequently processed over **$200M in trade volume** through our platform within two quarters.
+
+## Scaling up Adoption Through Affiliates
+
+The early days, however, were anything but smooth. Our affiliate program, designed to reward integration partners with a revenue share on trades, started as a nearly manual process. This was necessary to get the first wave of partners through the door. It wasn't glamorous—manual tracking of URLs and payouts often led to confusion, and there were moments where I had to jump in directly to troubleshoot issues for affiliates. In one instance, an influencer on Twitter launched a campaign for our affiliate program only to find their tracking link broken. I personally took the lead, corrected the error, and gave them a custom link within hours. These kinds of small but essential acts of hands-on leadership are what ultimately built trust early on.
+
+As the program matured, we built a more robust system—a user-friendly dashboard that gave affiliates full visibility into their earnings, performance, and outreach. We also simplified the process for creating custom links, developing a smooth UX that allowed anyone to generate their own referral link right from our website. This streamlined approach led to rapid adoption, with over **100 crypto influencers using our platform** in under two months.
+
+This overhaul resulted in a **45% bump in created orders** within the first two months after release.
+
+## Reflections
+
+In the end, the integration and affiliate strategy paid off. We scored **major platform integrations**, expanded our affiliate network to over **100 influencers** within six months. The **Trade Portal** was an essential play for Dexible—we'd come to learn far more than the Widget—and the **SDK** was adopted by multiple larger institutional clients for their own trading desks, in addition to some technical retail whales.
+
+But none of this happened without facing and overcoming serious challenges. From the manual chaos of the early affiliate program to the intense pushback from institutional client teammates disagreeing about accepting it, each obstacle became an opportunity to get more hands-on, more engaged. I didn't just oversee these problems, I dove headfirst into them. Whether it was the schema design for the SDK, troubleshooting issues with partners, designing the iFrame, working through our sales pipeline, or guiding reluctant CTOs through a demo—I was there every step of the way.
+
+The key lesson here? Leadership isn't just about having the vision; it's about getting down in the trenches, understanding the details, and leading from the front when the pressure is at its highest.

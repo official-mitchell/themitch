@@ -2,12 +2,16 @@ import { Hero } from "@/components/sections/hero";
 import { Highlights } from "@/components/sections/highlights";
 import { SkillsMap } from "@/components/sections/skills-map";
 import { Projects } from "@/components/sections/projects";
+import { CaseStudiesPreview } from "@/components/sections/case-studies-preview";
 import { BlogPreview } from "@/components/sections/blog-preview";
-import { getLatestBlogs, getAllContent } from "@/lib/content";
+import { Testimonials } from "@/components/sections/testimonials";
+import { getLatestBlogs, getAllContent, getFeaturedCaseStudies } from "@/lib/content";
 
 export default function Home() {
   const latestBlogs = getLatestBlogs(3);
   const totalBlogs = getAllContent("blogs").length;
+  const featuredCaseStudies = getFeaturedCaseStudies();
+  const totalCaseStudies = getAllContent("case-studies").length;
 
   return (
     <>
@@ -15,7 +19,9 @@ export default function Home() {
       <Highlights />
       <SkillsMap />
       <Projects />
+      <CaseStudiesPreview caseStudies={featuredCaseStudies} totalCaseStudies={totalCaseStudies} />
       <BlogPreview blogs={latestBlogs} totalBlogs={totalBlogs} />
+      <Testimonials />
     </>
   );
 }
