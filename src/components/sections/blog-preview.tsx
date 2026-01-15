@@ -24,6 +24,7 @@ interface BlogPreviewProps {
     description: string;
     date: string;
     tags?: string[];
+    image?: string;
   }>;
   totalBlogs: number;
 }

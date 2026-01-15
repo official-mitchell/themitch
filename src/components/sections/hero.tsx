@@ -5,7 +5,6 @@
 // Updated: Fixed content centering by using mx-auto on motion.div container for proper horizontal centering
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -94,61 +93,6 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* Role description */}
-          <motion.div className="pt-8" variants={itemVariants}>
-            <div className="inline-block">
-              <div className="relative">
-                <div className="absolute inset-0 bg-purple-600/20 blur-xl" />
-                <p className="relative text-2xl text-white font-light px-8 py-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-2xl border border-purple-500/30 backdrop-blur-sm">
-                  Your friend in{' '}
-                  <span className="font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Product & Strategy
-                  </span>
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed pt-4"
-            variants={itemVariants}
-          >
-            Product Positioning, Go-to-Market, & Fundraising Strategy
-            <br />
-            <span className="text-base text-gray-600 mt-2 block">
-              Technically Competent Innovator Looking for a New Challenge
-            </span>
-          </motion.p>
-
-          {/* Mission statement */}
-          <motion.div className="pt-6" variants={itemVariants}>
-            <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed italic">
-              I am seeking to join teams unafraid of charging into the future to improve society.
-            </p>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div className="pt-8" variants={itemVariants}>
-            <p className="text-gray-500 mb-6 max-w-2xl mx-auto">
-              I love the challenge of helping teams hit way above their weight even in saturated markets.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-block group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-xl opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-medium hover:from-purple-500 hover:to-pink-500 transition-all">
-                  Contact Me
-                </div>
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center rounded-xl border border-purple-400/40 px-8 py-4 text-white/90 hover:text-white hover:border-purple-300/70 transition-colors"
-              >
-                About Me
-              </Link>
-            </div>
-          </motion.div>
         </div>
       </motion.div>
 

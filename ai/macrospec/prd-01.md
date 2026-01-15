@@ -133,10 +133,10 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 4.1 Blog Infrastructure
 
-- [ ] Create `/blog` listing page with all posts
-- [ ] Create `/blog/[...slug]` dynamic route for nested paths (2024/post-name)
-- [ ] MDX renderer component with typography styles
-- [ ] Blog post layout: title, date, tags, reading time, content, author bio
+- [x] Create `/blog` listing page with all posts
+- [x] Create `/blog/[...slug]` dynamic route for nested paths (2024/post-name)
+- [x] MDX renderer component with typography styles
+- [x] Blog post layout: title, date, tags, reading time, content, author bio
 
 ### 4.2 Case Studies Infrastructure
 

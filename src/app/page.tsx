@@ -5,13 +5,13 @@ import { Projects } from "@/components/sections/projects";
 import { CaseStudiesPreview } from "@/components/sections/case-studies-preview";
 import { BlogPreview } from "@/components/sections/blog-preview";
 import { Testimonials } from "@/components/sections/testimonials";
-import { getLatestBlogs, getAllContent, getFeaturedCaseStudies } from "@/lib/content";
+import { getLatestBlogs, getAllContent } from "@/lib/content";
 
 export default function Home() {
   const latestBlogs = getLatestBlogs(3);
   const totalBlogs = getAllContent("blogs").length;
-  const featuredCaseStudies = getFeaturedCaseStudies();
-  const totalCaseStudies = getAllContent("case-studies").length;
+  const allCaseStudies = getAllContent("case-studies");
+  const totalCaseStudies = allCaseStudies.length;
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Home() {
       <Highlights />
       <SkillsMap />
       <Projects />
-      <CaseStudiesPreview caseStudies={featuredCaseStudies} totalCaseStudies={totalCaseStudies} />
+      <CaseStudiesPreview caseStudies={allCaseStudies} totalCaseStudies={totalCaseStudies} />
       <BlogPreview blogs={latestBlogs} totalBlogs={totalBlogs} />
       <Testimonials />
     </>

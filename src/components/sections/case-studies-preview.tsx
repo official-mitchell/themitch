@@ -66,42 +66,17 @@ export function CaseStudiesPreview({ caseStudies, totalCaseStudies }: CaseStudie
             </motion.h2>
           </div>
 
-          {/* Case Studies Grid */}
+          {/* Case Studies Grid - 2x2 */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
             variants={containerVariants}
           >
-            {caseStudies.map((caseStudy) => (
+            {caseStudies.slice(0, 4).map((caseStudy) => (
               <motion.div key={caseStudy.slug} variants={itemVariants}>
                 <CaseStudyCard caseStudy={caseStudy} />
               </motion.div>
             ))}
           </motion.div>
-
-          {/* View All Link */}
-          {totalCaseStudies > caseStudies.length && (
-            <motion.div className="text-center" variants={itemVariants}>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
-              >
-                View All Case Studies
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </motion.div>
-          )}
         </motion.div>
       </div>
     </section>
