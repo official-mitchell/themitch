@@ -1,0 +1,726 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>themitch | home</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27ec2183-4a1d-80e2-8562-c15745e1d9c4" class="page sans"><header><h1 class="page-title" dir="auto">themitch | home</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e4-94d9-c4b4b5a14f00" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8091-96a4-d88377501c04" class=""><a href="https://www.themitch.tech/">MITCHELL OPATOWSKY</a></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-801a-aa2e-fb2159f0c6bf" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.themitch.tech/about">About</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80c9-836f-ca4baba197d9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">Resume</a></li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8027-a747-e057c53861cf" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8061-b8aa-df73368f0ca6" class=""><strong>Product Positioning, Go-to-Market, &amp; Fundraising Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808d-95bf-fe4eeb9a7882" class="">Technically Competent Innovator Looking for a New Challenge</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8039-ad35-f615fd5f8b12" class="">Hello! I&#x27;m Mitchell.I lead teams to solve complex problems to better the world.</h1></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-803e-837b-ceed770c0a9b" class=""><strong>Your friend in Product &amp; Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e0-9360-d5658738acf0" class="">Mitchell Opatowsky</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-800a-924c-c589a7977174" class="">Austin-based innovator focused on reducing execution risk.</h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8020-8437-fc04bdabc32c" class="">I’ve always been exhilarated by disruptive technologies and witty product positioning. I love the challenge of helping teams hit way above their weight even in saturated markets.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8041-9210-d4098b1ca244" class="">I am seeking to join teams unafraid of charging into the future to improve society.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-a07c-ffc02d08206e" class="">MY 10x</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-804f-b588-df3f6d191726" class="">Utilizing game theory &amp; analysis to secure market share.</h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8009-9e75-e60d3153a543" class="">The most innovative companies are not simply the ones inventing new things—sometimes the blue market differentiation is in finding a flaw of distribution.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b4-a040-e6cc99766fb2" class="">I specialize in helping teams break their assumptions and utilize advanced analysis to capture more value.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d6-8e8e-d75b17ce4c4c" class="">Years in Startups</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8018-9f8e-ec09a4de4f28" class=""><strong>9 Years</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8013-8a22-c825ba46b3e0" class="">Years in C-SUITE</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8020-a761-d04378c638cf" class=""><strong>8 Years</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b8-8305-cfd74830fb08" class="">Startups Funded</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80d0-ac06-fc6004372db1" class=""><strong>3 Companies</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8006-ad14-ca8fa1473df1" class="">Money Raised</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8086-8997-e3f46a1d4991" class=""><strong>$2+ Million</strong></h1></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8042-9bd8-e4433ade2b3e" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191508c7ac579143786b_PM%20Strategy.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191508c7ac579143786b_PM%20Strategy.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80da-84f9-db9831f5c0c5" class=""><strong>Product Strategy</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8077-b61b-f387280bfcbd" class="">Roadmapping, A/B, User Stories, Backlog Prioritization</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8027-9bbc-d01c10bfd498" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191581c2285f4e6b4be7_PM%20Lifecycle.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191581c2285f4e6b4be7_PM%20Lifecycle.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e6-858b-e1a4e4463e6a" class=""><strong>Product Lifecycle</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8058-b7f1-d41486bb361b" class="">Lifecycle Analytics, Continuous Improvement, Post-Launch</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8077-85f0-d19fbe37bda3" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19155a0ce4e2867e31d3_PM%20Positioning.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19155a0ce4e2867e31d3_PM%20Positioning.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8075-ba59-fc8f8f923bd8" class=""><strong>Positioning</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e5-9f81-f25a292fa658" class="">Differentiation, Competitive Analysis, Market Fit, Messaging</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-802a-a3cc-d2bd4430bf13" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915dddbe8945d4bd2f8_PM%20Marketing.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915dddbe8945d4bd2f8_PM%20Marketing.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803d-bbcd-c17ed2f3af3a" class=""><strong>Growth Marketing</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8095-b38c-db5a1d800c1f" class="">SEO &amp; Paid Search, Performance Marketing, Marketing Automation</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80f5-9361-eadc2f911065" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19157a23f89f485c5ebc_PM%20Fundraising.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19157a23f89f485c5ebc_PM%20Fundraising.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8017-9b58-da25a0c932e8" class=""><strong>Fundraising Strategy</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a2-9c07-e5ac692deae6" class="">Pitch Development, Investor Relations, Financial Forecasting</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8052-af70-e9c9a21b07bc" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915a99e959a0743804d_PM%20UX.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915a99e959a0743804d_PM%20UX.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807b-9884-f6dd7a505ee0" class=""><strong>Product Lifecycle</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808e-9a23-e2c41a36d66f" class="">Wireframing &amp; Prototyping, Usability Testing</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80e8-acfe-ea0e368f77eb" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19153571ed97aafe9863_PM%20Data.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19153571ed97aafe9863_PM%20Data.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800c-b7b4-e0f6228f3f7d" class=""><strong>Positioning</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803f-84a3-dfe1674e58df" class="">Behavioral Analysis, KPIs &amp; Metrics, Predictive Analysis</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a9-b9fc-cf03404916a3" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915870f7e0659601e21_PM%20Technical.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915870f7e0659601e21_PM%20Technical.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8003-b220-ee71c0a7fa6d" class=""><strong>Technical Proficiency</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801a-9eea-c87a70dfe132" class="">SQL, REST APIs, AWS, Real-Time Monitoring</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80fc-abd0-c37e8d9d71ed" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19150c99fe42c2822977_PM%20Ops.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc19150c99fe42c2822977_PM%20Ops.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b9-8e16-ee1507121349" class=""><strong>Product Ops</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80be-8fff-c5f38aae78cb" class="">Sprint Planning, Agile &amp; Scrum Project Management, Execution</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80cb-a3e4-f831c2838e9b" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1d4810525974adc51077_PM%20GTM.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1d4810525974adc51077_PM%20GTM.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8027-830e-f6916efb20b6" class=""><strong>Go-to-Market</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8049-aa82-d949aa67f5ce" class="">Market Penetration, Demand Generation, Channel Strategy</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809f-a89c-e15facb3f334" class="">My Speciality</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80cc-950f-ed872c10fa42" class="">Building companies that dominate</h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a8-a0bc-dd02304e1a24" class="">My training comes from the front lines of sprint management and in the product launch war rooms. My speciality is both understanding the opportunities at our fingertips to create and capture value from the market in more ways than one, and to seize market share through crafty tactics.</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8043-be41-ffd7a346537a" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915b6a8ad61462b73e0_PM%20Growth.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc1915b6a8ad61462b73e0_PM%20Growth.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8070-8261-d4e017aa1e3e" class=""><strong>Growth Strategy</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804e-96c6-d5156a35be83" class="">Customer Acquisition, Retention Optimization, Virality</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8014-90ed-e301c5de2804" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191589f5abfc468ba76e_PM%20Commercialization.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc191589f5abfc468ba76e_PM%20Commercialization.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8055-825e-f2ad1e633f8f" class=""><strong>Commercialization</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80cb-9b4f-c0635da5294f" class="">Revenue Models, Monetization, Pricing Strategy, Profitability</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80d6-90a1-ed9b3233ed5e" class="">My Projects</h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8086-bd2a-fb39e07fa9e5" class=""><a href="https://www.themitch.tech/projects/dexible">DexibleDexible was a highly flexible dex aggregator with an execution layer modeled to resemble OEMS in CeFi &amp; Traditional Finance</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-800a-a929-dac3a1e1c154" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd53ad37bc8f455ec5746_projects-dexible-preview.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd53ad37bc8f455ec5746_projects-dexible-preview.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807f-b08b-f63a25957714" class=""><a href="https://www.themitch.tech/projects/buidlhub">BUIDLHubOne of the world&#x27;s first Web 3.0 &lt;&gt; Web 2.0 Workflow Automation Engines</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-809d-aca8-c55da550abec" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd58e38b2cb21228c3d4b_projects-buidlhub-preview.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd58e38b2cb21228c3d4b_projects-buidlhub-preview.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8028-92fd-d6f3ed66ca84" class=""><a href="https://www.themitch.tech/projects/cryptopets">CryptoPetsOne of the world&#x27;s first NFT-based video games.</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-800e-9aac-cf65f614cce3" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd60325b77551cf2a65ce_projects-cryptopets.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd60325b77551cf2a65ce_projects-cryptopets.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8046-a475-ce49ba5c2022" class=""><a href="https://www.themitch.tech/projects/coinscore">CoinScoreEarly market intelligence platform for cryptocurrencies and tokens</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8044-b3fa-c5170f4ea665" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd63f0e1d2a8bb315a4b3_projects-coinscore-preview.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd63f0e1d2a8bb315a4b3_projects-coinscore-preview.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c6-80dc-ea4bab3a1039" class=""><a href="https://www.themitch.tech/projects">See All Projects</a></p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80e8-8d45-e9ed2c50694d" class="">My Case Studies</h1></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a8-87af-ed7e88963b36" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6707ddf528c8db372ff8876e_Screen%20Shot%202024-10-10%20at%208.59.14%20AM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6707ddf528c8db372ff8876e_Screen%20Shot%202024-10-10%20at%208.59.14%20AM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8031-aa59-df4756089f76" class="">Leading an Integration B2B2C Strategy</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d0-a5d1-c44f474de217" class="">Organized a sales strategy for integrations using widgets, iFrames, and Dexible SDK plus an Affiliate program to secure major clients. Conducted a significant revamp of the Dexible API to support these clients.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80af-8ed2-ff2caf1f9a05" class=""><a href="https://www.themitch.tech/case-studies/leading-an-integration-b2b2bc-strategy">Read</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8040-bfb1-d8af7b5bdc9b" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67042100e1228b3b7dae9315_dexible%20twitter%20order%20types.jpeg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67042100e1228b3b7dae9315_dexible%20twitter%20order%20types.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8098-a86e-ec8510f1e613" class="">Overhauling the Dexible Order Form</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8019-bae7-c49e93822d31" class="">This initiative focused on creating a structured feedback loop with customers, leading to improved product iterations and customer loyalty.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f2-a819-d9acf15a52bc" class=""><a href="https://www.themitch.tech/case-studies/overhauling-the-dexible-order-form">Read</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a8-b014-d5e75d7eeeb6" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6707deb7c85f42e8d87fb65a_dexible%20medium%20cover.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6707deb7c85f42e8d87fb65a_dexible%20medium%20cover.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80da-a432-c6a9592df769" class="">Spearheading Hedge Fund Sales</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8069-91e1-ddeabfc8f355" class="">This project involved the integration of automation tools to streamline operations, resulting in a 25% reduction in operational costs.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803e-882d-f0a5667bb80f" class=""><a href="https://www.themitch.tech/case-studies/spearheading-hedge-fund-sales">Read</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-801d-bdbc-e6624a6381f2" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670421acdfbbb405d412cdcd_Screen%20Shot%202024-10-07%20at%2012.59.02%20PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670421acdfbbb405d412cdcd_Screen%20Shot%202024-10-07%20at%2012.59.02%20PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8049-8d1c-c3802a2aa7e8" class="">Developing a Year Long Product Roadmap</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800d-81cd-c685f6ae11ef" class=""><a href="https://www.notion.so/themitch-casestudy-product-roadmap-27ec21834a1d8085a70be33475041718?pvs=21">themitch casestudy | product roadmap</a> </p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-a99b-cfba9a570b15" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c7-993b-ecfab6a0d8e2" class="">Dexible was an institutional-grade DeFi DEX aggregator designed to automate complex trading strategies with conditional on-chain execution. Our platform integrated advanced analytics, secure infrastructure, and real-time data to optimize trade routing and mitigate risks for high-volume traders.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b2-aad5-e2f393ff9d6e" class=""><a href="https://www.themitch.tech/case-studies/developing-a-year-long-product-roadmap">Read</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806c-86a7-ea70cbf2b287" class=""><a href="https://www.themitch.tech/case-studies">See All Case Studies</a></p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80c7-974a-f05bb660acb9" class="">My Writing</h1></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a0-8925-d2056a1321e3" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67167b4608d9e689b4ee3574_the%20mitch%20linkedin%20article%20cover%20domains%20of%20PM.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67167b4608d9e689b4ee3574_the%20mitch%20linkedin%20article%20cover%20domains%20of%20PM.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d7-8a21-e88121f54f35" class="">The 11 Essential Domains for Product Management in 2024 and Beyond</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809c-a796-d3b574974451" class=""><a href="https://www.notion.so/themitch-blog-essential-domains-27ec21834a1d80229f25d3c2215be8ac?pvs=21">themitch blog | essential domains</a> </p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8073-aa24-e400167c3be4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8008-b53e-c7bb7ca56b4d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ff-906b-d55894709bb1" class="">Product management is evolving, quickly. Successful PMs must navigate a complex ecosystem spanning innovation, multiple teams, proprietary IP, compliance, and organizational cohesion. I&#x27;ve developed a guide to lay out the 11 Essential Domains the greatest PMs (and the greatest founders) must seek to master to build competitive products and sustain growth. From the fundamentals of market intelligence to the complexities of commercialization and pricing strategy and the intricacies of ethical design and role management, I sought to capture the essence of multiple domains. My goal is to continue researching how the latest innovations are enhancing aspects of the many hats PMs wear. This comprehensive framework will enable you to thrive in a future where you can effectively delegate the many hats you wear across AI agents. Below, I present each domain by breaking out subdomains, competencies, and the techniques that define them, presented in tables to contextualize it all.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-92a3-d3aadd6b5f08" class=""><a href="https://www.themitch.tech/posts/the-11-essential-domains-for-product-management-in-2024-and-beyond">Learn</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80f1-91a1-f2df0486cc2d" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6708592f5ce2cc14a8c46bbf_the%20mitch%20linkedin%20article%20cover%20scrum%20to%20pmp.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6708592f5ce2cc14a8c46bbf_the%20mitch%20linkedin%20article%20cover%20scrum%20to%20pmp.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f6-91a6-fa36507f218e" class="">Scrum to PMP: A Founder’s Guide to Project Management Certifications</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8072-a598-ddb24fa29437" class=""><a href="https://www.notion.so/themitch-blog-scrum-to-pmp-27ec21834a1d8073805cc4b1932645ba?pvs=21">themitch blog | scrum to pmp</a> </p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803e-8d3c-d615a0ebf946" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8046-915e-de49b709e6b2" class="">Picking the right project management certification can feel overwhelming, and they aren’t just for big enterprises anymore. More and more startups are turning to formalized project management frameworks. This article demystifies these buzzy certifications, their philosophies, and helps you decide which—or none—will take you farther.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8047-83d9-c822c5638393" class=""><a href="https://www.themitch.tech/posts/scrum-to-pmp">Learn</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80aa-b6e6-c05dbe5702c4" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6708586af36bc639ce59e5a8_the%20mitch%20linkedin%20article%20cover%20choas%20to%20clarity.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6708586af36bc639ce59e5a8_the%20mitch%20linkedin%20article%20cover%20choas%20to%20clarity.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8043-8972-dfbbcd4150d2" class=""><a href="https://www.notion.so/themitch-blog-chaos-to-clarity-27ec21834a1d807093e9e76a65cd2bd9?pvs=21">themitch blog | chaos to clarity</a> </p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-9dd2-ccb5fa352f10" class="">Chaos to Clarity: A Founder&#x27;s Guide to Project Management for Startups</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807b-b8f5-db09690a8acf" class="">Project management terminology is a buzzword soup. But whether your startup is at the MVP stage or pushing multiple complex products, balancing flexibility and control is crucial, and picking the right project management method is foundational. I&#x27;ll explain how to choose the right option for your startup.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8050-8c0d-cf98dd0b8d0e" class=""><a href="https://www.themitch.tech/posts/chaos-to-clarity">Learn</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ee-b722-f92253063a54" class=""><a href="https://www.themitch.tech/blog">See All Writing</a></p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80c4-b4a0-eb97094ab24d" class="">Leadership Programs</h1></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8087-80bd-ccbf63ede150" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b6326644af409206c03_logo-cdl_1.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b6326644af409206c03_logo-cdl_1.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80cf-9946-d24f1147e4ed" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b639c7c7a9088f10679_logo-pma_1.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b639c7c7a9088f10679_logo-pma_1.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-806e-9f34-e590e9c2c694" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b63b2af0dd20210117e_logo-aipmm_1.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fc9b63b2af0dd20210117e_logo-aipmm_1.svg"/></a></figure></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8066-9aac-d64dbbc26691" class=""></h1></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8021-9ce6-edc6c2416233" class="">FAQs</h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8079-8a42-f2813b30b474" class="">What kind of companies do you prefer working with?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-801f-9eda-fed56bf4f001"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b3-9d07-ccafed91a4bf" class="">I thrive in <strong>high-growth, innovative environments</strong>, particularly those seeking to dominate the market through cutting-edge technology. My expertise spans across <strong>Web 3.0, AI, SaaS, eCommerce, and CPGs</strong>—industries that benefit from agile strategies and forward-thinking execution. I’m especially drawn to <strong>smaller to mid-sized companies</strong>, where I can make a direct, substantial impact, driving strategy and execution.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e3-8624-e49a4e5d9da4" class="">Are you open to remote work?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-809f-939c-d291e1ab2d70"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806d-82e2-f09b3e866e94" class="">Yes, I am <strong>fully prepared for remote operations</strong>. Over the course of my career, I’ve led distributed teams across multiple time zones, ensuring seamless collaboration and communication. Remote environments allow me to move dynamically and leverage my autonomy to drive results.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ce-b51f-fa7a878933bb" class="">What roles are you currently interested in?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-8053-a3af-cbe1590683f0"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8043-81bc-ecdd1906c65d" class="">I am primarily targeting <strong>leadership roles</strong> such as <strong>Head of Product, Senior Technical Product Manager, Product Manager </strong>(Core)<strong>, Product Marketing Manager, Head of Growth, and Head of Ecosystem Relations</strong>. I excel when I can bring a mix of strategy, operations, and execution to the table.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ee-b8de-c53cb6506aad" class="">What’s your approach to launching a new product?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-808a-b517-e745410e8338"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806b-a098-c3918d6a9820" class="">My approach is rooted in <strong>deep competitive analysis, market and trend analysis, data-driven insights, exhaustive user research, and marketing/design personas</strong>. I start by identifying market gaps and crafting a strategy that ensures we capture and create value. From there, I focus on building cross-functional teams, ensuring tight coordination across <strong>product, marketing, sales, and development</strong>. My launch strategies maximize for stickiness and achieve market penetration allowing us to tactically introduce commercialization.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b4-a5a0-e7394a54d082" class="">Can you share some examples of your past successes?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-802c-8264-f24a35343fe2"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8024-8a37-ef7d2ca0ba48" class="">Certainly. I have a dedicated section on my website that details case studies from previous missions, showcasing my ability to drive growth, secure funding, and bring innovative products to market. I have led <strong>Web 3.0 projects that raised millions in capital, scaled SaaS platforms, and executed product launch campaigns</strong>. You can find these detailed breakdowns in the Case Studies Section.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806b-8d5a-e3a352c566e5" class="">What sets you apart from other candidates?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-8001-ad94-f56791ae7f14"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8049-b871-c20d06e60a1d" class="">I bring the <strong>mindset of a commander</strong>—decisive, strategic, tactical, and relentlessly focused on outcomes. My experience spans both startup war rooms and high-level planning. I’ve been on the front lines of product management, frontend development, growth strategy, fundraising, and go-to-market execution, while also maintaining a strong technical foundation. This duality allows me to communicate effectively with technical teams while keeping business objectives at the forefront.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ff-871b-df703abffe93" class="">How quickly are you able to step into a new role and make an impact?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-8036-a1a1-cd2af74a281c"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802f-996b-fdd64c2a4308" class="">I am fully prepared to deploy rapidly and begin making an impact within the <strong>first 30 days</strong>. My <strong>onboarding process</strong> is structured for quick immersion: I focus on aligning with the company’s mission, identifying immediate opportunities for optimization, and setting a <strong>90-day strategic action plan</strong>. My goal is to drive early wins while building a sustainable long-term strategy.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8040-8f9c-d9ed5e8b31ba" class="">How can we get in touch with you?</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-805e-b2d0-dbf136912a32"/></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8039-bbe0-f0c9d14a1889" class="">You can reach me directly through the contact form below or connect with me via LinkedIn. I’m open to direct conversations with executive leadership, and I am always ready to discuss how I can bring value and leadership to your company. Let’s explore how we can win together.</p></div><div style="display:contents" dir="auto"><hr id="27ec2183-4a1d-80c6-a51f-dd678debe3de"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Testimonials</summary><div class="indented"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8053-ab24-fb37515b4cb5" class="">Mitchell is not only a great marketer and community builder, his ability to actualize is unparalleled. I’ve seen him build sand castles without water… just dry sand, through sheer force of will.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800a-bbb3-d6fa12215544" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80bd-9928-dc897dd779de" class="toggle"><li><details open=""><summary><strong>Luke Bateman</strong></summary><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-804a-9409-fb7edf3ee216" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fee971b66a1bb662fc635a_luke%20pfp.jpeg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fee971b66a1bb662fc635a_luke%20pfp.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8037-ae89-d92b3bea64cf" class="">Founder in Residence, Arweave</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807e-a97c-e5c1153e3027" class="">I’ve seen Mitchell take quick jots and turn them into real products. He’s one of the most creative thinkers I know—constantly pushing the next coolest thing. He crushes dev, marketing, design, and fundraising.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Blake Richardson</summary><div class="indented"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ba-ad26-e398922d8215" class="">CEO, Superform</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806f-8a0c-d662ab770e4d" class="">Mitchell is a rare combination of deep thinker and action oriented leader. He’s always got his eyes on the horizon for emerging opportunities, and he’s got the creative capabilities to capitalize on them. Not to mention he’s just such a genuinely good person.</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8054-a8f9-cf9975555cb5" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fda879bf31fc5282e2bd3f_blake%20pfp.jpeg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fda879bf31fc5282e2bd3f_blake%20pfp.jpeg"/></a></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Zane Witherspoon</summary><div class="indented"><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8028-94be-e34c65dab35e" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/6705bd1dd4e234bd21e7ca33_zane%20pfp.jpeg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/6705bd1dd4e234bd21e7ca33_zane%20pfp.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="27ec2183-4a1d-80ac-82ad-f33fa89c201b" class=""><strong>Zane Witherspoon</strong></h3></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8040-84b0-e0df86bac27d" class="">CEO, Superset</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8080-ac0a-c9cffcfd18ac" class="">Mitchell approaches complexity with enthusiasm and a fresh mindset, always seeking to understand every detail. He knows exactly how to devise elegant solutions that make a meaningful difference in people&#x27;s lives. His constant pursuit of excellence and his commitment to contributing positively to the world set him apart.</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Michael Jelen</summary><div class="indented"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8093-a496-d344b7cc9460" class="">CEO, Replay Blockchain</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e8-965f-fc3b807a72f0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8022-bdde-ca0df3a4e0ab" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/670d3af3a810006162e955bf_Jelly.jpg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/670d3af3a810006162e955bf_Jelly.jpg"/></a></figure></div></div></details></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80df-8173-d4e717a90132" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8008-8613-caa01730e437" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8049-9c0c-ceab1e1ad0d2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e7-b77f-ce3f7346f2f8" class=""><strong>Pages</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8056-9e2f-eceb5af54f6b" class=""><a href="https://www.themitch.tech/">Home</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-bb7d-dafe194f1c6b" class=""><a href="https://www.themitch.tech/about">ABOUT</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809c-8759-c413ea564b05" class=""><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">RESUME</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80bc-b02d-cd97d353d795" class=""><strong>Compositions</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8014-b8f0-f4df89bafb25" class=""><a href="https://www.themitch.tech/blog">Blogs</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8015-a239-ddad23bea688" class=""><a href="https://www.themitch.tech/projects">Projects</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8013-99e8-d68477cedfad" class=""><a href="https://www.themitch.tech/case-studies">Case Studies</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803f-967e-f9fc9890128f" class=""><strong>Contact</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b2-a57b-c3ec238fe4d1" class=""><a href="mailto:mitchellopatowsky@gmail.com">Email</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801c-8d37-d70ac382007f" class=""><a href="https://t.me/officialmitchell">Send Me a Message</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f3-900a-ffafd9be2ece" class=""><a href="https://www.linkedin.com/in/mopa/">Connect With Me</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8021-ba52-da9031faf8ec" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8007-b6c9-da945ccfd777" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80b3-b29d-c54e89dab049" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-800a-8979-c2fce99f34c2" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8044-8ca6-f64a4661bdd1" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-800c-8b57-c0328e659e5d" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8074-ad79-db539092bdac" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-809c-9651-f7edec92ddd5" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d4-8647-c86558a3cb36" class=""><a href="https://www.themitch.tech/#">Terms Of UsePrivacy Policy</a></p></div></div></details></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>themitch | projects | Cryptopets</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27ec2183-4a1d-8094-a3e9-c42f75ab16da" class="page sans"><header><h1 class="page-title" dir="auto">themitch | projects | Cryptopets</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-8f75-d43975d29828" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8028-9068-da4d49437d24" class=""><a href="https://www.themitch.tech/">MITCHELL OPATOWSKY</a></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80fc-bdc1-ea60781c6fd6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.themitch.tech/about">About</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8014-9b93-c392ff53951c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">Resume</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80f9-b270-ea391b7cdd26" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80a0-b0e6-c4e3c0d94a8b" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80ee-8b7c-d4917fdd85b3" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670433e1da0ec75eb4fe0c17_cryptopets%20portfolio.jpg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670433e1da0ec75eb4fe0c17_cryptopets%20portfolio.jpg"/></a></figure></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80ef-ae1f-f4d526560904" class=""><strong>CryptoPets</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8086-abb4-c04e84544383" class="">One of the world&#x27;s first NFT-based video games.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8077-943a-e9064ca01cd1" class="">CryptoPets was one of the world&#x27;s first fully-fledged blockchain based video games. By integrating gameplay mechanics like rarity-based progression, NFT battles, and on-chain recording of outcomes, we began pioneering new models of gaming that bridged the gap between traditional gaming and on-chain assets.</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80d3-bc74-c89c1ee2d017" class=""><strong>Achievements</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fd-bc30-df7e7555dbc0" class=""><strong>Fundraising:</strong></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80c6-b959-d2bf6c960cd1" class="bulleted-list"><li style="list-style-type:disc">Spearheaded a <strong>$300k angel funding round</strong>, utilizing a viral <strong>go-to-market (GTM) strategy</strong> focused on early community engagement and investor awareness. This allowed us to position CryptoPets as a trailblazer in the <strong>blockchain gaming</strong> space, capturing attention from key stakeholders globally.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8084-8fbb-c9cbaf43eac0" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8085-ae82-e6d92ee85a76" class=""><strong>Product Management:</strong></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80db-9981-f91c3c204cd3" class="bulleted-list"><li style="list-style-type:disc">I collaborated with a <strong>boutique video game studio</strong>, orchestrating the development of <strong>game logic</strong> and <strong>art assets</strong> for CryptoPets, ensuring cohesive integration of blockchain mechanics into the gameplay.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8056-bb86-d9cd248dbe36" class="bulleted-list"><li style="list-style-type:disc">I engineered the <strong>rarity and experience system</strong>, boosting <strong>customer lifetime value (LTV)</strong> by 40%. This involved creating a complex tiered structure that leveraged <strong>NFT scarcity</strong> to increase user retention and spending.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80cb-ba71-e3e8743d0ae7" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c8-bccf-e6ad68b96f79" class=""><strong>Marketing:</strong></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80ea-8ece-c717ec98d978" class="bulleted-list"><li style="list-style-type:disc">I designed and implemented a <strong>referral campaign</strong>, conducting hands-on setup with community members to ensure proper execution. This grassroots approach led to a <strong>15% improvement in Net Promoter Score (NPS)</strong>, fostering organic growth through community satisfaction.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-800f-a6df-c18970069cf6" class="bulleted-list"><li style="list-style-type:disc">I developed an <strong>NFT airdrop campaign</strong> for early adopters, with the NFT’s rarity determined by users’ position on the waitlist. This campaign amplified early user engagement and helped shape <strong>brand loyalty</strong> by rewarding the most committed users.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80c3-8b9c-c9d678734460" class="bulleted-list"><li style="list-style-type:disc">I represented CryptoPets at iVentures Conference 2018 to speak about the future of blockchain gaming, and I spoke on several podcasts including Trends with Benefits Episode 177 from Digital Trends and Bitcoin &amp; Crypto Trading: Ledger Cast to talk about the upcoming launch.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-8233-c712acf566a2" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80de-8eae-cbf347c680f8" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80d3-a112-eb98b45ceb87" class=""><strong>Origin Story</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d1-bd85-e6af862a2c43" class="">When we started building CryptoPets, Washington D.C.’s cryptocommunity was still in its infancy. Although early players like the <strong>DC Bitcoin Users Group</strong>, the <strong>Digital Chamber of Commerce</strong>, and <strong>Consensys</strong> emerged, the space lacked a real developer ecosystem. The major consulting companies likes Accenture, IBM, and Microsoft all tried to play into the fledgling ecosystem by pedaling enterprise blockchain solutions to secure contracts. There was potential, but no cohesion.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ab-a91f-d9cbf935a36f" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8092-a635-c083822968fc" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705bc07d4e234bd21e6ba61_6705ba77dc18113dfdebc582_blake%2520and%2520mitchell%2520at%2520state%2520dept.webp"><img style="width:540px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705bc07d4e234bd21e6ba61_6705ba77dc18113dfdebc582_blake%2520and%2520mitchell%2520at%2520state%2520dept.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f8-82d7-cfbbad208669" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805c-b6b2-d6cb61932ee2" class="">This didn’t amount to much of a <em>community.</em> Even in a space with a driving philosophy of strength through community, albeit decentralized, the scene was remarkably isolated.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d9-ad90-e23159830b0f" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8002-a973-dbeb1ca6e7a7" class="">What the D.C. space lacked was a core developer community. Along with techies working at places like the IMF, State Department, and World Bank, there was only a small group of blockchain developers and Web 3.0 literate individuals in Washington, D.C.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8066-a27c-c2502791ce10" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80fa-8220-e80c818dc95c" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705bc08d4e234bd21e6ba9b_6705ba702e605b950b8994d4_ledger%2520status%2520throwback.jpeg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705bc08d4e234bd21e6ba9b_6705ba702e605b950b8994d4_ledger%2520status%2520throwback.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8059-a759-d89fc4bef508" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800f-ae7a-ed37d72d6c8c" class="">As the blockchain world buzzed with the success of <strong>CryptoKitties</strong> in late 2017, we saw a strategic opening. While CryptoKitties pioneered the ERC-721 token standard, it lacked the <strong>gameplay depth</strong> and broader community engagement we believed necessary for long-term success in blockchain gaming. This was when we decided to leap into the NFT space and create <strong>CryptoPets</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8087-822e-e18c56cd4923" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80c8-ac2d-e508198d0948" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a86_670433ae6f601f839db610ed_cryptopets%2520mvp%2520website.webp"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a86_670433ae6f601f839db610ed_cryptopets%2520mvp%2520website.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804b-b226-d995bab254dd" class="">We spun the first CryptoPets website in one late night—I made a green platypus</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8073-baeb-e09538ebd435" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802d-9803-f7d4fb4dcb15" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c2-a7ee-e684fb7b18b0" class="">Our initial step was to leverage a viral marketing campaign that attracted the attention of investors from around the world—some of whom flew directly to Washington, D.C., to back our vision. CryptoPets was designed to not just capitalize on the crypto-collectible trend, but to transcend it by combining <strong>digital scarcity</strong> with genuine gameplay and a mission focused on <strong>social impact</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80dd-a149-fc9c735660c6" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a9-92d3-fb48735e0271" class="">As we evolved the idea, we experimented with rarity models based on real-world animal conservation. <strong>Polls from our community</strong> guided us in featuring animals ranging from common to mythical species, each with varying degrees of rarity—creating a sense of real-world conservation awareness in our digital pet universe.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80af-be94-e85edb652c4d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80bc-a6e7-d7f16e1d2d18" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8015-aba4-ed951d5294af" class=""><strong>The Early Days</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d7-82b5-f859f35e6e55" class="">“Those initial days were full of community outreach. We were pushing the CryptoPets name everywhere to gain initial community recognition. We were trying to create a game that’d be more like a crypto zoo for all the animals. Frankly, while this might have been successful, it would have been unimaginative and there’d have been no longevity to our work.”</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8052-9559-db609497394c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802f-ae49-c95852de5852" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8058-828b-f19c8d94efc6" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8046-ad5e-f098538813e7" class="">The original CryptoPets project pushed forward, attempting to model rarity based on real world animal scarcity, as a case a point for conservation efforts. After community polls, we decided to feature common, threatened, endangered, extinct, and mythical animals. These would have been featured by the dog, Galapagos Tortoise, Giant Panda, Tyrannosaurus Rex, and a Unicorn.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80bc-bcb4-f6ef8ace9d5a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808d-a5aa-f8c71a04cb5d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-806d-b360-c448562a12fe" class=""><strong>Partnership with Arcade</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8041-a2cb-d6278010535b" class="">In January 2018, CrypoPets partnered with <strong>Arcade Distillery</strong>, a boutique game studio with a track record in social impact gaming. Together, we aimed to build a cross-platform, blockchain-based environment for CryptoPets.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8031-bca9-e4b7c308134c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c9-9db5-e88134ead14b" class="">This partnership was created by two other teammates. While the partnership initially promised to elevate our project, it became clear that <strong>misalignment</strong> on both roadmap and values between our teams led to significant friction. Arcade Distillery’s expertise in game development was undeniable, but fundamental disagreements—particularly regarding <strong>community engagement</strong> and <strong>go-to-market strategies</strong>—strained our collaboration.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8031-bc72-ca0eee05922f" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807f-af0d-ca01656bdb54" class="">Looking back, I wouldn’t have allowed the deal to progress the way it did. The relationship was largely brokered by one of our team members based on personal ties with Arcade’s CEO. When that team member left, so too did the healthy communication and shared vision we initially had. What followed was a series of delays, withheld assets, and ultimately, the erosion of trust. Arcade Distillery even attempted to leverage IP we had funded for their own projects, a move that felt like a violation of our contractual agreement and values.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803c-a2e5-f9f4ec8734eb" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80a0-a5c4-fd3d4c3a81cc" class=""><strong>The Vision</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8005-944c-c8d76654a02c" class="">Our mission at CryptoPets was guided by five core principles:</p></div><div style="display:contents" dir="auto"><ol type="1" id="27ec2183-4a1d-8098-9b88-ec81a4624dbf" class="numbered-list" start="1"><li><strong>Education</strong>: Teach players about the value of <strong>blockchain</strong> by showcasing concepts like <strong>non-fungibility</strong> and <strong>immutability</strong> in an engaging, gamified context.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27ec2183-4a1d-80fb-a727-ded0a7cf041f" class="numbered-list" start="2"><li><strong>Innovation</strong>: Pioneer a new business model for <strong>decentralized third-party game development</strong>, building a pathway for indie developers to engage with blockchain.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27ec2183-4a1d-80cc-b1f3-e1bdb7d8e0fa" class="numbered-list" start="3"><li><strong>Market Growth</strong>: Create real utility for cryptocurrencies by introducing <strong>NFT-based digital assets</strong> with unique in-game value.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27ec2183-4a1d-8052-8389-c2af8cffc5a3" class="numbered-list" start="4"><li><strong>Conservation</strong>: Tie digital experiences to <strong>real-world impact</strong>, funneling portions of proceeds to <strong>conservation efforts</strong> while keeping players engaged through <strong>social impact updates</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27ec2183-4a1d-8041-bd50-d56116b5449f" class="numbered-list" start="5"><li><strong>Adoption</strong>: Simplify the <strong>onboarding process</strong> for cryptocurrency newcomers, particularly targeting youth and NGOs with <strong>intuitive payment interfaces</strong> and educational content.</li></ol></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808c-8efc-fe2daf40679d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-802d-aaec-d8520fb04dac" class=""><strong>The Game</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a0-8479-f5e82beca407" class="">CryptoPets was designed as more than just a collectible NFT project—it was a <strong>fully-fledged game</strong> inspired by franchises like <strong>Pokémon</strong>. Players could collect and train their NFT pets, engaging in battles that affected the value of their digital assets. This created a dynamic <strong>play-to-earn ecosystem</strong> where the rarity, aesthetics, and performance of the pets influenced their market value.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-8c65-c4725f6814ac" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80ce-9d9b-df3cb80019dc" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a94_670433c429450b0f011553dd_cryptopets%2520website.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a94_670433c429450b0f011553dd_cryptopets%2520website.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80bf-8cd1-f1f3374d1db4" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ed-9d51-ee8e2f0eabfd" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8044-9f34-d940f8b4f025" class=""><strong>Rarity and Economics</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8081-a0a2-df65d91e7c6f" class="">We emphasized the development of a robust <strong>rarity system</strong>, with pets of different types (common, mythical, extinct, etc.) and <strong>3D animations</strong> to enhance user engagement. Each battle had strategic depth, with pets boasting unique <strong>move sets</strong> and animations.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c9-977c-cf3846055380" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-9c04-ce074a38e958" class="">One of the key issues we identified early in the development of <strong>CryptoPets</strong> was the problem of <strong>NFT inflation</strong>, a flaw that plagued the earliest blockchain games like <strong>CryptoKitties</strong>. In CryptoKitties, users could breed their NFTs endlessly, leading to an over-supply of assets that <strong>flooded the market</strong>. This uncontrolled <strong>over-emission</strong> led to a dramatic devaluation of these assets. Essentially, users were printing an infinite number of NFTs, which destroyed the perceived rarity—one of the core value propositions of NFTs.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80da-8490-d3b7977e8c9f" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80e0-8e4d-d42db755b8ab" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a89_670433e1da0ec75eb4fe0c17_cryptopets%2520portfolio.jpeg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a89_670433e1da0ec75eb4fe0c17_cryptopets%2520portfolio.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804c-947e-c2f2ee390ba5" class="">Player portfolio and profile page</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a1-ac2f-c7a8efba16f6" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c1-84e4-ce2d6defc31a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8063-9bca-ce8aefb011cf" class="">We saw this as an existential risk to the entire <strong>NFT gaming economy</strong>, where the notion of <strong>scarcity</strong> is critical for sustaining value over time. CryptoKitties became a cautionary tale, where the lack of checks and balances in the asset-breeding system led to <strong>market saturation</strong>. This devalued once-rare assets and undermined user confidence in the long-term viability of the game’s economy.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d1-840d-c83df57fd299" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8027-8eef-fd913f880915" class="">In designing <strong>CryptoPets</strong>, we took a fundamentally different approach. Instead of allowing unchecked breeding and rampant creation of new assets, we implemented strict <strong>breeding limits</strong> and <strong>controlled emissions</strong>. Every CryptoPet had a finite number of breeding cycles, ensuring that even with high demand, there would be a <strong>cap on supply growth</strong>. Additionally, the <strong>rarity system</strong> tied to real-world animal conservation themes further reinforced this, with ultra-rare pets (like <strong>mythical creatures</strong>) being strictly limited in circulation.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8019-8857-e26297de4111" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8085-92cc-fa739941e8c9" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67abb_67043424af6fa7c47addd2f2_cryptopets%2520account%2520creation.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67abb_67043424af6fa7c47addd2f2_cryptopets%2520account%2520creation.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809b-a464-fa5596e9f686" class="">account sign up</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8088-b6ea-cd44bab05070" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f3-a8de-d51e3b8d5c36" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80db-88f3-d6224c19d8d5" class="">Our goal was to balance <strong>user engagement</strong> and the game&#x27;s <strong>ecosystem health</strong> by preventing inflationary pressures that would collapse the market. By building a <strong>game-first</strong> structure, where NFT assets had to be strategically used and carefully managed, we avoided the pitfalls of infinite printing. In this way, CryptoPets preserved the value of its assets while still enabling dynamic in-game growth and player investment.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805d-8ba6-dc6da0216c9c" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-809d-b840-dff049d8f68c" class=""><strong>Browser-Based Animations</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8022-8de9-c8aacfdb73f1" class="">One of the most innovative aspects of CryptoPets was our use of <strong>browser-based animation libraries</strong>, which allowed for a rich, interactive experience directly in the web browser—no need for complex downloads or third-party software. Each CryptoPet character was designed using <strong>Photoshop-based elements</strong>, with <strong>appendages</strong> (legs, tails, wings, etc.) separated into individual layers. These layers were then animated independently using <strong>web animation frameworks</strong> like <strong>GreenSock (GSAP)</strong> and <strong>Three.js</strong>, allowing for smooth, real-time animations directly in the browser.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8050-bfa7-d11a9202b42e" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8068-a3b8-c71e44139c32" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a97_6704340957d9a17266c556db_cryptopets%2520adoption%2520center.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a97_6704340957d9a17266c556db_cryptopets%2520adoption%2520center.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ab-9b32-f48220b5bb32" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-b146-e6e9f501e1de" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801b-8e82-d3aaf2761329" class="">This modular design approach meant that each CryptoPet could have fully customized animations based on its parts. For example, a <strong>rare phoenix-bird</strong> looking CryptoPet had its flame-trailing wings animated separately from its body, giving it a distinctive, eye-catching look on-screen. Not only did this create unique visual aesthetics for each pet, but it also allowed us to create variations based on <strong>rarity tiers</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c6-9020-c7d8c918fbfc" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8086-b4c1-c6e9023b1c90" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6bf_670434b359e6afbd0bb58f42_cryptopets%2520adoption%2520center%2520purchase.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6bf_670434b359e6afbd0bb58f42_cryptopets%2520adoption%2520center%2520purchase.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fb-9bd9-f53eea80401c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8094-81a8-ebe38c52feb2" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e4-9273-fb715e5080aa" class="">There were <strong>five primary CryptoPet types</strong>—common, endangered, mythical, extinct, and legendary—each with its own pool of creatures. Across these types, we developed over <strong>15 different pets</strong>, each featuring unique <strong>color palettes</strong>, <strong>animations</strong>, and <strong>move sets</strong>. Every time a user bred two pets, the resulting offspring combined <strong>traits from both parents</strong>, allowing for endless combinations of appendages, animations, and styles. For example, breeding a <strong>Phribbit</strong> with a <strong>Pebbler</strong> could produce a pet with visual and tactical traits of both, adding a creative and exciting dimension to gameplay.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8082-80fa-c753416bb0ec" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8065-b469-fb85f37f2e1f" class=""><strong>Blending Web 2.0 and Web 3.0</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802a-8c4f-f698d0364839" class="">What truly set CryptoPets apart from other games was our seamless integration between <strong>on-chain</strong> and <strong>off-chain</strong> game mechanics. While the animations, battles, and breeding happened in the browser, the <strong>results of each interaction were pushed to the blockchain</strong> at the conclusion of every game session. This dual-system design was crucial for balancing the <strong>performance demands</strong> of an interactive game with the <strong>immutability and transparency</strong> that the blockchain provides.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ba-9a81-fdd9d56e2554" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8075-9f9b-c7e7f61bf543" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a8d_670433f72cd2de3f8af6389b_cryptopets%2520pet%2520detail.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67a8d_670433f72cd2de3f8af6389b_cryptopets%2520pet%2520detail.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800e-a16a-f034684645c0" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807c-8eec-c095c0e56ce2" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8067-9c7c-d51a7158d86b" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8063-a9b9-e3f14225cca8" class="">For example, after a battle between two CryptoPets, the results—including any changes to the pets’ stats, rarity, or experience levels—were immediately updated on the <strong>Ethereum blockchain</strong> using the <strong>ERC-721 standard</strong> for non-fungible tokens (NFTs). This ensured that all gameplay outcomes were verifiable and permanent, preventing any tampering or exploitation of the system. By offloading animations and real-time interaction to the <strong>browser</strong>, we maintained a fast, fluid user experience while still leveraging the <strong>trustless</strong> nature of blockchain technology to handle the game’s critical economic elements.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8007-8b0d-eb4a1d23ba34" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a5-8ffb-d41d143096e3" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6c4_6704378b24a9bd3afada406b_cryptopets%2520old%2520metamask.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6c4_6704378b24a9bd3afada406b_cryptopets%2520old%2520metamask.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803a-852c-fc93a8afbe94" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8065-a9e2-c2f6b5e4089e" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8035-8846-c21fbe64f32f" class="">This hybrid approach—<strong>browser-based interaction</strong> combined with <strong>on-chain recording</strong>—not only kept the game running smoothly but also allowed us to implement innovative mechanics that would have been impossible in a fully on-chain environment. For example, we developed a <strong>battle arena</strong> where pets could fight, and their <strong>move sets</strong>—strategically assigned based on their <strong>rarity</strong> and <strong>species</strong>—would determine the outcome. Each match was animated in real-time in the browser, but once the fight concluded, the results were immediately finalized and stored on-chain.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808e-8da3-eeba085c2897" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8020-a2a6-ddca57d0f32d" class=""><strong>The Launch</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ad-96dc-cd16d0e61612" class="">In May 2018, we embarked on the <strong>beta launch</strong> of CryptoPets, marking a pivotal moment in the project’s development. This beta phase was designed to test our systems ahead of the full launch in June. During the beta, we implemented a <strong>whitelisting system</strong> for early adopters, giving exclusive access to community members based on the <strong>time of wallet sign-up</strong>. This approach allowed us to create a sense of early excitement and exclusivity among our most dedicated supporters.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802b-8a67-cf60c7f23961" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80ab-acb5-c901ad4fd94d" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6ce_670437c5066fec137fb6b0cd_cryptopets%2520finding%2520opponent.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6ce_670437c5066fec137fb6b0cd_cryptopets%2520finding%2520opponent.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8069-a4d3-fa4af18c2bf1" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fc-a833-fb356f6f468a" class="">The <strong>airdrop campaign</strong> that accompanied the beta was one of the key innovations we introduced. Rarity in the CryptoPets universe wasn’t just a gimmick—it was core to the game’s value proposition. We developed a <strong>rarity system</strong> that dynamically assigned the scarcity of each NFT pet based on when a user joined. Early adopters were rewarded with rarer, more valuable pets, while those who came later still had access to special tiers, creating a layered sense of exclusivity. This not only incentivized early engagement but also allowed us to explore the idea of <strong>dynamic NFT minting</strong>—something that was rare in the market at the time.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8007-b7b2-ccc0cc1590e9" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-806f-922c-e5b7aec1a553" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67ab8_67043431ba37331e3e0b99ad_cryptopets%2520refferal%2520program.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/67043436c241de4ea9a67ab8_67043431ba37331e3e0b99ad_cryptopets%2520refferal%2520program.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807f-913c-e31b58c619b4" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ea-a4bc-fe04f7425325" class="">However, the reality of this system was that much of it had to be done manually. Without the luxury of an automated platform like <strong>BUIDLHub</strong>—which I would later develop—we relied on <strong>manual processes</strong> to assign rarity tiers and track user engagement. This was time-consuming and prone to human error, but it was the best option available given the nascent state of <strong>blockchain tools</strong> in 2018. Despite the manual challenges, this process taught us invaluable lessons about the importance of <strong>automation</strong> and <strong>scalability</strong> in blockchain operations.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d2-855f-e36e8f1cd852" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8027-93e5-cab3493a108c" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6c8_67043801e8dbc8b28c6543a1_cryptopets%2520airdrop.webp"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704387ab7fd3d5a6487b6c8_67043801e8dbc8b28c6543a1_cryptopets%2520airdrop.webp"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802a-9ab0-cee6ed47cb93" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803c-9cce-d0058180318d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800b-9e72-ea88a6a0b2c6" class="">CryptoPets quickly evolved from a simple <strong>ERC-721 marketplace</strong> designed to ride the wave of crypto hype into something much more substantial—a <strong>fully-fledged video game</strong> with the potential to drive real innovation in the blockchain space. By integrating gameplay mechanics like <strong>rarity-based progression</strong>, <strong>NFT battles</strong>, and <strong>on-chain recording of outcomes</strong>, we began pioneering new models of blockchain-based entertainment that bridged the gap between traditional gaming and blockchain assets.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802a-b16a-fa66cc09842b" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8086-9c93-d51bebf9b5a8" class="">Our system also explored the <strong>efficiency of blockchain databases</strong>, offering users a smoother experience for adopting and interacting with the technology. As a result, CryptoPets wasn’t just another NFT project; it became a <strong>trailblazer</strong> in <strong>blockchain gaming</strong>, introducing a new business model where the game itself could drive adoption of decentralized technologies, rather than simply relying on hype.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8033-a057-ea3f2ccd1a58" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800d-9ef2-cba3630f428d" class="">Looking back, that beta launch was more than just a testing phase—it was a critical step in proving that <strong>blockchain gaming</strong> could offer more than collectibles. It was about showing the potential for deep, strategic gameplay backed by immutable, verifiable ownership, and it set the foundation for what CryptoPets would ultimately become: a <strong>franchise</strong> with the potential to <strong>lead the next wave of blockchain innovation</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8058-a73a-f2c8224e2b6d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8084-9591-c1d9d6a6891f" class=""><strong>Relationship with Arcade</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805b-b8fc-eaf7214ec080" class="">The partnership with <strong>Arcade Distillery</strong> was one of the most challenging aspects of CryptoPets&#x27; journey—a series of missteps and unresolved conflicts that, in hindsight, could have been avoided with stronger leadership strategies, more rigorous partnership evaluations, and more effective conflict resolution mechanisms. Their development timelines, budget overruns, and reluctance to adapt to the evolving market conditions were detrimental to our project’s momentum. More importantly, their lack of respect for <strong>community-driven growth</strong> clashed with CryptoPets’ core ethos.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-af36-de8c3967297a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809e-835f-e1173cf0df0e" class="">If I were to do it over again, I would ensure stricter <strong>fail-safes</strong> in our contracts, employ better <strong>due diligence</strong> in selecting development partners, and build an <strong>in-house marketing team</strong> to fully control our messaging and growth strategies. Looking back, Arcade’s approach stifled our ability to capitalize on the rapidly growing <strong>NFT market</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8005-a683-cbc18679c23f" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80db-92ab-d9986c2e195e" class=""><strong>The Market Crash and Trust Breakdown</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8086-a447-faaea631a4be" class="">The <strong>market crash of 2018</strong> was a turning point for both our team and the Arcade Distillery collaboration. Many of us, myself included, were navigating the storm for the first time. Investors were pulling back from allocating new funds, crypto prices were plummeting, and the fragile trust we had with our partners at Arcade began to unravel. This economic downturn exposed weaknesses in our partnership.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8084-819e-df974f2a39de" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805a-bb57-c771b67afee2" class="">Arcade Distillery’s team didn’t fully understand the community-driven philosophy we had built CryptoPets on, and worse, they didn’t value it. As our go-to-market strategy leaned heavily on <strong>direct engagement with our early adopters</strong>, Arcade distanced themselves, questioning decisions that they saw as amateurish and irrelevant to completing the contract. In hindsight, this disconnect in values should have been a red flag early on—our vision of transparency, community involvement, and iterative engagement was at odds with Arcade’s more closed-off, traditional development model.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8088-8a61-fbef4f073fa1" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8036-8723-f72f32054fbf" class=""><strong>Leadership, Power Struggles, and Mistrust</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a8-a64c-e246fbcd4662" class="">The departure of the teammates who brokered the deal with Arcade was a significant blow. This key champion of the relationship and one other teammate who had the best relationship with Arcade’s CEO had been the buffers we needed to keep the relationship functional even when tensions simmered. Without their buffer, the <strong>relationship quickly devolved into a power struggle</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808c-ba1c-f5800bfca989" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8096-b723-c7fb8dc8447a" class="">The lead game designer on their team became openly hostile, questioning every decision I made, often <strong>patronizing my experience</strong> due to my fresh background into the gaming industry. They saw me as a naive, childish dreamer and actively undermined my ability to go-to-market successfully.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804b-a8ec-ecb7f03952fb" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c5-9a68-d8c4c614c1c4" class="">Arcade Distillery began withholding critical <strong>marketing assets</strong> and lagging behind in <strong>development milestones</strong>, becoming an operational <strong>black box</strong>. This added to my growing frustration, as I had to move forward with a marketing campaign despite missing essential components for the game’s launch. It was a <strong>complete betrayal</strong>—we had paid for these assets, and yet I was left scrambling to make something out of nothing. Worse, behind the scenes, Arcade Distillery even tried to develop <strong>intellectual property</strong> based on the very work we had funded, seeking to undercut us with a strategy of <strong>corporate maneuvering</strong>. It was a blatant violation of the contract, a betrayal that further cemented my distrust.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80dc-8035-f42f19b4f3a8" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a3-b2dd-e0c2ee740fb0" class="">In hindsight, <strong>leadership strategies</strong> and <strong>partnership management</strong> could have dramatically improved this situation. Here’s what I would have considered doing.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806e-afea-cd8057f6e0f3" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806b-9cd2-e214eb3dcb91" class="">One of the first things I would have done differently is <strong>build in more fail-safes</strong> into our contracts with Arcade Distillery. We had given them too much freedom without enough accountability, particularly in terms of development deliverables and financial milestones. In hindsight, a phased payment structure tied to <strong>milestone-based achievements</strong> would have prevented them from stalling the project without consequences. Every major asset delivery or development phase should have been contingent on their progress, limiting the damage when they underperformed.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8099-b5e6-c154ad74efd4" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8071-88f2-f9a2315ec434" class="">We rushed into this partnership because of <strong>personal connections</strong> rather than carefully vetting their alignment with our vision. A more thorough <strong>due diligence</strong> process would have revealed the cultural and operational mismatch. Moving forward, I would implement a rigorous partner selection process that emphasizes <strong>alignment in vision, culture, and communication</strong>. A more strategic approach would have involved comparing multiple development studios and gathering references from past clients.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c6-8fc8-e4dca895a14e" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8043-a290-e7e271ddfa57" class=""><strong>The Emotional Toll and Lessons in Leadership</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8081-a51c-f9fe6949ed97" class="">This ordeal took a profound emotional toll. Leading a project where I was <strong>undermined</strong> at every turn, while fighting to salvage a marketing campaign with <strong>missing assets</strong>, felt like trying to drive forward with no engine. I had to continually navigate <strong>distrust</strong>, handle constant <strong>doubts</strong> from investors, and manage the internal morale of my team, all while pretending that everything was under control. It was a brutal lesson in leadership under fire.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8041-be56-ef065e0b4ed8" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8024-ae0c-c8859fbd6fcd" class="">Looking back, I can see that <strong>communication breakdowns</strong>—both between our teams and within our own organization—were at the core of this failure.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8011-aacd-ed4c7b1074ce" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808c-8dcf-cae2e35afcc2" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8069-8948-e09c28f232ba" class=""><strong>Reflections</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b5-9547-e7c00255da00" class="">Instead of relying on Arcade Distillery to deliver our marketing assets, we should have <strong>hired our own marketing agency</strong>. This would have given us full control over messaging, timelines, and the go-to-market strategy. We could have allocated resources to achieve paid media and get strategic channel relationships to lead a community-driven campaign, influencer partnerships, and even more viral NFT airdrops.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f6-aa67-e347e51e1b7d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804f-bd94-f93b319d9b10" class="">Looking back, partnering with <strong>Arcade Distillery</strong> was a costly misstep. Their traditional development model was ill-suited for a lean, fast-paced blockchain project. In hindsight, <strong>outsourcing overseas</strong> could have cut development costs to <strong>one-fifth</strong>, delivering faster results while preserving resources for marketing and community building.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80dd-9759-e832f972679a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804f-bf8a-d6015a969e56" class="">Our <strong>resource allocation</strong> was flawed—overspending on development left us with almost nothing for marketing. This hurt our ability to engage with the <strong>community</strong> and grow our ecosystem, crucial elements for any blockchain project. We missed valuable opportunities to co-market with <strong>OpenSea</strong> and <strong>Axie Infinity</strong>, squandering relationships that could have dramatically boosted our visibility. At a time when <strong>blockchain gaming</strong> was just emerging, these partnerships could have positioned CryptoPets at the forefront of the industry.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8043-b239-e52dfe6acf4b" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8053-9b20-e6ae1102acd2" class="">In hindsight, I should have implemented <strong>better leadership strategies</strong>—structured conflict resolution, clearer accountability, and tighter control over both development and marketing. I also should have prioritized <strong>community engagement</strong>, leveraging the viral potential of NFTs and capitalizing on our strategic connections.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8040-a54c-c6a7aac7a1c5" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8080-8897-d0acee7e4f6c" class="">The biggest takeaway: we failed to focus on the bigger picture—<strong>scaling the brand</strong> and <strong>building long-term momentum</strong>. CryptoPets had the potential to be a major player in the NFT gaming space, but our missteps in <strong>resource management</strong> and <strong>partnership utilization</strong> held us back. These lessons have sharpened my approach to leadership, ensuring I never lose sight of the strategic vision again.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801c-a69b-f23b3acf9137" class=""><strong>Pages</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8069-b2c2-eb19cb0fa74b" class=""><a href="https://www.themitch.tech/">Home</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80eb-8e6f-cc761c5678ca" class=""><a href="https://www.themitch.tech/about">ABOUT</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800a-8a46-db1614d5294e" class=""><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">RESUME</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8050-964f-dd82fc92122a" class=""><strong>Compositions</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8098-8ff5-d62fe0dd68bf" class=""><a href="https://www.themitch.tech/blog">Blogs</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8024-be42-dd9f3feccecc" class=""><a href="https://www.themitch.tech/projects">Projects</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d1-b386-d1254aa6bdbe" class=""><a href="https://www.themitch.tech/case-studies">Case Studies</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f5-9e01-f30a61a5a5e5" class=""><strong>Contact</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d8-b9f9-c9624ecd1d38" class=""><a href="mailto:mitchellopatowsky@gmail.com">Email</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800d-9eeb-ce8884ca9913" class=""><a href="https://t.me/officialmitchell">Send Me a Message</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807b-87e5-c9465fb2125e" class=""><a href="https://www.linkedin.com/in/mopa/">Connect With Me</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80fe-9aaf-ff46d143eba9" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8089-9caf-c26c7cd72d07" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-803f-b3f1-e2d4364d8b64" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8011-b291-d69a2cd9db97" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8097-bb29-d14f9c5f1ea6" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80b3-add3-e8e177f8c17a" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804a-ac85-e6370ae75230" class=""><a href="https://www.themitch.tech/projects/cryptopets#">Terms Of UsePrivacy Policy</a></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

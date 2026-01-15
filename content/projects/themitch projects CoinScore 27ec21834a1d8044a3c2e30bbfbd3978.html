@@ -1,0 +1,717 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>themitch | projects | CoinScore</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27ec2183-4a1d-8044-a3c2-e30bbfbd3978" class="page sans"><header><h1 class="page-title" dir="auto">themitch | projects | CoinScore</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e3-b463-df712ab52e66" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e4-b909-cc1b86aa2a0a" class=""><a href="https://www.themitch.tech/">MITCHELL OPATOWSKY</a></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80ee-9c73-de327b7a714a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.themitch.tech/about">About</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-802f-9dcd-f4f0456ecf1d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">Resume</a></li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802f-94ab-edbb08021cb9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e9c2183-4a1d-8031-9b6a-dc7061040127" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2e9c2183-4a1d-8003-a52b-fb6444b9c829" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd63f0e1d2a8bb315a4b3_projects-coinscore-preview.jpg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/66fdd63f0e1d2a8bb315a4b3_projects-coinscore-preview.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809e-9be1-f41b1069232f" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-802c-8ba9-cd1c0ec8af79" class=""><strong>CoinScore</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808b-814c-f8350d9ef5dc" class="">Early market intelligence platform for cryptocurrencies and tokens</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807f-ada8-cb36b191a194" class="">Coinscore sought to bridge the knowledge gap for financial professionals who were overwhelmed by the complexity of blockchain technology and the explosive growth of crypto assets.</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80ab-94fb-e677007cee10" class=""><strong>Key Achievements</strong></h1></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8088-b0f2-df461d344033" class="bulleted-list"><li style="list-style-type:disc">I played a crucial role in helping my team <strong>close a $150,000 angel investment</strong>, providing the capital needed to develop and launch Coinscore. My efforts in strategic positioning and early-stage vision based on the personas I developed was instrumental in aligning the project with investor expectations.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8023-8c1c-df0a5b96e41c" class="bulleted-list"><li style="list-style-type:disc">I led in-depth <strong>industry, competitive, and customer analyses</strong> to inform the product’s market positioning and go-to-market strategy. This research supported a pivotal transition in Coinscore’s sales structure, allowing the platform to cater more effectively to institutional investors such as hedge funds and accredited financial professionals.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80d7-bc19-cd7b12f9ba86" class="bulleted-list"><li style="list-style-type:disc">I designed and managed the development of the platform’s <strong>frontend screener dashboard</strong>. I worked closely with a designer to achieve our vision. The dashboard allowed investors to track asset performance, market trends, and sector breakdowns in real time. I collaborated closely with the rest of the technical team to ensure the interface was intuitive and user-friendly, tailored to the needs of non-technical financial professionals.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8030-95aa-db4ff6f9b506" class="bulleted-list"><li style="list-style-type:disc">I conducted extensive <strong>market research</strong> to gather critical data for Coinscore’s analytics reports. I specialized in <strong>token analysis</strong>, comparing the structure and design of tokens across different sectors. My work translated complex technical details into easily digestible insights, allowing non-technical audiences to understand the nuances of tokens and make informed decisions.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8059-8363-e9f427520c7b" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80cf-87f0-f2aa0cb77948" class=""><strong>Overview</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8080-917b-d15233957402" class="">In the early days of cryptocurrency, before platforms like Coinmarketcap, CoinGecko, Messari, or TheTie rose to prominence—and long before something like TradingView gave traders real-time price feeds—<strong>Coinscore</strong> emerged as one of the first market intelligence platforms tailored for accredited investors, hedge funds, and pension fund managers. Our mission was clear: to provide <strong>accurate and actionable cryptocurrency data</strong> for high-level institutional investors, drastically reducing their research time and increasing decision-making efficiency.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8090-a3be-fc004fa74678" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80c5-afc2-d57b0cfad663" class=""><strong>Vision and Mission</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8088-852c-e338aa2cb099" class="">Coinscore sought to bridge the knowledge gap for financial professionals who were overwhelmed by the complexity of blockchain technology and the explosive growth of crypto assets. This was at a time when people didn&#x27;t quite grasp the variety, complexity, and nuance of tokens yet. They understood tokenization was possible, but were only just beginning to understand how it might be utilized.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8050-9596-c7dd323f139c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809b-adae-d829a9976ef9" class="">Coinscore was designed as a sophisticated <strong>market intelligence platform</strong> that leveraged advanced <strong>data scraping</strong> and <strong>analytics pipelines</strong> to transform raw blockchain data into actionable insights for institutional investors. The platform’s infrastructure was built on a robust backend, designed to handle the complexity and volume of cryptocurrency data in real-time. At its core, Coinscore utilized <strong>automated data ingestion</strong> processes that scraped <strong>white papers</strong>, <strong>project audits</strong>, and <strong>platform documentation</strong> directly from a range of cryptocurrency networks. This data was processed through a series of <strong>ETL (Extract, Transform, Load) workflows</strong>, ensuring that it was cleansed, normalized, and made available for deeper analysis.</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8039-99de-ef56aed61c16" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898537_6703ff3c6afc4b4a85f2a3ce_coinscore%2520preview%2520market%2520cap%2520by%2520sector.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898537_6703ff3c6afc4b4a85f2a3ce_coinscore%2520preview%2520market%2520cap%2520by%2520sector.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e3-bbf8-f08b5e306fd5" class="">Sector by sector breakdown</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fa-9284-e8e5db07c509" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80aa-b7ed-cbe303e140f2" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80be-9493-e58678e5c10f" class="">The backend plumbing of Coinscore relied on a scalable <strong>cloud infrastructure</strong> that supported <strong>API integrations</strong> with popular crypto wallets, enabling users to seamlessly connect their accounts and view their holdings. By pulling transactional data and asset metadata through secure APIs, Coinscore gave investors a detailed, real-time breakdown of their portfolio across different sectors, allowing for a sector-by-sector view of the cryptocurrency landscape. The <strong>data flow</strong> within the platform was designed to update key metrics dynamically, using <strong>event-driven architectures</strong> that triggered updates whenever market conditions or asset prices fluctuated.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8091-ad42-dd7611c0e405" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80be-bfd2-c6c7d58ca20c" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898531_6703fd1737faaa4d183237be_coinscore_portfolio_pie_chart_upscaled-min.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898531_6703fd1737faaa4d183237be_coinscore_portfolio_pie_chart_upscaled-min.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d2-a2c1-c4d6814e0963" class="">Pie chart showing portfolio</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ad-a056-cf94ccf26b67" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8074-b148-c09f6a6044b8" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80de-bcca-fe2aebfc7306" class="">Coinscore’s <strong>data processing engine</strong> powered its sector breakdowns and trend analysis. This engine aggregated price feeds, market sentiment data, and blockchain metadata from multiple exchanges and <strong>decentralized sources</strong>, using <strong>streaming data technologies</strong> to ensure that the platform’s reports were always up-to-date. A <strong>native analytics dashboard</strong> was built on top of this backend, providing investors with a clean, intuitive interface to explore key performance indicators (KPIs) such as asset volatility, sector performance, and market correlations. Investors could also create <strong>customized watchlists</strong> and set real-time alerts for specific <strong>price movements</strong> or <strong>news triggers</strong> based on their portfolios or the broader market.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d8-84a1-d8f0d5ed78d4" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a6-9767-ce2efb8beb94" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db7989853d_6703fd350a2405e41fc15523_coinscore_portfolio_screener_upscaled-min.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db7989853d_6703fd350a2405e41fc15523_coinscore_portfolio_screener_upscaled-min.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8094-a125-ccf0cc9f32f2" class="">Portfolio screener</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b6-9b2b-d20e0b3db8ac" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a7-93e0-fd8cc485269c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8027-8d4b-e1da0e1d2554" class="">The <strong>notifications system</strong> was powered by a complex set of <strong>cron jobs</strong> and <strong>webhooks</strong>, ensuring that users received instant updates on relevant market shifts. Meanwhile, the platform’s <strong>RSS news feed</strong> was integrated into the backend via <strong>data aggregators</strong> that compiled and filtered news from leading cryptocurrency publications, ensuring investors had a comprehensive view of both market data and the latest developments in the crypto space.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8087-abae-fdb833ef53af" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800f-b17f-da5d0c4ae9d7" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80ed-86a2-d846d77ec41c" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898543_67040067fb5be6db7989797a_coinscore_portfolio_watchlist_upscaled-min.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898543_67040067fb5be6db7989797a_coinscore_portfolio_watchlist_upscaled-min.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8018-9545-cf032b8aa635" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8055-ba0a-c1e1e4793e9d" class="">Coinscore’s overall architecture was designed to be modular and highly scalable, capable of handling <strong>high volumes of data</strong> from an ever-expanding universe of cryptocurrencies. By utilizing <strong>microservices architecture</strong>, the platform could scale individual components, such as the data scraping services or the notification engine, without disrupting the entire system. This flexibility allowed Coinscore to support a broad range of users, from small investors to large hedge funds and institutional players, all while maintaining <strong>high availability</strong> and <strong>low-latency</strong> performance.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8039-9feb-cf7338d3f971" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80b4-85cd-d88ae9a74f60" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898540_6703fd0d355ab233bc9d0e61_coinscore_portfolio_ico_watch_list_upscaled-min.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898540_6703fd0d355ab233bc9d0e61_coinscore_portfolio_ico_watch_list_upscaled-min.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8065-8c51-d3fa799fe96f" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8084-8fa8-d03bcc453520" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898534_6703fd58c20e88578446f371_coinscore_portfolio_news_upscaled-min.jpeg"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6704007afb5be6db79898534_6703fd58c20e88578446f371_coinscore_portfolio_news_upscaled-min.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-804f-9e41-dcd603ec17fc" class=""><strong>Innovation Before Its Time</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fa-94b7-f00b4b5d12e6" class="">Though short-lived, Coinscore was among the first to recognize the need for institutional-grade crypto market tools. It operated in a nascent space long before other prominent platforms, such as The Tie or Messari, established their foothold. Our focus was on empowering professionals by <strong>automating research processes</strong> and <strong>simplifying complex blockchain data</strong>.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805a-8a2c-c2ecc40ecbe4" class="">Our team, composed of experts from hedge funds, commodities trading, and cybersecurity, brought a wealth of knowledge and foresight to the project, allowing us to stay ahead of the curve and anticipate the needs of investors in this new and volatile market.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8013-8869-dfc567d729ce" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80fa-a172-f3e092529d98" class=""><strong>Reflections</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8010-9c0e-ee74ca77dcb3" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-804d-84f1-c99e79068500" class=""><strong>Reflection #1: Lack of Experienced Advisors</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805b-a0ca-cb673613b5d4" class="">When we started Coinscore, my co-founders and I were still relatively new to the blockchain and cryptocurrency space. Although we worked alongside someone with more industry experience, who even managed his own fund, there was still a sense that we didn’t fully grasp the breadth of opportunities and tools at our disposal. Looking back, I realize how much we were navigating in the dark, lacking the clarity that deeper industry knowledge would have provided. If I were to start Coinscore today, armed with my current understanding, it would have been a vastly different journey—likely with a completely different trajectory for both the product and myself.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800c-9e44-d193556421e9" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-806a-91d9-f3dd9a14ff76" class=""><strong>Reflection #2: Lack of Defined Roles</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80bc-abb8-c84036f00949" class="">One of the most fundamental issues we faced was team dynamics. There was a severe lack of clarity in roles and responsibilities. Our structure was simultaneously too flat and too hierarchical, with no clear definition of who was supposed to be doing what. This confusion created an environment where people tried to assert more control and influence, particularly as the equity distribution and future pathways for the company were poorly defined. The resulting power struggles between co-founders and other team members made it difficult to agree on the product’s direction. Worse yet, there were incidents where some members misused company funds, which only exacerbated the trust issues within the team. In hindsight, I should have stepped up to bring accountability and structure, enforcing clear roles and better communication to prevent these issues from spiraling out of control.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a7-b274-cb0e505e9fac" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80e6-ba43-d2cb556d42b0" class=""><strong>Reflection #3: Breakdowns in Communication and Sales Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ff-a93f-c8b04e1faa2e" class="">Another major shortcoming was the complete lack of a coherent commercialization strategy. We didn’t have a pricing model for our product, nor did we have a dedicated sales team to help us scale. As the sole person handling marketing, I found myself isolated, struggling to create content and push the product without adequate support or clear intelligence from the rest of the team. There was a fundamental breakdown in communication between the product side and the marketing efforts, compounded by the absence of sales leadership. Had we established better communication, we could have capitalized on opportunities like monetizing our data streams, integrating with external platforms, or even becoming one of the first crypto integrations with <strong>TradingView</strong>. The failure to organize and align these efforts ultimately slowed us down significantly.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803c-a6f7-f07545d90a3d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80e4-9162-c0d2050158af" class=""><strong>Reflection #4: Missed Early Acquisition Opportunities</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8051-8193-d5058ad0d27b" class="">We failed to leverage key opportunities that could have propelled Coinscore forward. For example, we didn’t capitalize on potential partnerships or acquisitions that were within reach. We rejected an acquisition offer from <strong>ConsenSys</strong>, and later failed to secure another from <strong>Nomura</strong>, a major Japanese bank. In hindsight, these could have been turning points for Coinscore, but due to poor leadership, lack of strategic vision, and an inability to rally the team around these opportunities, we let them slip away. The lack of cohesion across the team contributed to these failures. We had no real structure for development; everyone was reporting to the same group, which made our operations inefficient and directionless. Implementing a proper sprint schedule and breaking down the technical team into more manageable units could have greatly improved our productivity.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806c-946d-ed227dc293e3" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-803d-a289-d08728f93726" class=""><strong>Reflection #5: The Limits of Sweat Equity and Hype</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8039-83dd-f2ac1cc80ea4" class="">Ultimately, the biggest blow to Coinscore came when the crypto market started to crash. Most of the team had joined under sweat equity agreements, with no real compensation beyond future promises. When the market soured, those who had flocked to us as opportunists left, draining the project of its energy and leaving the core team weakened. We had neither the mechanisms to retain talent nor the means to compensate them, which led to the inevitable collapse of team morale. With efforts gradually shifting toward other projects like <strong>CryptoPets</strong>, Coinscore was ultimately abandoned, its potential never fully realized.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800a-8392-e0a22db0fc5a" class=""><strong>Pages</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8055-9d12-f503bb8dfb35" class=""><a href="https://www.themitch.tech/">Home</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b1-90de-e5f934a9eac6" class=""><a href="https://www.themitch.tech/about">ABOUT</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8016-b75e-e8e21e8a733a" class=""><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">RESUME</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800a-8d04-d1a46360cbaa" class=""><strong>Compositions</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8048-a165-da717023eb0e" class=""><a href="https://www.themitch.tech/blog">Blogs</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d6-b243-ef85a99365e0" class=""><a href="https://www.themitch.tech/projects">Projects</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8042-9648-ea1fee8ce890" class=""><a href="https://www.themitch.tech/case-studies">Case Studies</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80da-821d-c64d179350ae" class=""><strong>Contact</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801a-8522-e3b96298ab03" class=""><a href="mailto:mitchellopatowsky@gmail.com">Email</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ca-8444-ea71d83d96f9" class=""><a href="https://t.me/officialmitchell">Send Me a Message</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8057-955c-cfe5b4284307" class=""><a href="https://www.linkedin.com/in/mopa/">Connect With Me</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-803a-b3e1-db3c83f0656e" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8090-97bc-c6bf5d083066" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8087-b3b7-f88c8e40a44e" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-805f-bd3b-f57495a63062" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80d7-b288-d77592c8baf1" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-804b-810e-c3ccbfbec3a5" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8008-87ec-f1e32213ee8a" class=""><a href="https://www.themitch.tech/projects/coinscore#">Terms Of UsePrivacy Policy</a></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

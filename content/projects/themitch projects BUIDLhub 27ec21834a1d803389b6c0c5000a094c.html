@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>themitch | projects | BUIDLhub</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27ec2183-4a1d-8033-89b6-c0c5000a094c" class="page sans"><header><h1 class="page-title" dir="auto">themitch | projects | BUIDLhub</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8056-b4d3-e0d2c3098218" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8047-a39f-ed83f7322b1a" class=""><a href="https://www.themitch.tech/">MITCHELL OPATOWSKY</a></p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8069-b47a-ff0cb0f21f5a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.themitch.tech/about">About</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8078-b905-e63bdf470f0d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">Resume</a></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8060-af9e-ec6c9be1e483" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-808d-8bd4-d57cd71ceb36" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80ce-9acc-d5243773e62c" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670590850989f2c734e18337_IMG_9689.JPG"><img style="width:700px" src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/670590850989f2c734e18337_IMG_9689.JPG"/></a></figure></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8095-9084-dd891c513b10" class=""><strong>BUIDLHub</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8093-8ce1-d611a6ea96d4" class="">One of the world&#x27;s first Web 3.0 &lt;&gt; Web 2.0 Workflow Automation Engines</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8094-abd2-e59cc3674859" class="">BUIDLHub was a revolutionary no-code platform designed to trigger actions using signals from both on-chain and off-chain sources—essentially an IFTTT for Web3</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80fb-9267-c2f2448e1101" class=""><strong>Achievements</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805a-b32b-c1119e2c4b1b" class="">Product Management:</p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-8032-a355-f8a122f4574c" class="bulleted-list"><li style="list-style-type:disc">Achieved a 30% improvement in DAU through significantly overhauling the workflow editor. This involved orchestrating and designing pre-built recipes for notifications and state changes</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80bc-a6d8-c911d95763b5" class="bulleted-list"><li style="list-style-type:disc">Identified and diagnosed workflow frontend errors to decrease post-sign up drop-offs by 20%.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80f6-8b62-d252a1d5d3ba" class="bulleted-list"><li style="list-style-type:disc">Overhauled automated email marketing strategy to boost retention by 25%.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800c-9c89-e8791f009dd9" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a5-8987-f4c18ea9d173" class="">Growth &amp; Partnerships:</p></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80a6-904c-d82069483eab" class="bulleted-list"><li style="list-style-type:disc">Initiated and led the go-to-market and co-marketing strategy with ENS. Designed BUIDLHub&#x27;s native notification integration on their platform. Became the number one notification worfklow use case.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80a2-b0d6-f2ba0dfc5b81" class="bulleted-list"><li style="list-style-type:disc">Coordinated launches with relevant protocols like Ampleforth.</li></ul></div><div style="display:contents" dir="auto"><ul id="27ec2183-4a1d-80de-b68f-c1c576d354eb" class="bulleted-list"><li style="list-style-type:disc">Coordinated with Bankless &amp; POAP to develop the first on-chain driven role management system with NFTs.</li></ul></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b6-b902-fc5594329e28" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-808b-aa2f-c87e5e83d3a2" class=""><strong>Origin Story</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80dd-bfbd-dcfe207d19c1" class="">After CryptoPets had dissolved, I had gone to work with a previous advisor to the project, who was a compliance and respected general counsel for several large centralized crypto exchanges. I worked with her and her ragtag team of non-startup minded enterprise brained risk folks until I realized that there were fundamental team alignment issues that I alone could not resolve. Without their ability to take risk or dedicate themselves to building a revenue strategy, I resorted to turning my attention elsewhere.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8071-840e-fcd63d9d375a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a9-9ecd-d3d445cec88c" class="">Two former developer contractors to CryptoPets had started their own small consulting firm in Maryland. They were quiet, deeply technical guys who were enterprise solutions developers. One was a fullstack architect, infrastructure developer, and self-taught solidity coder. The other was a DevOps and backend engineer. During my time at CryptoPets, they had tried plugging our application into theirs—something they called Smart Contract Monitor. The purpose of this app was to have a more clear, real-time view into on-chain applications.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807e-84c5-eeae96ddd2f4" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801a-8598-ffd135be2c4c" class="">I wanted to improve my development skills, and I felt it would serve me well for any future ventures. I was taking the deep dive into development and knew I could learn alongside these two if I worked more closely with them. I saw Consensys was hosting its annual hackathon up at their Brooklyn offices so I invited the two guys up to New York. Once there, along with a couple others, and with a couple sleepless nights, we won first place at the hackathon.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e1-a5df-ed28fdedae7d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8074-a6f5-de41e305c28e" class="">After the hackathon, we wanted to keep on working together. This time, it was about taking the on-chain state analysis tool they’d developed, Smart Contract Monitor (now renamed to BUIDLHub), and seriously productizing it. It sounded like an ambitious mission, and I agreed.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-b7b3-e2742e7e3175" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8025-8fc7-ccd5934f3649" class="">Why “BUIDLHub”? Yeah, it wasn’t my first choice for a name either. One of my cofounders and I frequently scuffled over the branding. Many external advisors from SOSV to those in CDL to our friends would layer in. In hindsight, I believe my frustrations were justified, and in hindsight, it was one of the first key signals I should have taken closer to heart—that one of my cofounders was a bit stubborn. I now have learned multiple strategies to address potential team conflict issues, strategies to better coordinate on decision paralysis, communication strategies to address deadlock, and leadership strategies to address role scope and creep. However, at this point in the journey, that wasn&#x27;t the case</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a4-822d-f983b56795ba" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8026-9f32-f0c4aa89db29" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904e67294dc56e73748d_67058d7109ab35feb40310f1_IMG_9808.jpeg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904e67294dc56e73748d_67058d7109ab35feb40310f1_IMG_9808.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801e-a200-f37f34d128fa" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803d-97ac-e5501c5de47c" class="">Also worthy of note, the team and I went to Denver for ETH Denver 2020. We partnered with someone who was good friends and a fellow participant at the Consensys Hackathon. With him, we worked on a SIM-swap protection schema involving a decentralized identifier based on the earliest versions of Offchain Labs tech, which would later become Arbitrum. We won the Offchain Labs award that year.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8099-906b-c4f5a7a340fc" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80d3-9a3f-c42e973562ea" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e7374b1_67058d69bbe6c06a589f397c_IMG_9839.jpeg"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e7374b1_67058d69bbe6c06a589f397c_IMG_9839.jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8015-b03c-d87537df43a7" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80d8-9cc4-e86f5807d32d" class=""><strong>The Platform</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8037-ab18-eac75fd27cac" class="">We started off in Web 3.0 automation, which meant taking on-chain signals and applying some off-chain action. Later, we’d achieve the opposite, of taking an off-chain signal and making something on-chain happening.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f2-b8e8-c643cd9e8830" class="">In Q3/Q4 2019, the market was only developing. We were very early to the market and attempting to seriously commercialize the platform would be difficult. Most products were fairly immature. We could seek partnerships and achieve users, but we struggling to capture the value we were creating. DeFi was only then becoming a narrative. It was prior to NFTs coming back to life in early 2021, and it was prior to DAOs needing more sophisticated role management and collaboration tooling.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8040-9748-e9c08f513705" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8026-b02a-feebec35b2da" class="">Over the course of Q4 2019 to Q2 2020, we were focused on integrations. The major integrations included Ampleforth, POAP, and ENS. We ran with multiple platform launches, frontend overhauls, backend reworks, and infrastructure modifications. We created new contracts to enable more on-chain actions to take place.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8039-bc70-df116b1a83d5" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e8-aaec-c2871b7df7b3" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8024-803d-f81443bf76c5" class=""><strong>About BUIDLHub</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808d-aa50-c875e8dbdc47" class="">BUIDLHub was a revolutionary no-code platform designed to trigger actions using signals from both on-chain and off-chain sources—essentially an <em>IFTTT for Web3</em>. By enabling developers to orchestrate blockchain event-based integrations seamlessly, BUIDLHub slashed the time required to build complex workflows involving smart contracts and traditional web services.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8015-9d9d-cfb458fe2820" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8069-9955-e607db0b3392" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737493_67058da1a7c0194fea85afaa_Screen%2520Shot%25202024-10-06%2520at%25205.09.10%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737493_67058da1a7c0194fea85afaa_Screen%2520Shot%25202024-10-06%2520at%25205.09.10%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e7-8b39-f3d7b80d4a8a" class="">Exploring templates</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801c-8f59-d21351e55d0e" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8034-8fba-de2e4d5206cc" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800c-8e3d-ceee8e2960b2" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8026-a13d-e1eef64d06ac" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8067-be18-e0de3869e801" class="">At its core, BUIDLHub allowed users to monitor smart contract states, trigger transactions based on real-time changes, and link webhooks for cross-platform interactions. Whether triggering on-chain events to update off-chain systems or vice versa, users were empowered to create intricate workflows without needing to write code. Our custom-built scripting language enabled this flexibility, abstracting complexity for both technical and non-technical users.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e1-8461-f6ffa5a07a2d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8009-bf44-f916da769b3f" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80ad-9686-d54ffce168df" class=""><strong>Accomplishments</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8077-96cf-ceef26fcb2e3" class="">Building BUIDLHub was a campaign fraught with challenges, but through strategic changes, we conquered these obstacles and refined our platform. Here’s a look at some of our most significant victories:</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a4-bc4d-f6a6b23ce21b" class="">One of the first challenges I noticed was <strong>user onboarding friction</strong>. The flexibility of our platform, while powerful, overwhelmed new users with too many choices and no clear direction. To address this, I led the design and deployment of <strong>pre-built recipe templates</strong>—ready-made workflows that served as starting points for users. This initiative required integrating common on-chain/off-chain triggers into easy-to-deploy templates, significantly reducing the learning curve. As a direct result, we saw a <strong>30% increase in daily active users (DAU)</strong>. This marked a critical turning point in <em>BUIDLHub’s</em> usability, allowing users to focus on workflow creation rather than struggling with platform setup.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8050-89ab-c2711de738a5" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8057-81dc-df657e5360a7" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80e4-999e-df5ea2b0da17" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e7374d7_67058e94edf24c20a9376863_Screen%2520Shot%25202024-10-06%2520at%25205.09.32%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e7374d7_67058e94edf24c20a9376863_Screen%2520Shot%25202024-10-06%2520at%25205.09.32%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-804f-89d8-c5f7af20ca1c" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8088-a9b5-cfa213cd4bbe" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e7374d0_67058dad0ba71457be192cdf_Screen%2520Shot%25202024-10-06%2520at%25205.09.36%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e7374d0_67058dad0ba71457be192cdf_Screen%2520Shot%25202024-10-06%2520at%25205.09.36%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8051-97fc-d014082717c5" class="">Recipe library</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b8-8685-c12621b05eee" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d0-a0ec-eaa97e409543" class="">Another major issue I tackled was the <strong>post-sign-up drop-off rate</strong>. By conducting a detailed <strong>frontend workflow audit</strong>, I pinpointed inefficiencies in the user interface and navigation that were driving early abandonment. I worked closely with our engineering team to <strong>redesign the workflow editor</strong>, introducing <strong>real-time feedback loops</strong> that allowed users to monitor their integrations as they were built. This overhaul led to a <strong>20% reduction in post-sign-up drop-offs</strong>, ensuring that users who initially showed interest stayed engaged through the critical early stages of setup.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fe-bdd9-fdf0e64922ce" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8091-9d08-ecb4220cafe7" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737496_67043dd18409fa4cfb0d4f71_Screen%2520Shot%25202024-10-06%2520at%25205.10.02%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737496_67043dd18409fa4cfb0d4f71_Screen%2520Shot%25202024-10-06%2520at%25205.10.02%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-b410-f0e7a5668132" class="">Template details</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80cf-9b97-f0ade71c28fc" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8066-a5ff-c4a6deebe4b3" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80f4-8c48-c30550383f1b" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e737518_67058ff95cf523515579cea2_Screen%2520Shot%25202024-10-06%2520at%25205.09.44%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705905067294dc56e737518_67058ff95cf523515579cea2_Screen%2520Shot%25202024-10-06%2520at%25205.09.44%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8039-abf4-e211c617ef49" class="">Using a template</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8057-a8f3-dc393cb28ad3" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809e-875e-c4e7470283ba" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80bf-a9c8-d34ede722e56" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737499_670590133161ebe116f9774f_IMG_9741.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737499_670590133161ebe116f9774f_IMG_9741.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8072-8da1-ff85086d9958" class="">Adding a new app to connect to</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8090-8c88-f91f7ca46b43" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80fc-8874-ea962156f342" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8020-bdfb-c3fe2a448c06" class="">I also took command of our <strong>email marketing strategy</strong>, recognizing that we needed more targeted, behavior-driven engagement to retain users over time. I initiated a shift from static email sequences to <strong>automated, trigger-based campaigns</strong> that responded dynamically to user actions within the platform. This technical refinement allowed us to deliver personalized content, reminders, and workflow suggestions based on real-time user behavior. The impact was significant—a <strong>25% increase in retention</strong>, showing that personalized re-engagement efforts kept users returning to the platform and deepening their usage.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809b-8667-da84b415a5fb" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c1-b108-ceb2c2ce010c" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8060-baea-f73d39b7d751" class=""><strong>CDL and Pivot</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808b-bc77-dd7d64184bd1" class="">After the integrations, we were introduced through one of my best friends, who worked at Blocktower’s venture fund as an analyst, connected me with Michael Buccella, who was looking for high quality teams as part of his recent involvement with Creative Destructive Labs (CDL). CDL was a non-dilutive tech accelerator formed out of the University of Toronto split between multiple industries.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b0-b956-d37e01401b7d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806a-9a96-fca39973f62a" class="">We applied with Buccella’s support and we were accepted. We went through two week summer bootcamp intensive—which was wonderfully well laid out. The language of communicating the value proposition, the way about understanding value creation versus value capture, have been instrumental in my journey since.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c7-bd46-c11fbecb99f8" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8021-92a1-f705e2e3b238" class="">Over the following 10 months, we were part of the groundbreaking tech acelerator model in that 2020/2021 cohort. The way CDL worked was in the style of a competitive <em>Surivor</em>-esque style accelerator. In it, we survived through five successive rounds of mentorship, judging, and assessment. Every round, we were linked up with a mentor who spent several hours with us, staking their time to support our story.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80eb-b4a7-cd0eb3afe930" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-806b-b6a5-e8ccaa02cbc1" class=""><strong>Challenges</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8023-bb85-d2abf3ec4aad" class="">Building <em>BUIDLHub</em> revealed several critical business challenges—each a test of leadership, vision, and the capacity to execute. While the platform delivered immense value, we often struggled with capturing that value in a sustainable and scalable way. Here are the primary challenges we encountered:</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802b-8faf-d70963ae0ae1" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8026-8ec8-dade07dc8c87" class=""><strong>Challenge #1: No Revenue Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802f-b2ee-cb8d5fd6469b" class="">The first and perhaps most significant challenge we faced was a clear revenue model. Although <em>BUIDLHub</em> was delivering undeniable value to developers by streamlining blockchain integrations, we didn’t know how to price it effectively. Inspired by AWS’s pay-as-you-go model, we considered charging based on the complexity of workflows—more states, more actions, higher costs. However, we hesitated to implement a token-based system early on, fearing it would deter users.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806b-bfff-fdd2c2d0bb09" class="">In hindsight, by not monetizing complex workflows from the outset, we devalued our platform in the eyes of users and potential partners. Without a revenue model, the project seemed more like a fleeting experiment than a durable infrastructure solution. This created uncertainty, particularly among enterprise users, who were hesitant to integrate a system that lacked financial stability or a clear path to sustainability.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8061-949b-e766e4bc8544" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80b1-aca1-ff691b510c3d" class=""><strong>Challenge #2: No Commercialization Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b3-92f1-c2ca5bc4c74c" class="">While connected to the revenue model, our struggle to commercialize the platform was its own distinct challenge. We didn’t fully explore the long-term opportunities for monetization beyond simple token transactions. For example, we collected a wealth of valuable data from on-chain and off-chain sources—data that could have been packaged into subscription services or analytics dashboards.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8064-9e5a-d4833c0c3627" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8096-b58d-cfca6c527a01" class="">There was also potential to commercialize integrations and API access for enterprise users, particularly those managing large-scale infrastructure. We missed an opportunity to develop tailored solutions like custom dashboards or deeper database integrations. We didn’t consider charging subscriptions for an API to access the data we were collecting and structuring. Had we built a clearer commercialization strategy, <em>BUIDLHub</em> could have evolved into a dominant platform for blockchain analytics, on par with today’s industry players like Tenderly, DeFi Llama, Dune Analytics, Nansen, or CoinGecko.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c7-983f-fd791288ebed" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809e-94a9-f625df856b0d" class="">Additionally, we missed a major opportunity to commercialize our easy custom Discord and Telegram bots we made it possible to spin up. These would be very useful for certain traders or getting custom notifications—like new proposals in DAOs.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a2-b5dd-dea553c306fd" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8004-9eeb-c897211d2c9b" class="">We also could have easily commercialized our on-chain role management system. Look no further than <a href="http://collab.land/">Collab.land</a> and Galxe or Guild.xyz.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d5-bc9f-c417d62f1d7d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-802c-a0b6-e40df694bafd" class=""><strong>Challenge #3: No Pricing Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-806a-8649-e0f7dfda909d" class="">Even if we had launched a solid commercialization and revenue plan, we lacked clarity on how to price our services. The development-minded focus of team led to an overly generous mindset—believing that services should be priced as low as possible to support fellow developers.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8022-ad0a-d9cb9a043b48" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8099-81fa-dd4696af15d8" class="">This approach limited our ability to grow sustainably. In retrospect, we should have pursued a more premium pricing strategy, which would have communicated the true value of our platform. <em>BUIDLHub</em> offered robust, high-quality infrastructure that was underutilized because our pricing didn’t reflect the strength of what we were providing.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ff-afb5-e8d559af3eb4" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8008-a2dc-f5c1737805bf" class=""><strong>Challenge #4: Generalization &amp; Swiss Army Knife</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e1-843b-f581209b95f1" class="">Another challenge was that <em>BUIDLHub</em> became a &quot;Swiss Army knife&quot; of workflows—a tool that could do many things but lacked focus. We took inspiration from generalized Web 2.0 automation platforms like Zapier, <a href="http://tray.io/">Tray.io</a>, IFTTT, and <a href="http://make.com/">Make.com</a>, which offer broad functionality. However, the early Web 3.0 market required more targeted solutions.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800f-8fc1-c745df49d8c8" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c0-9505-fc5ecd3d74ca" class="">We didn’t focus enough on refining the workflows that provided the most value or that we could easily monetize. Instead of honing in on specific use cases, we spread ourselves thin, offering a wide array of capabilities but failing to quantify their return on investment. We should have doubled down on the workflows that aligned with critical market needs, hammering out clear paths to value capture.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8096-ac02-c04943b8e103" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80f7-b12c-eef1ff6f3fe4" class=""><strong>Challenge #5: Effective, but Inconsistent Marketing</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8097-b75d-f30c08948c3c" class="">Though we executed successful co-marketing campaigns with integration partners, our broader marketing efforts were inconsistent and reactive. We lacked an ongoing content strategy that would position us as thought leaders in the Web 3.0 space. We failed to engage deeply with developer communities through regular, value-driven content, or by hosting our own hackathons and events. Our team didn&#x27;t do a good enough job of projecting thought leadership based on our own development struggles, and learning from others—areas where the platform could have even delivered solutions. We didn&#x27;t do a good enough job of cultivating a community of people that were actively having these discussions and really leading the charge on the issues that mattered most to these developers.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8028-9932-eaf504c8951f" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a8-80a2-eb9b345d6252" class="">Without a proactive approach, we missed the chance to build a loyal, engaged community around <em>BUIDLHub</em>. Developer traction is often what sustains platforms like ours in their early stages, and we didn&#x27;t harness this potential fully. By not producing developer-focused content or sponsoring community-driven initiatives, we lost opportunities for organic growth and advocacy. We lost out on being front and center at remote hackathons, where developers were getting trained, and being core to the educational and developer journey.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800b-be5e-c9fae215c038" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80af-9757-f55602a73a5a" class="">I think developing and marketing a clear roadmap could have helped to solidify our messaging. I think improved relationship management with our community and more direct means of interacting with them—particularly webinars and recorded interviews—could have helped with retention. I believe we could have done a better job collecting user generated product suggestions, helping to align our product roadmap with what people really needed and were willing to pay for. It’s possible all of these efforts would have significantly strengthened potential deal flow.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8096-8844-c07924ef6c58" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80e9-915a-d477ffaddb21" class=""><strong>Challenge #6: Ineffective Channel Access</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80eb-b234-c390e14f8c55" class="">In addition to inconsistent marketing, we struggled to gain access to the earned media channels that would have put us in front of the right audience. Despite having relationships within the industry, we didn’t put enough effort into leveraging those connections for podcast interviews, articles, or high-visibility Twitter threads. Without regular exposure in these channels, it was difficult to maintain momentum and stay top-of-mind for Web 3.0 developers and decision-makers.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808b-9562-da4d14ee85e7" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8059-805e-cc461d95e883" class="">This had the effect of worsening our ability to learn about where we needed productize to be ahead of key trends. Being more closely integrated into the lifeblood of the developer ecosystem would have given us a heads up on the DeFi smart contract wallet, portfolio management, DAO Gnosis Safe, account tracking, and accounting narratives that would be important tools. Instead, we were a bit distracted by decentralized collaboration, which was a bit lofty and harder to monetize up front without significant research and development.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d5-bc42-dad18331bfbd" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8071-89d8-d6f53cefdfe9" class=""><strong>Challenge #7: Branding and Positioning</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c0-a585-ef64d6b51404" class="">Finally, our branding lacked clarity. <em>BUIDLHub</em> was a generalizable workflow platform, but potential users struggled to understand what it actually was. Were we a tool for enterprises? A developer-centric product? This lack of clear positioning confused the market, diluting the impact of our messaging.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e5-8f39-f323d64c29ac" class="">Moreover, the platform’s name itself was a hurdle. &quot;BUIDLHub&quot; was difficult to pronounce and understand, which forced us to spend unnecessary time explaining it—time that could have been spent showcasing the platform&#x27;s value. If we had refined our branding early, we could have led with a clearer message, making it easier for users to understand why they needed us.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80e3-98ff-fa629be7cd4a" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8037-9dc0-fdbaccc27b08" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8025-a4bb-f4891aa5679f" class=""><strong>Reflections</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d5-a40b-dca93805e861" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8062-8778-f20f30e67641" class=""><strong>Reflection #1: Co-existing with Dexible</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ca-a0ad-fadd729d469c" class="">One of our most critical missed opportunities was not allowing <em>BUIDLHub</em> to coexist alongside our shift to Dexible. We should have continued to commercialize <em>BUIDLHub’s</em> data flows, leveraging its strengths rather than letting it fade into the background.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8007-9c3d-f8d456a9fa17" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8070-bf38-fb6506754a70" class=""><strong>Reflection #2: The Name: &quot;Beethoven&quot;</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-801d-99c9-d4c68e8e6594" class="">We should have followed through with my original instinct to call the platform <em>Beethoven</em>. The name would have encapsulated the orchestration of workflows far more elegantly and conveyed the platform’s purpose from the start. Names matter, and <em>BUIDLHub</em>—while clever—didn’t resonate in the way <em>Beethoven</em> could have.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8006-8f4f-d82379aa189f" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80eb-8a88-c19583e0544c" class=""><strong>Reflection #3: After Dexible, Reinvesting</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803a-8f07-d64ab32298b2" class="">Allocating $25k to rework the frontend UI and another $25k for a marketing campaign would have given <em>BUIDLHub</em> the facelift it needed. The UI required modernization to make the platform more approachable for new users, and the marketing budget could have driven a relaunch, significantly boosting visibility and adoption. A further commissions based approach to a sales strategy would have produced a viable, market resilient cash flows business.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8023-83d1-f44d31079c7d" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8013-80d2-e2b70327927e" class=""><strong>Reflection #4: Monetizing with USDC and Subscriptions</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8032-a1da-f137c550cf83" class="">We could have monetized the platform through USDC-based purchases or a subscription-based credit system. This would have aligned with how the Web3 community prefers to transact and allowed us to capture value from our users in a frictionless, scalable way.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805e-a0db-c03796590848" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-804d-ac93-e6a0df1c0349" class=""><strong>Reflection #5: Gamification through Quests</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8058-970e-c057f14bd2fc" class="">Gamifying workflow development with quests via platforms like Galxe and Layer3 could have added an entirely new layer of engagement. Incentivizing users to explore the full potential of <em>BUIDLHub</em> through rewards would have increased both user retention and excitement for the platform.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80cf-8dc7-c702d6b96603" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-8073-97ab-c9d7c6ffc25b" class=""><strong>Reflection #6: Outsourcing a Sales Team</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8054-97df-f33f2dba67ae" class="">Instead of relying on organic growth and hoping the market would recognize the value, we should have outsourced a dedicated sales team to take <em>Beethoven</em> to enterprise clients. Having professionals with the skill and focus to evangelize the platform could have unlocked partnerships we struggled to form ourselves.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808f-9f98-e9f12596a008" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-802a-a1eb-fbc989bec733" class=""><strong>Reflection #7: Monetizing Data APIs and Analytics</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8062-9f4f-e9700f45c3e0" class="">There was immense value in the data <em>BUIDLHub</em> collected, and we should have sold Data APIs and analytical insights as a service. Web 3.0 projects thrive on data, and positioning ourselves as a source of actionable insights would have carved out a profitable niche.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-9f52-fa9608b524c6" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-806c-bb52-c0c652322295" class=""><strong>Reflection #8: Selling Custom Dashboards</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80dc-966e-d93d04857159" class="">We should have pursued the opportunity to offer custom dashboards, particularly for enterprise users. These tailored solutions could have been monetized not just as products, but as features integrated directly into the ecosystems of our clients, allowing them to visualize and act on their data more effectively.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-a528-f9fe88b6e0e3" class="">‍</p></div><div style="display:contents" dir="auto"><h1 id="27ec2183-4a1d-80cd-bf18-e4724e6a651b" class=""><strong>Reflection #9: Token-Credit Revenue Strategy</strong></h1></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b7-93b6-dad9f4fea778" class="">Our vision for a token-credit system should have been implemented early on. This would have not only enabled us to capture value but also allowed us to scale the business in a way that aligned with the Web 3.0 ethos. Coupled with a dedicated sales team, we could have onboarded companies with tailored solutions, positioning <em>BUIDLHub</em> as a go-to platform for Web3 workflow automation.</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-800c-8624-f209a5bc13dc" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8047-a0ca-e5257afb211c" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8088-846e-ddee2ae64a14" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ab-ac7a-d94592a2c562" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-803b-8938-faf0216ea84d" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-808f-a2af-dfbd1517a5d5" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737496_67043dd18409fa4cfb0d4f71_Screen%2520Shot%25202024-10-06%2520at%25205.10.02%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e737496_67043dd18409fa4cfb0d4f71_Screen%2520Shot%25202024-10-06%2520at%25205.10.02%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8052-b043-d26c4316e9a5" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80cd-b4b3-f75a71e8608c" class="">‍</p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80a3-88c2-f1fb37415dd6" class="image"><a href="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e7374ae_67043dbf3b032e4322bcea50_Screen%2520Shot%25202024-10-06%2520at%25205.10.11%2520PM.png"><img src="https://cdn.prod.website-files.com/66fdcc3cb1c92decad8eeed8/6705904f67294dc56e7374ae_67043dbf3b032e4322bcea50_Screen%2520Shot%25202024-10-06%2520at%25205.10.11%2520PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809b-859d-f2f0d3f6b875" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-808c-bbb1-c51f5e8c4775" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-805e-baea-d35636ecde4d" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8045-b633-c5eb7195ab57" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8047-b4ca-de52975abe04" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d4-bc8c-c9fc759dc0fc" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80a6-a996-f1152fe047e4" class="">‍</p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807b-a5d6-dc28de30f1fe" class=""><strong>Pages</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-807d-a829-f47f80c3f607" class=""><a href="https://www.themitch.tech/">Home</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-809d-9661-fb797c770b6c" class=""><a href="https://www.themitch.tech/about">ABOUT</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8027-a8a4-f71da9a72bdc" class=""><a href="https://drive.google.com/file/d/1CVbW_FyTiqjUy-cuxuJb70i-a4PNP1Dn/view?usp=sharing">RESUME</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80c0-b5d0-f03a2d1cbc73" class=""><strong>Compositions</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d4-9d9c-f85ebc193677" class=""><a href="https://www.themitch.tech/blog">Blogs</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-802c-acac-f9bc39a600ea" class=""><a href="https://www.themitch.tech/projects">Projects</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80f0-8111-ca0fcc6de307" class=""><a href="https://www.themitch.tech/case-studies">Case Studies</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80b6-8816-ed731a77edb5" class=""><strong>Contact</strong></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80ea-a34c-fb8f8492f464" class=""><a href="mailto:mitchellopatowsky@gmail.com">Email</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-80d5-9a4b-ffa7340ae4c3" class=""><a href="https://t.me/officialmitchell">Send Me a Message</a></p></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8043-b171-e0d6f69d38c5" class=""><a href="https://www.linkedin.com/in/mopa/">Connect With Me</a></p></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8099-9351-d95552076c1c" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed382920bae7890b1a3_black-social-medium.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80fb-86e1-edaa1507f8e4" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ad3521e12b1d543_black-social-linkedin.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80b0-b714-e9023ca34493" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3cc115d38e0281ac0_black-social-youtube.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-8041-a5e9-c94ab562457e" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed39fadedc3cbca76b2_black-social-twitter.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-80af-9ea5-c03bac5512a6" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed3c411dd47b4a30e4d_black-social-tg.svg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27ec2183-4a1d-808d-8e2a-c68f43fda9ee" class="image"><a href="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"><img src="https://cdn.prod.website-files.com/66fadf41f73f5849260f608f/66fd7ed34ce63f21e3386ff7_black-social-instagram.svg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27ec2183-4a1d-8046-96cc-e86ee6e27742" class=""><a href="https://www.themitch.tech/projects/buidlhub#">Terms Of UsePrivacy Policy</a></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

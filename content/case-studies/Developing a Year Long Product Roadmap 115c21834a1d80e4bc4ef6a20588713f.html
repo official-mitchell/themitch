@@ -1,0 +1,790 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Developing a Year Long Product Roadmap</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="115c2183-4a1d-80e4-bc4e-f6a20588713f" class="page sans"><header><h1 class="page-title" dir="auto">Developing a Year Long Product Roadmap</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Project</th><td>Dexible</td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Needs Revisions</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Subtitle</th><td>How my 2-week sprints resulted in a 35% faster iteration cycle.</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Summary</th><td>Developed a cohesive year long product roadmap that encompassed frontend, backend, devops/analytics,<br/>infrastructure, and contract-based upgrades. Prioritized and led 2-week sprint cycle planning, resulting in a<br/>35% faster iteration cycle and a 30% improvement in customer satisfaction scores.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ba-8814-f6ba564228e8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8012-a8e5-cbe6f0c4e33d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8067-a723-d9439d1d800d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c7-8a8e-f0d729451b10" class="">
+</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">v2</summary><div class="indented"><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-80fa-bd28-feabd277c2d9" class=""><strong>Mission Objective</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f4-b37a-d385e46f1ad4" class="">With Dexible, our goal was to build the industry&#x27;s leading institutional-grade DeFi DEX aggregator. Our goal was to bring DeFi trading into the forefront and make it accessible to institutions that seriously wanted to push volume. See, the main challenge was there was really no way to mitigate risk when trading billions of dollars on chain. Hedge funds wanted to pursue opportunities off major exchanges. It wasn’t merely about trading options, futures, and perps on centralized exchanges like Deribit, Bybit, Binance, and such, it was about deploying funds into DeFi where they could run simultaneous yield, lending/borrowing, staking/farming, and multiple trading strategies (see <a href="https://www.nansen.ai/guides/best-yield-farming-strategies-a-farmers-guide">Nansen, 2023</a> and <a href="https://www.antiersolutions.com/staking-strategies-for-entrepreneurs-unlocking-maximum-returns-in-the-defi-ecosystem/">Antier</a>). They’d do this to complement their centralized portfolio. However, there were so many risks and extra hurdles in playing in this world.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8010-af2d-f0809625ed2c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8079-b8fd-dc3bac0e1a6d" class="">The only risk mitigation strategy they had was to hire a dedicated team of backend engineers, quantitative developers, analysts, and traders. There were significant upfront costs to have something of like an automated and protected trading portfolio. Institutions had to hire entire teams of engineers and quants to develop and maintain automated trading strategies. This was resource-intensive and costly. My task as cofounder and product leader was to spearhead the development of a solution that could offer these institutions institutional-grade security and execution. But the architecture required to achieve this was daunting.  </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800a-911b-cd56e715009b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807d-8194-ca9ef58c38ec" class="">Hedge funds were eager to deploy complex strategies—yield farming, staking, lending, and trading—all while maintaining liquidity off centralized exchanges like Binance or Bybit. Yet, DeFi posed significant hurdles: price slippage, liquidity fragmentation, and lack of robust execution.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8046-a687-cad65ae02f40" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8092-a85c-eaa6eb121c91" class="">We needed a roadmap that seamlessly integrated our frontend, backend, DevOps, smart contracts, and infrastructure. Each system had unique demands, and every misstep could result in product delays, security vulnerabilities, or execution failures.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8002-a864-dcaabdc7f420" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8091-8ed8-e4bc78a3e959" class="">So to build out this institutional-grade DeFi DEX trading platform, the challenge was not only institutional-grade security and execution, it was also an architectural nightmare. To attack this, we needed a <strong>comprehensive product roadmap</strong> that integrated diverse product systems across frontend, backend, DevOps, infrastructure, and smart contract development. Each layer had distinct demands, yet had to function as a cohesive unit and interconnected with one another at multiple choke points that could significantly delay product releases and testing.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807f-9f04-e6d4da1f88a0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e9-97fc-cf154ce88898" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80d6-83b6-e69d7f0d9298"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-80b0-a121-d6becb66253c" class=""><strong>Where We Started</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-804d-947b-d5817236e142" class="">After securing our pre-seed funding in Q2 2021, our immediate focus was designing a unified roadmap that could align our frontend, backend, DevOps, and Web 3.0 teams. Dexible was taking on an ambitious vision: conditional on-chain execution for DeFi trading, which, at the time, hadn’t been attempted in any meaningful way.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80a3-ad12-f146828d5c5a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e4-ad7d-c4f5a445d692" class="">So after we secured our pre-seed round in Q2 2021, our team set about seriously delving into creating a cohesive roadmap that could bring together all our teams across frontend, backend, DevOps, infrastructure, and Web 3.0. To run this roadmap, we needed to consider our successive versioning ahead of time prior to us rolling out our technical upgrades to the platform. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8092-9762-ee32617de325" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8005-be89-ceb00e099187" class="">Dexible was pushing an extraordinarily ambitious vision. Up to that point, no one had attempted conditional on-chain execution for DeFi trading. Up until Dexible, the market was divided between decentralized exchanges (DEXs) and simple DEX aggregators. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80b1-8cfa-c74c705ae429" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8065-b797-e10de8929bb9" class="">The major DEXs allowed participate in multi-sided markets which SushiSwap, Uniswap, Trader Joe. So traders could deposit one or more token into liquidity pools to supply liquidity and gain fees from volume. The economics of constant product market makers (CPMMs) and liquidity provisioning (aka “LPing” aka “staking”) are pretty sophisticated see: <a href="https://jfin-swufe.springeropen.com/articles/10.1186/s40854-021-00314-5">Mohan, 2022</a>. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808d-b310-c64d2f3c5087" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807d-8c3a-e7111456099f" class="">The DEX aggregators ran quick queries across all these DEXs to determine the optimal routing for swapping. Two crucial challenges arose, particularly from price impact and slippage. Price impact refers to the effect a trade has on the asset&#x27;s price within a liquidity pool on a DEX, while slippage is the difference between the expected and actual execution price (<a href="https://www.bitget.com/academy/understanding-price-impact-and-price-slippage-in-defi">Bitget, 2023</a>). These factors are more pronounced in DEXs due to their reliance on automated market makers (AMMs) and liquidity pools, as opposed to the order book model used by CEXs (<a href="https://cointelegraph.com/news/dex-aggregators-the-ultimate-solution-to-reduce-price-slippage-in-defi">Cointelegraph, 2023</a>). DEX aggregators aim to mitigate these issues by splitting orders across multiple DEXs and routing trades through the most efficient paths<a href="https://www.autowhale.io/post/crypto-liquidity-trading-and-market-making-on-cex-vs-dex-in-depth-guide-overview">5</a>. This optimization is crucial because DEXs often suffer from lower liquidity and higher volatility compared to CEXs, making large trades particularly susceptible to unfavorable price movements. By leveraging multiple liquidity sources and employing sophisticated algorithms, DEX aggregators allow traders to reduce negative price impact, minimize slippage, and ultimately better execution prices and lower transaction costs. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c2-a409-fb7cd4dfe4d1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8021-9ded-de040747f121" class="">Up to that point, there were two other aggregators, primarily 1inch and 0x’s Matcha. Routing complexity is unique to DEXs because of their decentralized nature and the need to navigate multiple, fragmented liquidity pools across various platforms. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f8-ab57-c1e935652ef0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8095-b9bb-db399f9dbd20" class="">Adding to the complexity, it was clear that the multi-chain world was inevitable, however, we were only just in the beginning stages of that. The cross-chain bridges at the time were painfully slow, prone to errors, and experienced multiple exploits. These bridges would later facilitate a greater degree of ease of capital flows and ease to sourcing liquidity for more sophisticated cross-chain operations, however, the design for Dexible had to be isolated to each chain’s own available liquidity, which varied dramatically.</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-8065-a806-de4ca12c4dc3"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8081-92d9-fa15a44eff8e" class=""><strong>The Vision</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8005-a10a-ed2936720813" class="">As we brainstormed the future of DEX design, my co-founders and I realized the future lay in automation—traders would need more control over their strategies, from setting specific conditions for trade execution to dynamically adjusting those conditions based on market changes. Our focus was to empower users with advanced features like automated trade execution, visualizing potential price impact, and segmenting the total swap to break down large trades into smaller, more manageable ones. This served as a form of dollar-cost averaging into liquidity positions, ensuring users retained control of their assets until execution, without the need for Dexible to take custody.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8016-b7e7-e6a67072370f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8000-b9a6-e113004bc954" class="">What made this particularly challenging was our insistence on maintaining non-custodial control. Most DeFi platforms would require traders to grant full custody of their assets to execute trades, but we engineered a solution that allowed traders to maintain control until the exact moment of execution. This was groundbreaking—it was necessary for traders to feel comfortable granting limited spending authority to our platform, which Dexible used to trigger automated actions without locking up user funds beforehand.</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-8014-9c25-fe0c105537ad"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-807e-88d4-f93da3411b72" class=""><strong>Strategic Plan</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8079-9dd9-c26f101dfa48" class="">As the technical product manager, I was responsible for overseeing competing priorities across all teams. I broke down our year-long roadmap into <strong>quarterly milestones</strong> and aligned the team’s efforts to ensure we hit strategic KPIs. To maximize efficiency, we employed a hybrid model of agile development, focusing on <strong>2-week sprints</strong> where each unit&#x27;s progress reinforced the overall system’s momentum.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8057-9e19-f740c5669a81" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80da-90d2-f65d8b080094" class="">Each sprint was treated as a tactical move in a larger optimization problem—balancing resource constraints, technical complexity, and deadlines. By dissecting the development cycle and focusing on the most critical bottlenecks (whether related to data, infrastructure, or on-chain execution challenges), we were able to resolve high-priority issues early, accelerating our overall delivery timeline.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f4-9155-ca00d30c8a66" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e4-b836-e122174fc9b6" class="">I was constantly reviewing input from my co-founders and team leads, prioritizing efforts that would yield <strong>80% of the impact from 20% of the work</strong>—my version of applying Pareto principles to development. It wasn’t just about shipping code; it was about building the foundations that would enable us to scale the platform, hit customer satisfaction goals, and continuously improve backend performance.</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80c5-8a30-ee35b405300e"/></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-805f-b7b2-f8cec97ccdf2" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8038-a6eb-f36a6d06f63f" class=""><strong>Tactical Execution</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-806f-bd63-cb392dc611b7" class="">To deliver a fast, scalable, and reliable product, I worked closely with our VP of Engineering and CTO to ensure our infrastructure supported both our rapid iteration cycles and the demands of institutional-grade users.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8060-86e5-ec20ad8100b9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d1-a729-f2240bd2c2f5" class="">First, we focused on building out our <strong>CI/CD pipeline</strong>. Together with our VP of Engineering, I decided that <strong>Jenkins</strong> would serve as the backbone for our continuous integration and deployment processes. Jenkins was critical to automating testing and deployments across our system. We integrated <strong>Postman</strong> for API testing and used <strong>Selenium</strong> for full frontend testing, while backend unit tests were built with <strong>Mocha</strong> and <strong>Chai</strong> for our <strong>Node.js</strong> services. My involvement in prioritizing these tests was essential—I worked closely with the team to focus on high-risk features first, ensuring any bugs or inconsistencies were identified early before they became production issues.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8002-a323-ffe698eb2ac9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808b-be97-f2137d3d934d" class="">We containerized our testing environments using <strong>Docker</strong>, replicating production conditions to ensure accurate testing results. This was a key part of ensuring our sprints could move forward without regressions—each environment mirrored production with precision. We deployed <strong>Kubernetes</strong> for container orchestration, ensuring the platform could scale dynamically with user demand.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8013-80ab-ff828569d60a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800f-83e7-ec9dde5bd234" class="">In addition, I collaborated with our VP of Engineering to integrate <strong>Elasticsearch</strong> for real-time log monitoring, and <strong>Grafana</strong> for system health visualization. Grafana became our central hub for tracking KPIs tied to the roadmap, and I helped design the dashboards to monitor key metrics like gas overages, performance bottlenecks, and infrastructure stability. This allowed me to adjust sprint priorities based on live infrastructure feedback and ensure our teams were always addressing the most pressing challenges.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80eb-b4c9-e43f68c46050" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ae-b933-c9ec4add4a3c" class="">An essential use case we discovered from Grafana was highlighting our gas overage. Which would be a crucial design hurdle to achieving automated conditional execution—setting a transaction cost that reflects future, undetermined states.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8010-882a-fb3ac11e43d4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d7-9a41-d9f8ca4845ce" class="">Our CTO was leading the charge on cloud infrastructure, deploying our services using <strong>Amazon EKS</strong> (Elastic Kubernetes Service). I worked alongside him to ensure that our infrastructure could scale elastically while maintaining high availability. He used <strong>CloudFormation</strong> to manage infrastructure as code, allowing us to replicate environments effortlessly across testing, staging, and production.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807d-a81b-f94a0b13b34f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c2-b1f0-d5c052770da6" class="">We also implemented <strong>Amazon RDS</strong> with <strong>multi-AZ support</strong>, ensuring database redundancy and high availability. I coordinated with the CTO on optimizing our database queries to handle the complexity of syncing on-chain and off-chain data. The result was a backend architecture capable of real-time synchronization with on-chain events, all while supporting institutional-level traffic.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8095-a5a1-cd565ae5fa75" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80d9-aea6-de54632a775c"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8015-91f4-deec8d5c64e8" class=""><strong>On-Chain State Management</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8088-92bc-efdc1017b68c" class="">One of the biggest challenges I faced was managing <strong>on-chain state</strong> while syncing it seamlessly with off-chain services. Our <strong>Solidity smart contracts</strong> handled core financial operations such as asset swaps, liquidity pooling, and fee distribution. I worked closely with our Web 3.0 and backend teams to establish a <strong>bidirectional flow of data</strong> between <strong>web3.js</strong> and our <strong>Node.js</strong> backend, which allowed us to listen for on-chain events and trigger corresponding updates in real time.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ac-a82c-f1bb51ed9cf1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8093-a284-dbed4dad44ae" class="">We chose <strong>Amazon DynamoDB</strong> for off-chain storage of unstructured data—like transaction metadata and user sessions—while <strong>Amazon Aurora</strong> (RDS) handled more structured, relational data like transaction histories and financial metrics. I worked directly with our engineers to optimize queries, reducing latency and ensuring that on-chain state changes were reflected instantly on the backend.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80cd-8e67-d4928350bc14" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80be-b19e-faf50bb00fd7"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8040-bb3a-ef3f853c166b" class=""><strong>Frontend Integration</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80fa-8954-cbd26fa304df" class="">On the frontend, we built with <strong>Next.js</strong> and <strong>TypeScript</strong> to ensure type safety and scalability. The frontend had to interact seamlessly with both on-chain data and our backend APIs. I was responsible for overseeing the integration of <strong>websockets</strong> and <strong>GraphQL</strong> to ensure real-time data updates across the system. Through these systems, users could view balance changes, transaction histories, and liquidity positions as they happened.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f2-b143-cef8ad6dcbb7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80af-8933-d2bafb2260f2" class="">Initially, we used <strong>Redux</strong> for state management, but as our system complexity grew—particularly in handling real-time data streams—we transitioned to <strong>React’s Context API</strong>. This shift reduced our reliance on boilerplate-heavy Redux and simplified our approach to state management. Using <strong>React hooks</strong>, we streamlined asynchronous data fetching and side-effect handling, which dramatically improved both developer velocity and frontend performance.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8012-9a5c-ee24670e122c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f1-bc80-e8c31e4b29fd" class="">By ensuring the smooth interaction between <strong>Next.js</strong> and our <strong>Node.js</strong> backend, I guaranteed that our RESTful APIs and <strong>TypeScript</strong>-powered frontend operated in harmony. I worked closely with both teams to refine our <strong>API endpoints</strong>, making sure that frontend requests and on-chain data pulls were processed with minimal latency, improving the overall user experience.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8068-b13c-cabe1515451e" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80de-b72b-f2a35aec446e"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8079-a24a-c54ae0e46148" class=""><strong>Victory Conditions</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808a-a1c0-d4051a0a7820" class="">Through this disciplined approach, the outcomes were clear:</p></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-80c1-8da3-cecc763ab6f2" class="bulleted-list"><li style="list-style-type:disc"><strong>35% faster iteration cycle</strong>: Breaking down development into smaller, frequent releases accelerated our time-to-market and gave us a competitive edge.</li></ul></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-80d9-866f-f37cc15d178b" class="bulleted-list"><li style="list-style-type:disc"><strong>30% improvement in customer satisfaction</strong>: Faster iterations allowed us to incorporate real-time feedback, resulting in a more polished platform.</li></ul></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-80b3-89fd-eca274252557" class="bulleted-list"><li style="list-style-type:disc"><strong>Scalability for institutional use</strong>: By optimizing our backend, scaling dynamically, and integrating real-time systems, we supported rapid growth without performance degradation.</li></ul></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80f7-8a73-c70b9a329ba0"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-800c-80c1-f399f27e30d8" class=""><strong>Post-Mission Analysis</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8014-9f67-f7cd1372886d" class="">The success of this roadmap lay in its adaptability—balancing a rigid long-term vision with the flexibility of <strong>2-week sprints</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ae-9394-c5bef290c586" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c0-acac-e743f22578ba" class="">The success of this product roadmap lied in the balance between <strong>rigidity and flexibility</strong>—a strategic paradox. The year-long plan provided a clear direction, yet the 2-week sprints allowed for continuous adjustments based on real-time data and market shifts. This mirrors the concept of <strong>adaptive planning</strong> often seen in decision theory, where long-term success depends on continuously refining short-term tactics.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e5-a449-e9489edf33ad" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80fb-99d6-da44d8e69e6c" class=""> Each sprint generated new insights, creating a feedback loop that allowed us to continuously refine both the product and the process. The accelerated iteration wasn’t just about speed; it was about the <strong>velocity of learning</strong>. Each sprint provided critical data, refining both the product and the process. This approach can be applied across industries: it&#x27;s about creating a system where feedback is continuous, actions are decisive, and outcomes are measurable.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8098-bf4b-f8e8157c8318" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8086-bb4d-df6d55277ce5" class="">In retrospect, the execution of this roadmap was akin to orchestrating a finely-tuned <strong>complex adaptive system</strong>. Each part of the system—frontend, backend, DevOps—functioned autonomously, yet interdependently, driven by a shared goal. The result was a faster, more agile development process, with high-impact results that resonated both in the short and long term.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ec-9043-c577570b9899" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-809e-af2e-c7297268b8fe" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">v1</summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807f-884e-f36917056058" class="">
+</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Mission Objective</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-806c-921f-de84ed09b8e1" class="">With Dexible, our goal was to build the industry&#x27;s leading institutional-grade DeFi DEX aggregator. Our goal was to bring DeFi trading into the forefront and make it accessible to institutions that seriously wanted to push volume. See, the main challenge was there was really no way to mitigate risk when trading billions of dollars on chain. Hedge funds wanted to pursue opportunities off major exchanges. It wasn’t merely about trading options, futures, and perps on centralized exchanges like Deribit, Bybit, Binance, and such, it was about deploying funds into DeFi where they could run simultaneous yield, lending/borrowing, staking/farming, and multiple trading strategies (see <a href="https://www.nansen.ai/guides/best-yield-farming-strategies-a-farmers-guide">Nansen, 2023</a> and <a href="https://www.antiersolutions.com/staking-strategies-for-entrepreneurs-unlocking-maximum-returns-in-the-defi-ecosystem/">Antier</a>). They’d do this to complement their centralized portfolio. However, there were so many risks and extra hurdles in playing in this world.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80a6-b598-d238ee6e1be8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80a6-ba05-d02cc392421b" class="">The only risk mitigation strategy they had was to hire a dedicated team of backend engineers, quantitative developers, analysts, and traders. There were significant upfront costs to have something of like an automated and protected trading portfolio.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c2-a411-c7571df3228e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800b-ba96-c45e7fe46a93" class="">So for our team, building an institutional-grade DeFi DEX trading platform, the challenge was not only institutional-grade security and execution, it was also an architectural nightmare. To attack this, we needed a <strong>comprehensive product roadmap</strong> that integrated diverse product systems across frontend, backend, DevOps, infrastructure, and smart contract development. Each layer had distinct demands, yet had to function as a cohesive unit and interconnected with one another at multiple choke points that could significantly delay product releases and testing.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8014-8c77-dffccbfa0d95" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8069-b212-ffda9116ca8b" class="">
+</p></div></div></details></div></div></details></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-8091-8976-cc6dd3b7c579"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Where We Started</summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8046-bddc-c0a947d006b8" class="">So after we secured our pre-seed round in Q2 2021, our team set about seriously delving into  creating a cohesive roadmap that could bring together all our teams across frontend, backend, DevOps, infrastructure, and Web 3.0. To run this roadmap, we needed to consider our successive versioning ahead of time prior to us rolling out our technical upgrades to the platform. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8064-9794-e3fa4a7e42d4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-802a-9df8-da18f7e60610" class="">Dexible was pushing an extraordinarily ambitious vision. Up to that point, no one had attempted conditional on-chain execution for DeFi trading. Up until Dexible, the market was divided between decentralized exchanges (DEXs) and simple DEX aggregators. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807e-9722-c49e6e22feb9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80b1-ad01-e76d116e3837" class="">The major DEXs allowed participate in multi-sided markets which SushiSwap, Uniswap, Trader Joe. So traders could deposit one or more token into liquidity pools to supply liquidity and gain fees from volume. The economics of constant product market makers (CPMMs) and liquidity provisioning (aka “LPing” aka “staking”) are pretty sophisticated see: <a href="https://jfin-swufe.springeropen.com/articles/10.1186/s40854-021-00314-5">Mohan, 2022</a>. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808b-be12-d5c56cb38464" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8002-b648-ed09c43590c7" class="">The DEX aggregators ran quick queries across all these DEXs to determine the optimal routing for swapping. Two crucial challenges arose, particularly from price impact and slippage. Price impact refers to the effect a trade has on the asset&#x27;s price within a liquidity pool on a DEX, while slippage is the difference between the expected and actual execution price (<a href="https://www.bitget.com/academy/understanding-price-impact-and-price-slippage-in-defi">Bitget, 2023</a>). These factors are more pronounced in DEXs due to their reliance on automated market makers (AMMs) and liquidity pools, as opposed to the order book model used by CEXs (<a href="https://cointelegraph.com/news/dex-aggregators-the-ultimate-solution-to-reduce-price-slippage-in-defi">Cointelegraph, 2023</a>). DEX aggregators aim to mitigate these issues by splitting orders across multiple DEXs and routing trades through the most efficient paths<a href="https://www.autowhale.io/post/crypto-liquidity-trading-and-market-making-on-cex-vs-dex-in-depth-guide-overview">5</a>. This optimization is crucial because DEXs often suffer from lower liquidity and higher volatility compared to CEXs, making large trades particularly susceptible to unfavorable price movements. By leveraging multiple liquidity sources and employing sophisticated algorithms, DEX aggregators allow traders to reduce negative price impact, minimize slippage, and ultimately better execution prices and lower transaction costs. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f3-bd43-e23928adef9e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e5-a464-c673fea69c75" class="">Up to that point, there were two other aggregators, primarily 1inch and 0x’s Matcha. Routing complexity is unique to DEXs because of their decentralized nature and the need to navigate multiple, fragmented liquidity pools across various platforms. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c9-aa93-dcf81eb398d8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8031-8610-ef2b4ad3158e" class="">Adding to the complexity, it was clear that the multi-chain world was inevitable, however, we were only just in the beginning stages of that. The cross-chain bridges at the time were painfully slow, prone to errors, and experienced multiple exploits. These bridges would later facilitate a greater degree of ease of capital flows and ease to sourcing liquidity for more sophisticated cross-chain operations, however, the design for Dexible had to be isolated to each chain’s own available liquidity, which varied dramatically.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8094-ac0a-fee4bd63a5d7" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-8078-87ef-c71821680611"/></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">The Vision</summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bd-bddc-ca1b7f5926fb" class="">My co-founders and I brainstormed what the future of DEX design would entail.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d7-8aa6-dee2c4436397" class="">And in doing this we realized that the future would just be in accelerated automation, in more financial control across the entire pipeline, from setting trades to setting conditions by which trades would execute and also be cancelled. And so a lot of what we were working on was progressive levels of complexity and introducing new features.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8079-a16d-cdeece4d862a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8092-98d6-fcc3c038596d" class="">We had to start with more basic conditional executions, but also the ability for users to be able to visualize what the potential drawbacks from those orders were. And so a significant amount of what we were doing was performing... estimations based on our queries.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8024-9a87-f142ad542bf9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bd-9afe-ffd9eda39021" class="">So not only would you see your potential price impact and slippage and the outcome of your trades, you could Compare those outcomes of trades across different orders and if you put in an order you would see the order details in the blotter. So each one of these had to be decomposed across what we were expecting and what we knew the trader would need on the front end just to be able to set these trades with a level of confidence that one would need.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8063-a8f3-f1f4c9ae042e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d4-85fa-f7086343df25" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bf-b349-f3a4e3226e28" class="">And the other thing that makes this challenge so difficult is that you have to grant... spending authority essentially to a third-party wallet, the Dexable wallet in this case. Which was just something that a lot of traders also struggled with. However, it was necessary to the automated design of the platform.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80fe-b455-ed13fffdaafa" class="">See, most of these other Automated Products that would later evolve take custody of your assets in the meantime Which doesn&#x27;t allow you to? put that money to use elsewhere. And it makes sense, right? Like an on-chain product needs to have access to a wallet balance in order to execute a trade or any sort of transaction.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8026-b876-e82940257a67" class="">However, Dex will have the unique design of being able to not only allow you to hold on to your asset until the time of execution, It also enabled multiple orders to be broken up through what we called segmented orders.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8080-bdfe-dacbae034b72" class="">This served as a dollar-cost averaging of sorts into the desired liquidity position.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800c-8005-fc2b983811a9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d4-a1f2-c8eb59b13cfa" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80df-814b-ca15157effa6" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-8089-8ff7-fd2645872d6c"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-80e8-b7b6-cbcc5b6712be" class=""><strong>Strategic Plan</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-804d-a7fe-f8c30e5205b7" class="">Serving as cofounder and technical product manager, I needed to manage competing priorities across teams.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80fa-89ca-da32d53d933e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8029-b32e-c2ea91796c83" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8074-b7f4-e6bef8f5990e" class="">Viewing each sprint as a set of iterative &quot;moves,&quot; I aligned the team’s efforts so that each unit&#x27;s contribution reinforced the system&#x27;s overall progress. The year-long roadmap was structured around <strong>key performance indicators (KPIs)</strong>, divided quarterly, ensuring both strategic milestones and operational flexibility. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e3-9670-f1ac4988a0f3" class="">Essentially we were reverse engineering what we knew we would need in order to demonstrate traction for subsequent rounds of fundraising.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8062-88ba-ffb19fde5479" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e5-8b91-ea032400412a" class="">This challenge mirrors a <strong>dynamic optimization problem</strong>: how to balance multiple constraints (time, resources, complexity) while maximizing output. My solution required orchestrating these systems through a strategy of <strong>agile iteration cycles</strong>. The core hypothesis was simple: by breaking down large-scale development into <strong>2-week sprints, and also divided by team</strong>, we could create a feedback loop that would lead to faster iterations and proactive resolution to enable testing on the frontend.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80b7-a9f7-d3ab46e0cb1a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80be-94fd-fd12bc504324" class="">Central to this approach was the <strong>theory of constraints</strong>. By identifying bottlenecks in the development cycle—whether from data limitations, the need for complex state analysis, infrastructural optimization for on-chain calls, or the contracts we needed to run on testnet, we could resolve immediate limitations first. We did so through identifying where crucial areas for resource limitations, infrastructure capacity, or technical debt might evolve from to define these limitations. It was a bit of a complex thought exercise to proactively think ahead in terms of the architecture and work backwards, but my emphasis on in person team intensives strengthened our ability to coordinate and maximize throughput and reduce cycle times.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807c-bbb3-fcc97be76a49" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-809a-9913-e7c60252250e" class="">Strategically, I translated what my cofounders and team leads suggested and prioritized issues that would provide 80% of the impact from 20% of the efforts. It was a more evolved form of progressive MVPing, which I refer to as Pareto efficiencies. Thus in designing the cohesive product roadmap, I consistently focused on the highest-impact features and improvements, especially those aligned with increasing customer satisfaction and scaling backend performance.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8097-8dbb-c8ec6f083098" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80dc-8bd9-e605dbe7e71d"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8078-af4b-fdb80df70616" class=""><strong>Tactical Execution</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8090-873b-cd332aab677c" class="">From the outset, it was clear that delivering a fast, scalable, and reliable product would require a solid technical foundation—one that could handle rapid iteration and support institutional-grade users. As cofounder and Head of Product, I worked closely with my cofounders, the VP of Engineering and CTO, to ensure that every piece of infrastructure and process aligned with our long-term vision. My role was to drive this strategy forward, ensuring that each component worked seamlessly together and that our development and deployment cycles operated at maximum efficiency.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800c-aefe-c53ecd8178da" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8006-bcb2-e1bfbeff2c4c" class="">The tactical deployment revolved around our <strong>2-week sprint cycles</strong>, each planned and executed with precision. These sprints functioned like <strong>iterative market experiments</strong>, where each release cycle provided new data, which informed subsequent development decisions.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8033-9953-e88a17192c82" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8096-90bd-e20787e7cfda" class="">Together with the VP of Engineering, we decided to implement <strong>Jenkins</strong> as the backbone of our <strong>continuous integration/continuous deployment (CI/CD)</strong> pipeline. This choice was critical to ensuring our 2-week sprint cycles could result in smooth, automated deployments. I collaborated with him on configuring Jenkins to run an extensive battery of automated tests at every commit. For API testing, we used <strong>Postman</strong> to ensure our services communicated seamlessly. On the frontend, we deployed <strong>Selenium</strong> for end-to-end testing, ensuring the user experience was always polished and functional. For backend unit testing, we opted for <strong>Mocha</strong> and <strong>Chai</strong> as our testing framework and assertion library, which allowed us to build clean, scalable test cases for our Node.js-based backend.  My role was to ensure these tests were prioritized around the most impactful areas of the product roadmap, focusing on high-risk, high-reward features first. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8066-8db7-cb95db68a71b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8028-8887-f84995380c1a" class="">To complement this, we containerized our testing environments using <strong>Docker</strong>, ensuring each build and test was executed in an isolated, production-like environment. By emphasizing <strong>containerization</strong>, isolated environments for each build ensured our testing environments mirrored production with surgical precision. This provided us with confidence that each new feature or bug fix would integrate smoothly without disrupting existing functionality. We decided to utilize <strong>Kubernetes</strong> for container orchestration, enabling the platform to scale dynamically with user demand. By also integrating <strong>Elasticsearch</strong>, we could monitor logs and system health in real time, identifying any bottlenecks or performance degradations. <strong>Grafana</strong> dashboards, which I helped design, provided us with actionable insights into system metrics, allowing us to adjust sprint priorities based on live feedback from the infrastructure. Grafana became our primary tool for visualizing system performance metrics—something I was deeply involved with, as it allowed us to track key performance indicators (KPIs) tied directly to the product roadmap. Through these dashboards, I could pinpoint inefficiencies or performance bottlenecks in real-time and adjust sprint priorities accordingly.’</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8018-9fc7-e16cfd133d81" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808f-a0c0-edd2fd6e7b51" class="">Key to Grafana was highlight our gas overage. Which would be a crucial design hurdle to achieving automated conditional execution—setting a transaction cost that reflects future, undetermined states.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8001-ad39-d404e71d9549" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803e-9cec-cec1572959fb" class="">In parallel, our CTO was leading the design of a scalable cloud architecture on AWS. I worked closely with him to ensure his work on <strong>Amazon EKS</strong> (Elastic Kubernetes Service) integrated smoothly with the VP of Engineering&#x27;s Kubernetes deployment. The goal was to achieve a fully automated infrastructure that could self-scale based on user demand, and <strong>EKS</strong> was the linchpin in that plan. The CTO utilized <strong>CloudFormation</strong> to manage our infrastructure as code, a strategy that allowed us to easily replicate environments, whether for testing, staging, or production.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8092-a099-c86c3281f180" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803e-aa4e-c3512d480320" class="">We also implemented <strong>Amazon RDS</strong> for our databases, which were configured with <strong>multi-AZ (Availability Zone) support</strong> to provide redundancy and ensure high availability. Working with the CTO, I helped define the scaling triggers based on <strong>RDS performance metrics</strong>, ensuring that our database infrastructure could grow in lockstep with our application without creating bottlenecks.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8056-ba07-e7298e15d06d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808d-8c75-ff2739aa8cf6" class="">By aligning these efforts—on the one hand, our automated CI/CD pipeline and real-time monitoring, and on the other, the scalable cloud architecture—we created a development environment that could handle rapid iteration with minimal downtime. My role was to constantly ensure both sides communicated effectively and that all components—testing, containerization, cloud scaling—were advancing in unison with the strategic goals outlined in our product roadmap. This alignment enabled us to <strong>accelerate our iteration cycle by 35%</strong> and deliver a more reliable, user-focused platform that could scale with ease.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800c-9c43-f066d550ee90" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8005-99de-d1d8ef40f238" class="">How we did it here… How did we achieve this? Through Automated testing suites and deployment pipelines reduced the margin for human error, cutting deployment times by 50%. This created a <strong>Markov chain process</strong>, where each successful deployment directly informed the probabilities of future success, reducing the overall risk of failure with each iteration.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bf-b65e-dabe3bb6c40d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8009-b1a1-ddc9f15ad43d" class="">Leveraging <strong>microservice architecture</strong> and <strong>distributed systems</strong>, we increased backend efficiency, ensuring the platform could handle institutional-level traffic without degradation. <strong>Load balancing algorithms</strong> and predictive capacity modeling allowed us to preemptively address scalability challenges. These backend optimizations resulted in a 40% reduction in latency and a 99.9% uptime, increasing overall system reliability.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8041-a04d-f170ecb27ab7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8092-9966-f66803a208b2" class="">One of our key challenges was managing <strong>on-chain state</strong> within our Solidity-based smart contracts while ensuring it synced efficiently with our off-chain infrastructure. For this, I worked closely with both the Web 3.0 and backend teams to establish a <strong>bidirectional flow of data</strong> between the blockchain and our backend services. Our <strong>Solidity smart contracts</strong> governed core financial operations such as asset swaps, liquidity pooling, and fee distribution, all of which needed to be reflected in real time within the backend. Using <strong>web3.js</strong> in conjunction with our <strong>Node.js</strong> services, we created a reliable communication layer that listened for on-chain events and triggered corresponding updates to our off-chain state. This architecture enabled us to track transaction states, liquidity changes, and user balances with precision, ensuring consistency across decentralized and centralized components.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c0-b685-f6a6333a7da3" class="">The backend architecture itself was a critical part of this success. Given the dynamic nature of blockchain data, we employed <strong>Amazon DynamoDB</strong> for its flexibility and ability to handle <strong>NoSQL data models</strong>. DynamoDB allowed us to store off-chain data such as transaction metadata, user profiles, and session states, while ensuring fast retrieval and scalability. For more structured, relational data—particularly where transaction history and financial metrics were concerned—we integrated <strong>Amazon Aurora (RDS)</strong>, which provided the relational capabilities we needed with high availability and automated scaling across multiple Availability Zones (AZs). I worked directly with the backend team to optimize queries, ensuring minimal latency in database calls that needed to synchronize with on-chain data.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8022-bf0b-fdb8a84047d0" class="">Meanwhile, our CTO focused on orchestrating the cloud infrastructure using <strong>Amazon EKS (Elastic Kubernetes Service)</strong>. By deploying our backend microservices within EKS-managed <strong>Kubernetes clusters</strong>, we achieved elastic scalability, allowing us to automatically handle traffic spikes during high-volume trading periods. This cloud-native architecture was critical for managing the unpredictable nature of transaction loads in DeFi, ensuring that our infrastructure could expand or contract based on real-time demand. The backend itself communicated seamlessly with AWS services using the <strong>AWS SDK for Node.js</strong>, allowing us to integrate with RDS, DynamoDB, and <strong>S3</strong> for off-chain file storage.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8096-8280-cc268ea1725d" class="">On the frontend, we aimed for a seamless user experience, building it in <strong>Next.js</strong> with <strong>TypeScript</strong> for type safety and scalability. The frontend needed to interface directly with our backend APIs, while also interacting with on-chain data via <strong>MetaMask</strong> and other wallet integrations. We designed the frontend to dynamically reflect changes in on-chain state, using <strong>websockets</strong> and <strong>GraphQL</strong> to pull real-time updates from the backend and from the blockchain. This integration allowed users to see their balance changes, transaction histories, and liquidity positions in real time, providing a smooth and responsive interface despite the complexity of the underlying technology.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8008-b9e3-d9ba06c1eb3c" class="">The interplay between <strong>Next.js</strong> and <strong>Node.js</strong> was critical to creating an efficient communication bridge between the frontend and backend. I worked with both teams to establish <strong>RESTful API endpoints</strong> in our Node.js backend that allowed the frontend to request on-chain data, submit transactions, and manage user sessions. At the same time, the frontend&#x27;s <strong>TypeScript</strong> integration allowed us to catch errors early in development and maintain a consistent codebase as we iterated rapidly during our 2-week sprint cycles.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80af-9527-fb441e0da8e8" class="">Additionally, we implemented <strong>distributed caching layers</strong> using <strong>Amazon ElastiCache (Redis)</strong>, ensuring that frequently accessed data—such as liquidity pool stats, transaction histories, and user profiles—could be retrieved in milliseconds, minimizing the load on both the blockchain and the backend databases. This caching strategy enabled us to significantly reduce response times and handle a growing user base without impacting performance.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8069-b364-e27d66004086" class="">In practice, my role was to ensure that all these pieces fit together in a way that could scale and adapt to the evolving needs of the platform. By coordinating the efforts of our Web 3.0 developers, backend engineers, and frontend team, I was able to ensure that our <strong>Solidity smart contracts</strong> interfaced smoothly with our <strong>Node.js backend</strong>, and that our <strong>Next.js frontend</strong> could pull data from both blockchain and backend services in real time. The result was a fully integrated system capable of handling the high demands of DeFi, with <strong>35% faster iteration cycles</strong> and a <strong>30% improvement in user satisfaction</strong> due to the streamlined experience we delivered.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-806f-9049-c6150fe4f146" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c2-9bc1-d57f7db28ee8" class="">As the complexity of our platform grew, especially with the need to manage both off-chain and on-chain data flows in real-time, Redux began to introduce unnecessary overhead. Its boilerplate-heavy structure and centralized store became cumbersome, slowing down development during our rapid 2-week sprint cycles. We needed a more scalable, flexible solution that could adapt to the dynamic nature of our DeFi platform.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bd-b1d8-ea78cace14fb" class="">React’s <strong>Context API</strong> offered a streamlined alternative, allowing us to manage global state more efficiently without the need for extensive setup. The transition allowed our team to simplify state management by encapsulating state logic within specific components, reducing reliance on external libraries. In combination with <strong>React hooks</strong>, we were able to manage side effects and asynchronous data fetching more elegantly. This change was particularly valuable when integrating real-time blockchain data, as it allowed us to structure the flow of data from on-chain events to the frontend in a way that was more intuitive and modular. The use of the Context API not only reduced complexity but also improved performance, enabling the frontend to render changes more responsively as data from both the blockchain and backend flowed through our GraphQL and REST APIs. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e7-af42-da0abd5d29b6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-804d-8abf-e590a108c8b7" class=""><br/>Lastly, as upgrades were rolled out, we created alternative <strong>A/B testing</strong> and <strong>customer behavior analytics</strong> to rapidly refine the interface. By integrating real-time data from usage patterns, we were able to deploy UX improvements that increased customer satisfaction scores by 30%, aligning with <strong>behavioral economics principles</strong>—optimizing the user experience based on observed, rather than assumed, preferences.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80bb-ae80-e834d5608e19" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8097-a411-e0d8c0d3fc1e" class="">This transition positioned our frontend team to iterate faster and scale features more easily, directly contributing to the <strong>30% improvement in user satisfaction</strong> we achieved.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c0-9f2a-e744eceab26e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800d-97f3-e9fc4ae23ce4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d0-b599-faa9994e1cd0" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-801e-a7ed-e0a7fafb9f1f"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8032-822f-e9aeb7645b61" class=""><strong>Victory Conditions</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8000-b1f1-c34de2e4b88e" class="">Through disciplined sprint execution and continuous iteration, the results were both measurable and strategically significant:</p></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-8054-b272-eb7bf5ee5d79" class="bulleted-list"><li style="list-style-type:disc"><strong>35% faster iteration cycle</strong>: By breaking down development into smaller, more frequent releases, we were able to cut overall iteration times by more than a third. This created a <strong>positive feedback loop</strong>, where each sprint built on the insights of the previous, accelerating our time-to-market and allowing us to outmaneuver competitors.</li></ul></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-8059-86a9-c838d2456f07" class="bulleted-list"><li style="list-style-type:disc"><strong>30% improvement in customer satisfaction</strong>: Faster iteration cycles meant that customer feedback could be incorporated more quickly, improving the platform in real-time. The <strong>network effects</strong> generated by more satisfied users also led to a 50% increase in daily active users.</li></ul></div><div style="display:contents" dir="auto"><ul id="116c2183-4a1d-80fd-ac1c-d9a6455020a1" class="bulleted-list"><li style="list-style-type:disc"><strong>Scalability for institutional use</strong>: The platform’s backend, through <strong>horizontal scaling</strong> and optimized database architecture, was able to support rapid user growth without performance degradation. This infrastructure allowed us to onboard larger institutional clients, securing our position in the competitive DeFi ecosystem.</li></ul></div><div style="display:contents" dir="auto"><hr id="116c2183-4a1d-80af-9657-d1090c2fe08a"/></div><div style="display:contents" dir="auto"><h3 id="116c2183-4a1d-8004-a0b8-f852eeed012b" class=""><strong>Post-Mission Analysis</strong></h3></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8031-b657-c0b0c2b77bd7" class="">The success of this product roadmap lies in the balance between <strong>rigidity and flexibility</strong>—a strategic paradox. The year-long plan provided a clear direction, yet the 2-week sprints allowed for continuous adjustments based on real-time data and market shifts. This mirrors the concept of <strong>adaptive planning</strong> often seen in decision theory, where long-term success depends on continuously refining short-term tactics.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80a1-9c48-e41fb4109bca" class="">The accelerated iteration cycle wasn’t just about speed; it was about the <strong>velocity of learning</strong>. Each sprint provided critical data, refining both the product and the process. This approach can be applied across industries: it&#x27;s about creating a system where feedback is continuous, actions are decisive, and outcomes are measurable.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8013-9ed6-e6a551095a7c" class="">In retrospect, the execution of this roadmap was akin to orchestrating a finely-tuned <strong>complex adaptive system</strong>. Each part of the system—frontend, backend, DevOps—functioned autonomously, yet interdependently, driven by a shared goal. The result was a faster, more agile development process, with high-impact results that resonated both in the short and long term.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

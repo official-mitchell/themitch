@@ -1,0 +1,759 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Spearheading Hedge Fund Sales</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="21fb70db-88fa-4104-9310-0dd37d420241" class="page sans"><header><h1 class="page-title" dir="auto">Spearheading Hedge Fund Sales</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Project</th><td>Dexible</td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><td><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>Needs Revisions</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Subtitle</th><td>How I acquired 15 hedge funds and generated $500m in volume.</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Summary</th><td>Spearheaded sales strategy<br/>to acquire 15 hedge funds customers within the first year, generating $500m in trade volume.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8026-891c-c4199a5f92e8" class="">Titus • themitch case study | Developing a Year Long Product Roadmap</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8090-b893-c040474dd6ea" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80db-a692-edf430b86135" class="">
+</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">v1</summary><div class="indented"><div style="display:contents" dir="auto"><p id="117c2183-4a1d-801c-8a32-e031d03b5a63" class="">
+</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Achievements</summary><div class="indented"><div style="display:contents" dir="auto"><p id="117c2183-4a1d-80c5-ac04-d89c7342c339" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-80fa-b212-faba72ddd06e" class="bulleted-list"><li style="list-style-type:disc">Acquired 20<strong> hedge fund clients</strong> and generating over <strong>$500 million in trade volume</strong>. But this victory was not without its hard lessons. </li></ul></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-80b8-9c71-edacb654e21a" class="bulleted-list"><li style="list-style-type:disc"><strong>23% increase in qualified meetings</strong> through a customized Pipedrive pipeline.</li></ul></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-8007-baa6-cfa6a6ef40b9" class="bulleted-list"><li style="list-style-type:disc"><strong>14% improvement in deal closure time</strong> from pipeline automation.</li></ul></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-80af-903a-cd42826ba0d4" class="bulleted-list"><li style="list-style-type:disc"><strong>32% higher close rate</strong> when internal champions were cultivated through value demonstration.</li></ul></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-8069-98e8-c77dd1a2b4a8" class="bulleted-list"><li style="list-style-type:disc"><strong>35% improvement in lead qualification</strong>, leading to better targeting of DeFi-focused hedge funds.</li></ul></div><div style="display:contents" dir="auto"><ul id="117c2183-4a1d-8026-9b80-c829d2a6a7e8" class="bulleted-list"><li style="list-style-type:disc"><strong>15% improvement</strong> <strong>in overall close rate</strong> from our time savings where we could devote more resources to demo improvement and custom pitches.</li></ul></div><div style="display:contents" dir="auto"><p id="117c2183-4a1d-8004-a72b-cb529b73c17f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="117c2183-4a1d-8097-b6db-c31295034bdf" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>The Identity Crisis: to B2B or to B2C?</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8039-a2ec-e85b25f5e505" class="">Every campaign begins with a question of direction. For <strong>Dexible</strong>, it was a question of identity: were we building a platform to empower retail traders (B2C), or were we setting our sights on hedge funds and institutions (B2B)? </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f0-bf1e-d213a61656d1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e3-ad63-eeba1745fcfc" class="">The answer and our perspectives were significantly complicated by the fact our Lead Investor and our two other major investors in the pre-seed round were all hedge funds who wanted to deploy the product for their own use cases. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8087-b3a3-e1a790530c46" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803f-b119-dc8e1f047ca7" class="">The temptation to straddle both markets loomed large, but that path leads only to diluted focus and half-measures. Hedging our bets would lead to significantly divided development priorities.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-801b-adbe-c3a06e716eb1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803b-bf21-d259c7289662" class="">This wasn’t easy—hedge funds rarely trust external solutions. I had to get inside their heads, making them see how Dexible wouldn’t just add value, but multiply it in ways their internal devs and quants couldn&#x27;t compete with.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8021-bbd8-d2be541e6578" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Going B2B</summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80cd-ae2f-db0f3173e0de" class="">We heavily prioritized features and developments for the juggernauts of the DeFi world. This decision was both strategic and surgical—B2B clients, particularly hedge funds, demand tailored solutions, not off-the-shelf products. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80b2-af9d-e018628622ef" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8026-89e2-dc4f83d8ca77" class="">They don’t merely utilize services; they want to enter into an alliance—or seize vassals. To win their trust, <strong>we had to become indispensable</strong>—we needed to be the tool they couldn’t build themselves. This required framing Dexible as the answer to complex challenges that would demand significant investment. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8066-a317-fb19ad5fee69" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-805b-b942-d96fbf5f0439" class="">We had to outcompete their teams to answer the <strong>build vs. buy dilemma</strong>. They needed to see our technology as not only superior but faster, more innovative, while being secure and cost-effective versus their internal development.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8077-8e9e-d71f9010fcb2" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-801d-b2b8-f568def1c61b" class="">The first battle was in our <strong>positioning</strong>—I led the charge in shifting our messaging and product strategy to show hedge funds that <strong>we weren’t a threat</strong> to their autonomy, but a force multiplier for their operational efficiency. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803a-85d8-d880452be2a6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ab-aa6e-cac93a6ccebd" class="">This required positioning Dexible not just as another DeFi protocol, but as <strong>an integral, customizable engine for trade execution</strong> that these hedge funds could integrate deeply into their own systems. I knew this battle would be won by speaking the language of efficiency and security.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8075-91ed-f844c08b97d6" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Engineering Trust</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8007-a37e-cff0206f0726" class="">With our identity as a B2B solution clear, the next front was <strong>security</strong>. For crypto hedge funds, this is non-negotiable. Each institution I engaged with had their own fortress walls—penetrating them would require more than just promises. We had to demonstrate, with both code and architecture, that <strong>Dexible could be trusted in the most hostile environments</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8034-af5b-d75c221a7739" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f0-82f8-c0fa96787efd" class="">I worked directly between champions from our prospective clients (often the traders, or technically competent trader), and our backend team, guiding the development of a <strong>Node.js and Python-based API</strong>. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ea-b471-d264d605faae" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8036-9c9a-c46a2f85a51e" class="">The first line of defense we established was <strong>real-time audit logging and forensic monitoring</strong>, a system designed to give hedge funds visibility into every corner of our platform. Our potential clients needed to see every action performed within Dexible, from API calls to user interactions, with the granularity that would allow them to audit past actions and trace every change to its origin.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8074-a2fc-e5c74ad22161" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c5-a3c3-d8f1a3ed35c5" class="">We deployed <strong>granular, immutable logs</strong> that tracked all system activities—<strong>successful and failed API calls</strong>, data requests, and backend processes. Hedge funds could conduct their own <strong>forensic audits</strong>, combing through detailed logs to identify and address potential anomalies. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d2-be24-fd1ede123188" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80df-8188-da900dc081fa" class="">Further, no hedge fund would trust us with sensitive data—stating their intentions prior to moving funds, the relationship between their wallets, algorithmic strategies, and cohesive portfolios—without a <strong>fortified encryption standard</strong>. We implemented <strong>end-to-end encryption</strong>, ensuring that every bit of data, whether <strong>in transit</strong> across networks or <strong>at rest</strong> within our servers, was locked behind layers of encryption.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80c4-9bb5-fabbffd1f7c1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8002-927a-de89745a8e10" class="">We employed <strong>AES-256 encryption</strong> for all data at rest, a protocol trusted by the military and financial institutions alike. And for data in transit—especially through our APIs—we utilized <strong>TLS encryption</strong>, ensuring no interception or tampering could occur during data exchange. Every encryption key was handled with <strong>multi-tiered security controls</strong>, routinely refreshed through automated processes to further protect against long-term vulnerabilities.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8097-b0d1-c3d31283669f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f6-8154-d47a4adc886a" class="">Hedge funds are intricate, hierarchical organizations where not everyone can be trusted with equal access. To satisfy their need for strict internal control, we built an <strong>RBAC system</strong> that defined and enforced access permissions across every layer of the platform. <strong>Every user’s access</strong>—from junior analysts to senior portfolio managers—was strictly governed by their role.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8083-a969-ffca8d30bd79" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8003-88fb-fd1e92513b5b" class="">I pushed for a <strong>permissions auditing feature</strong> that allowed hedge funds to conduct regular reviews of who had access to what, ensuring no privileges were misappropriated over time. Additionally, we implemented <strong>time-based access reviews</strong>—periodic checks that automatically reviewed and adjusted wallet sign on permissions. This helped to mitigate <strong>permission drift</strong>, where a computer signed into a hedge fund’s wallet would unintentionally become exposed to a hostile actor who could drain and transfer their funds.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-808c-a02f-ff174c70bf6a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80d4-94a7-e1d515f2d36f" class="">Hedge funds, being risk-averse by nature, demanded assurances that in the event of a catastrophe—whether a breach or an operational failure—<strong>Dexible</strong> could recover <strong>instantly</strong>, and with no loss of data integrity. Our answer was a <strong>disaster recovery protocol</strong> that included <strong>instant failover systems</strong> and <strong>real-time backups</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-804e-a725-dda08d31dc16" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8004-9e56-de9c6a110c8a" class="">We set up <strong>geographically distributed backup servers</strong> that mirrored Dexible’s data in real time, ensuring that if one region went down, trading operations could continue from another location without interruption. We also conducted regular <strong>integrity checks</strong> on our backups to guarantee that, in the event of an incident, the system could be restored to its last known good state in seconds, preserving both the client’s operations and their confidence in our reliability.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f3-b76c-fc9a3456c01d" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>The Strategic Edge Paradox</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-802e-9ec3-cf5c16e093df" class="">Ironically, one of our greatest assets turned into a tactical challenge. Dexible’s strength was in its ability to provide institutional clients with a <strong>strategic edge</strong> in DeFi trading, but that very edge created hesitancy. Hedge funds are fiercely competitive by nature. They didn’t want to adopt a product that could potentially offer the same advantage to their competitors.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-806f-8a92-f55c38063677" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8046-ba52-cc67c4258e5f" class="">Pitching Dexible wasn’t merely pitching the future of DeFi trading—it was about reshaping their worldview about how trading products would fit into their stack. I had to show them that Dexible was the key to unlocking new efficiencies, not a threat to their dominance.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8027-96d6-e52fb7de85c3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8007-afb5-db3e35a46d1c" class="">I had to carefully tow a line between competition and collaboration. I reframed the conversation to highlight that while Dexible leveled the playing field in terms of access to cutting-edge DeFi tools, <strong>it was the way each hedge fund wielded those tools that would define their success</strong>. I used analogies of modern warfare—having the same weaponry didn’t make armies equal; it was how they deployed them that defined victory.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f5-a95a-d29a47ea6b57" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8020-adc2-d88bfe5664b9" class="">To reinforce this point, I conducted <strong>deep dive workshops</strong> with each fund’s traders and quants, helping them uncover how to <strong>customize Dexible’s features</strong> to fit their unique strategies. This was a way to show that while Dexible gave them a common toolkit, each client could still maintain a proprietary edge through customization.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800b-a143-c9fb2454f971" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Forging the Pipeline: Building a Sales Machine</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80be-b63c-f97e1bc4f188" class="">As the complexity of our client base grew, I knew that relying on ad-hoc processes would be our downfall. <strong>Sales needed to scale</strong>, but not at the cost of losing the personal touch required for these high-value clients. </p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803e-bf68-db95d6ae044c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-801c-9a27-d104e3721581" class="">I got the team to agree to hiring a <strong>Director of Sales</strong>, a trusted and experienced sales leader with whom I could build a scalable pipeline. With the new Director of Sales, we used <strong>Pipedrive</strong> to track and score our leads.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8085-b858-d3c4f66627af" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80b3-9305-cc718c7769ba" class="">Together, we built a <strong>segmented sales pipeline</strong>, designed to filter leads at every stage based on their engagement level, integration readiness, and trading volume potential. I introduced a scoring model that weighted clients based on <strong>factors such as DeFi volume, assets under management (AUM), trading style, team structure, potential competitiveness, and ease of decision-making speed</strong>. This allowed us to prioritize high-value targets and focus resources where they would have the greatest impact.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8043-9f8b-e43fe2e1dbe0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ce-a34d-d12996255ab5" class="">To improve pipeline visibility, we implemented <strong>automated reporting dashboards</strong> within Pipedrive that gave the sales team instant insights into client progression. This enabled real-time adjustments to our approach, and within three months, we saw a <strong>23% increase in qualified meetings</strong> and a <strong>14% improvement in closing time</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8021-811b-d43035cb68ad" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Winning Over Internal Champions</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8046-92de-cadf5d680d39" class="">Selling to hedge funds required navigating complex organizational structures, often filled with gatekeepers and mid-level traders who had little say in final decisions but controlled vital data and workflows. These end-users would become my foothold within each organization. But getting to the decision-makers at the top—the portfolio managers or the head of trading—was the true objective.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8001-978b-ea32a23e12eb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80a2-a520-fdd2c7f700c4" class="">Here, my approach was <strong>relationship-building through value demonstration</strong>. I spearheaded the design of <strong>customized demo environments</strong> for each hedge fund’s technical and trading teams, showing exactly how Dexible could solve their pain points. I empowered internal champions to expose them to how Dexible could solve their immediate challenges, and I <strong>armed them</strong> to sell it internally on my behalf.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8063-8c3c-ea131eb70b16" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8033-b2d8-cbb4796115d5" class="">Once the decision-makers were at the table, we had a strategic advantage—<strong>a 32% higher close rate</strong> when internal champions had already experienced Dexible firsthand, versus cold executive outreach alone.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8020-ae9b-ee12545ce019" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Sorting DeFi vs. CeFi Clients</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8082-bb8a-c296324586ad" class="">Not all hedge funds were ideal targets. While some were fully embedded in the world of <strong>DeFi</strong>, others were still tethered to <strong>CeFi</strong>. The challenge here was <strong>sifting through</strong> the noise and finding the funds that aligned with Dexible’s strengths. This was very difficult and time consuming—as no data source exposed the strategies these funds were trading.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80e5-90a7-f183be28afd1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80f6-8bbb-c85ca545459b" class="">Time was our most limited resource, and I wasn’t about to waste it on clients who didn’t see the value of DeFi.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8091-8976-de9af50b80de" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8082-9e6a-e74aaefe707f" class="">I worked with Dexible’s engineers to develop a <strong>scoring algorithm</strong> for potential clients based on their <strong>DeFi investments, Twitter feeds, </strong>and what their <strong>traders were writing about</strong>. This filtered out low-probability clients early on, allowing us to focus our efforts on funds where we had the highest potential for deep, sustained engagement. This <strong>automated lead scoring</strong> increased our qualified lead-to-meeting ratio by 35%, and our overall close rate by 15<strong>%</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-807b-8636-fb66f7c7f743" class="">
+</p></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Outcomes and Key Learnings</strong></summary><div class="indented"><div style="display:contents" dir="auto"><p id="116c2183-4a1d-800f-8a70-c6c950898b41" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80ae-ae60-e277ee5779ee" class="">Along the way, I learned the importance of precision—both in terms of <strong>technical execution</strong> and <strong>strategic decision-making</strong>. The key to our success lay in our ability to <strong>engineer trust </strong>and automate client filtering.</p></div><div style="display:contents" dir="auto"><p id="117c2183-4a1d-8028-9d29-eb437a9ef142" class="">
+</p></div><div style="display:contents" dir="auto"><p id="117c2183-4a1d-802e-8f01-f2a28824a76e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-809b-8ba3-de67fab026c7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8035-a27d-cdd5f725ad28" class="">In retrospect, during our course of building Dexible, I don’t think our team really ever answered the question of B2B or B2C or B2B2C. And despite our better judgement, we went for straddling both. In hindsight, I would have led two parallel strategies: a B2C velvet rope retail marketing growth strategy and a B2B sales strategy. Down the road, I would’ve blended the two with an ABM B2B2C strategy for direct platform integrations. But hindsight is 20:20, and I’m proud with what the sales team accomplished.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-80de-a56b-e98e9af085a5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-806a-a8eb-c1bf5acd6aae" class="">My journey showed me that the key to closing large B2B clients lies not only in the <strong>strength of the product</strong> but in the <strong>strength of relationships and processes</strong>. I needed to play the role of both <strong>sales strategist</strong> and <strong>product leader</strong>.</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-8034-8ad4-f4fc467ead31" class="">
+</p></div><div style="display:contents" dir="auto"><p id="116c2183-4a1d-803c-ae9c-db89759ed430" class="">
+</p></div></div></details></div></div></details></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
