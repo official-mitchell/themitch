@@ -1,4 +1,4 @@
-import { getContentSlugs, getContentBySlug } from "@/lib/content";
+import { getContentSlugs, getContentBySlug, type ContentItem } from "@/lib/content";
 import { MDXRenderer } from "@/components/content/mdx-renderer";
 import { formatDate, calculateReadingTime } from "@/lib/utils";
 import Link from "next/link";
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
-  const caseStudy = getContentBySlug("case-studies", slug);
+  const caseStudy = getContentBySlug("case-studies", slug) as ContentItem;
 
   if (!caseStudy) {
     notFound();
