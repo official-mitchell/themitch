@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { FAQs } from "@/components/sections/faqs";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         >
           <Header />
           <main className="min-h-screen pt-20">{children}</main>
+          <FAQs />
           <Footer />
           <Analytics />
           <SpeedInsights />

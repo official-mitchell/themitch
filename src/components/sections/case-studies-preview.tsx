@@ -2,9 +2,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { ContentMeta } from "@/lib/content";
 import { CaseStudyCard } from "@/components/content/case-study-card";
+import { AnimatedBorderButton } from "@/components/ui/animated-border-button";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -76,6 +76,13 @@ export function CaseStudiesPreview({ caseStudies, totalCaseStudies }: CaseStudie
                 <CaseStudyCard caseStudy={caseStudy} />
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* View All Button */}
+          <motion.div className="text-center" variants={itemVariants}>
+            <AnimatedBorderButton href="/case-studies">
+              See All Case Studies
+            </AnimatedBorderButton>
           </motion.div>
         </motion.div>
       </div>

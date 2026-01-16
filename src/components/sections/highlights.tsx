@@ -90,10 +90,10 @@ export function Highlights() {
           </div>
 
           {/* Bottom Section Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Game Theory Card */}
             <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 md:p-8 lg:col-span-2 lg:row-span-2 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 md:p-8 row-span-2 lg:col-span-2 lg:row-span-2 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
               variants={itemVariants}
             >
               <h4 className="text-xl font-semibold text-white mb-3">

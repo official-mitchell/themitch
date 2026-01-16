@@ -76,7 +76,7 @@ export function SkillsMap() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -84,164 +84,164 @@ export function SkillsMap() {
         >
           {/* Row 1 */}
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[0].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[0].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[1].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[1].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[2].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[2].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[3].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[3].items}
             </p>
           </motion.div>
 
           {/* Row 2 */}
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[4].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[4].items}
             </p>
           </motion.div>
 
           {/* Center Card - spans 2 cols x 2 rows */}
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-8 lg:col-span-2 lg:row-span-2 flex flex-col justify-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 md:p-8 col-span-3 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-2 flex flex-col justify-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <p className="text-xs uppercase tracking-widest text-purple-400 mb-4">
+            <p className="text-xs uppercase tracking-widest text-purple-400 mb-2 md:mb-4">
               MY SPECIALITY
             </p>
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-3 md:mb-4">
               Building companies that dominate
             </h2>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               My background on the front lines and in the war rooms has trained me with an intense mindset for company success. This is about understanding the opportunities at the fingertips to create and capture value from the market in more ways than one.
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[5].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[5].items}
             </p>
           </motion.div>
 
           {/* Row 3 */}
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[6].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[6].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[7].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[7].items}
             </p>
           </motion.div>
 
           {/* Row 4 */}
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[8].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[8].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[9].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[9].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[10].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[10].items}
             </p>
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+            className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-4 md:p-6 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
             variants={itemVariants}
           >
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-sm md:text-lg font-semibold text-white mb-2">
               {skills[11].title}
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
               {skills[11].items}
             </p>
           </motion.div>

@@ -87,7 +87,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         {/* Case Study Header */}
         <div className="mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            {caseStudy.meta.title}
+            {String(caseStudy.meta.title)}
           </h1>
 
           {/* Meta Information */}

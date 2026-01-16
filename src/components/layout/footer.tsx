@@ -1,20 +1,20 @@
 // Updated: Transformed from Figma Make Footer component to Next.js App Router structure
 // Replaced SVG imports with lucide-react icons, converted anchor links to Next.js Link
 import Link from 'next/link';
-import { Mail, MapPin, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { Mail, MapPin, Twitter, Linkedin, Send } from 'lucide-react';
 
 export function Footer() {
   const socialLinks = [
-    { name: "Twitter", icon: Twitter, url: "https://twitter.com" },
-    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com" },
-    { name: "YouTube", icon: Youtube, url: "https://youtube.com" },
-    { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
+    { name: "Email", icon: Mail, url: "mailto:mitchellopatowsky@gmail.com" },
+    { name: "Telegram", icon: Send, url: "https://t.me/officialmitchell" },
+    { name: "Twitter", icon: Twitter, url: "https://x.com/_themitch_" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/mopa/" },
   ];
 
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold mb-4">Mitchell Opatowsky</h3>
@@ -29,7 +29,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <Mail size={18} />
-                <span>contact@mitchellopatowsky.com</span>
+                <span>mitchellopatowsky@gmail.com</span>
               </div>
             </div>
           </div>
@@ -73,16 +73,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Product Strategy</li>
-              <li>Go-to-Market</li>
-              <li>Growth Advisory</li>
-              <li>Fundraising</li>
-            </ul>
-          </div>
         </div>
 
         {/* Social Links & Copyright */}

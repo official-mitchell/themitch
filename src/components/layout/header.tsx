@@ -1,6 +1,9 @@
 // Updated: Replaced inline SVG logo with themitch logo.svg from assets
 // Updated: Text color changes based on scroll state - dark when not scrolled, white when scrolled
 // Changed scroll-to-section to Next.js Link navigation
+// Updated: Increased mobile menu option sizes (text and padding) for better touch targets
+// Updated: Centered menu options, increased X button size with more margin below
+// Updated: Further increased X button size and visibility, added more margin below X button
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +22,6 @@ export function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -123,14 +125,26 @@ export function Header() {
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-[#12051f] border-purple-500/20 text-white">
-              <div className="mt-8 flex flex-col gap-3">
+            <SheetContent 
+              side="right" 
+              className="bg-[#12051f] border-purple-500/20 text-white [&>button:last-child]:hidden"
+            >
+              <SheetClose asChild>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="absolute top-4 right-4 p-4 rounded-lg bg-white/20 hover:bg-white/30 border border-purple-400/50 hover:border-purple-400 transition-all shadow-lg z-50"
+                  aria-label="Close menu"
+                >
+                  <X size={36} strokeWidth={2.5} className="text-purple-300" />
+                </button>
+              </SheetClose>
+              <div className="mt-28 flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    className={`rounded-md px-5 py-4 text-base font-medium transition-colors text-center flex items-center justify-center ${
                       isActive(link.href)
                         ? "bg-purple-600/20 text-white border-l-2 border-purple-400"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -142,7 +156,7 @@ export function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="mt-2 rounded-md px-4 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium text-left"
+                  className="mt-2 rounded-md px-5 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-base font-medium text-center flex items-center justify-center"
                 >
                   Contact Me
                 </Link>

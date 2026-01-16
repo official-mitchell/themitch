@@ -7,11 +7,21 @@ import { BlogPreview } from "@/components/sections/blog-preview";
 import { Testimonials } from "@/components/sections/testimonials";
 import { getLatestBlogs, getAllContent } from "@/lib/content";
 
-export default function Home() {
-  const latestBlogs = getLatestBlogs(3);
-  const totalBlogs = getAllContent("blogs").length;
-  const allCaseStudies = getAllContent("case-studies");
-  const totalCaseStudies = allCaseStudies.length;
+export default async function Home() {
+  let latestBlogs: ReturnType<typeof getLatestBlogs> = [];
+  let totalBlogs = 0;
+  let allCaseStudies: ReturnType<typeof getAllContent> = [];
+  let totalCaseStudies = 0;
+
+  try {
+    latestBlogs = getLatestBlogs(3);
+    const blogs = getAllContent("blogs");
+    totalBlogs = blogs.length;
+    allCaseStudies = getAllContent("case-studies");
+    totalCaseStudies = allCaseStudies.length;
+  } catch (error) {
+    console.error("Error loading content:", error);
+  }
 
   return (
     <>

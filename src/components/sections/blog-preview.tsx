@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { BlogCard } from "@/components/content/blog-card";
+import { AnimatedBorderButton } from "@/components/ui/animated-border-button";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -81,30 +81,12 @@ export function BlogPreview({ blogs, totalBlogs }: BlogPreviewProps) {
             ))}
           </motion.div>
 
-          {/* View All Link */}
-          {totalBlogs > blogs.length && (
-            <motion.div className="text-center" variants={itemVariants}>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
-              >
-                View All Posts
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </motion.div>
-          )}
+          {/* View All Button */}
+          <motion.div className="text-center" variants={itemVariants}>
+            <AnimatedBorderButton href="/blog">
+              See All Blogs
+            </AnimatedBorderButton>
+          </motion.div>
         </motion.div>
       </div>
     </section>

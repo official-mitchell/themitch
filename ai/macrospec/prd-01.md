@@ -140,9 +140,9 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 4.2 Case Studies Infrastructure
 
-- [ ] Create `/case-studies` listing page
-- [ ] Create `/case-studies/[slug]` dynamic route
-- [ ] Case study layout: hero image, problem/solution/results sections, content
+- [x] Create `/case-studies` listing page
+- [x] Create `/case-studies/[slug]` dynamic route
+- [x] Case study layout: hero image, problem/solution/results sections, content
 
 ### 4.3 Projects Infrastructure
 
@@ -163,20 +163,31 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 5.1 About Page
 
-- [ ] Create `/about` route
-- [ ] Bio section with photo
-- [ ] Skills/tech stack visualization
-- [ ] Timeline or career history (optional based on Figma)
-- [ ] CTA to Contact page
+- [x] Create `/about` route
+- [x] Bio section with photo
+- [x] Skills/tech stack visualization
+- [x] Timeline or career history (optional based on Figma)
+- [x] CTA to Contact page
 
 ### 5.2 Contact Page
 
 - [ ] Create `/contact` route
 - [ ] Contact form fields: name, email, intent (dropdown), message
-- [ ] Intent options: "Full-time role", "Fractional/Contract", "General inquiry"
+- [ ] Intent options: "Full-time Role", "Fractional/Contract Work", "General inquiry"
 - [ ] Form validation with react-hook-form + zod
 - [ ] Form submission via Vercel serverless function or Formspree
 - [ ] Success/error states with toast notifications (sonner)
+
+### 5.3 Resume Page
+
+- [ ] Create `/resume` route
+- [ ] Resume layout with sections: experience, skills, education, certifications
+- [ ] Timeline-based experience section (company, role, dates, description)
+- [ ] Skills grid with categories (Frontend, Backend, Product Management, etc.)
+- [ ] Education section with schools, degrees, graduation dates
+- [ ] Download PDF button with resume file generation
+- [ ] Downloadable resume file stored in `public/resume.pdf`
+- [ ] Responsive design for mobile viewing
 
 ---
 

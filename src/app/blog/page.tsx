@@ -13,6 +13,27 @@ export default function BlogPage() {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#0a0118] via-[#1a0b2e] to-[#16051f] py-20">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        {/* Back to Home */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mb-12"
+        >
+          <svg
+            className="w-4 h-4 group-hover:-translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          <span className="text-sm font-medium">Back to Home</span>
+        </Link>
+
         {/* Page Header */}
         <div className="mb-16">
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">
