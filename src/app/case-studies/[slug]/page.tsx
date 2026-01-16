@@ -9,10 +9,7 @@ interface CaseStudyPageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getContentSlugs("case-studies");
-  return slugs.map((slug) => ({
-    slug,
-  }));
+  return [];
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps) {

@@ -9,10 +9,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getContentSlugs("blogs");
-  return slugs.map((slug) => ({
-    slug: slug.split("/"),
-  }));
+  return [];
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {

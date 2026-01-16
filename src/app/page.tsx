@@ -13,15 +13,16 @@ export default async function Home() {
   let allCaseStudies: ReturnType<typeof getAllContent> = [];
   let totalCaseStudies = 0;
 
-  try {
-    latestBlogs = getLatestBlogs(3);
-    const blogs = getAllContent("blogs");
-    totalBlogs = blogs.length;
-    allCaseStudies = getAllContent("case-studies");
-    totalCaseStudies = allCaseStudies.length;
-  } catch (error) {
-    console.error("Error loading content:", error);
-  }
+  // Temporarily disabled for debugging
+  // try {
+  //   latestBlogs = getLatestBlogs(3);
+  //   const blogs = getAllContent("blogs");
+  //   totalBlogs = blogs.length;
+  //   allCaseStudies = getAllContent("case-studies");
+  //   totalCaseStudies = allCaseStudies.length;
+  // } catch (error) {
+  //   console.error("Error loading content:", error);
+  // }
 
   return (
     <>

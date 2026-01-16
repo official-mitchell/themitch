@@ -7,9 +7,7 @@ type ProjectPageProps = {
 };
 
 export function generateStaticParams() {
-  return getAllContent("projects").map((project) => ({
-    slug: project.slug,
-  }));
+  return [];
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
