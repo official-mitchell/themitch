@@ -40,6 +40,14 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
+                  href="/resume"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Resume
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/case-studies"
                   className="text-gray-400 hover:text-white transition-colors"
                 >

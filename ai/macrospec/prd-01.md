@@ -171,16 +171,17 @@ Replace $40/mo Webflow site with a performant, maintainable Next.js portfolio op
 
 ### 5.2 Contact Page
 
-- [ ] Create `/contact` route
-- [ ] Contact form fields: name, email, intent (dropdown), message
-- [ ] Intent options: "Full-time Role", "Fractional/Contract Work", "General inquiry"
-- [ ] Form validation with react-hook-form + zod
-- [ ] Form submission via Vercel serverless function or Formspree
-- [ ] Success/error states with toast notifications (sonner)
+- [x] Create `/contact` route
+- [x] Contact form fields: name, email, intent (dropdown), message
+- [x] Intent options: "Full-time Role", "Fractional/Contract Work", "General inquiry"
+- [x] Form validation with react-hook-form + zod
+- [x] Form submission via Vercel serverless function or Formspree
+- [x] Success/error states with toast notifications (sonner)
 
 ### 5.3 Resume Page
 
 - [ ] Create `/resume` route
+- [ ] Imitate design in `ai/macrospec/resume-design/exampleresume02.png` with content from `ai/macrospec/resumecontext.md`
 - [ ] Resume layout with sections: experience, skills, education, certifications
 - [ ] Timeline-based experience section (company, role, dates, description)
 - [ ] Skills grid with categories (Frontend, Backend, Product Management, etc.)

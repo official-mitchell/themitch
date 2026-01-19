@@ -95,4 +95,3 @@ Minor in Business Administration
 ---
 
 **Hobbies**: Roadtrips, Avid Snowboarder & Skier, Tennis & Padel, Breathwork & Yoga, Master Event & Community Organizer
-
