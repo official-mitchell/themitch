@@ -90,10 +90,10 @@ export function Highlights() {
           </div>
 
           {/* Bottom Section Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-col lg:grid lg:grid-cols-4 gap-6">
             {/* Game Theory Card */}
             <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 md:p-8 row-span-2 lg:col-span-2 lg:row-span-2 hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 md:p-8 lg:col-span-2 lg:row-span-2 hover:scale-105 hover:border-purple-500/40 transition-all duration-300 order-1 lg:order-none"
               variants={itemVariants}
             >
               <h4 className="text-xl font-semibold text-white mb-3">
@@ -110,46 +110,48 @@ export function Highlights() {
               </p>
             </motion.div>
 
-            {/* Stats Cards */}
-            <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
-                Years in Startups
-              </p>
-              <p className="text-3xl font-bold text-white">9</p>
-            </motion.div>
+            {/* Stats Cards Grid */}
+            <div className="grid grid-cols-2 gap-6 order-2 lg:order-none lg:col-span-2 lg:row-span-2">
+              <motion.div
+                className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+                variants={itemVariants}
+              >
+                <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
+                  Years in Startups
+                </p>
+                <p className="text-3xl font-bold text-white">9</p>
+              </motion.div>
 
-            <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
-                Years in C-Suite
-              </p>
-              <p className="text-3xl font-bold text-white">8</p>
-            </motion.div>
+              <motion.div
+                className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+                variants={itemVariants}
+              >
+                <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
+                  Years in C-Suite
+                </p>
+                <p className="text-3xl font-bold text-white">8</p>
+              </motion.div>
 
-            <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
-                Startups Funded
-              </p>
-              <p className="text-3xl font-bold text-white">3</p>
-            </motion.div>
+              <motion.div
+                className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+                variants={itemVariants}
+              >
+                <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
+                  Startups Funded
+                </p>
+                <p className="text-3xl font-bold text-white">3</p>
+              </motion.div>
 
-            <motion.div
-              className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
-                Money Raised
-              </p>
-              <p className="text-3xl font-bold text-white">$2+M</p>
-            </motion.div>
+              <motion.div
+                className="rounded-2xl border border-purple-500/20 bg-[#1b0b2a]/60 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center hover:scale-105 hover:border-purple-500/40 transition-all duration-300"
+                variants={itemVariants}
+              >
+                <p className="text-xs uppercase tracking-widest text-purple-400 mb-2">
+                  Money Raised
+                </p>
+                <p className="text-3xl font-bold text-white">$2+M</p>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -77,3 +77,31 @@ Track build issues, hangs, and resolutions here.
 - Production build: 38.1s
 - Static pages generated: 10/10
 - No TypeScript or compilation errors
+
+## 2026-01-19
+
+### Issue: Chunk Load Error & Accessibility Warning
+- **Error 1**: `Loading chunk app/resume/page failed` - ChunkLoadError
+- **Error 2**: `DialogContent requires DialogTitle` - Accessibility warning (Radix UI)
+- **Root Cause**: Inline `style={{ minHeight: "..." }}` in resume page divs causing serialization issues
+
+#### Resolution:
+- ✅ Replaced all inline styles with Tailwind classes (`min-h-[Xpx]`)
+- ✅ Removed 4 instances of `style={{ minHeight }}` in resume timeline divs
+- ✅ Converted to Tailwind: `min-h-[200px]`, `min-h-[800px]`, `min-h-[150px]`, `min-h-[400px]`
+
+#### Changes Made:
+- File: `src/app/resume/page.tsx`
+  - Replaced inline styles with Tailwind classes in timeline vertical line divs
+  - This ensures proper serialization and bundle loading
+
+#### Build Status: ✓ PASSING
+- Production build: Clean compilation
+- Resume chunk: 532 B (successfully loading)
+- No console errors or chunk load failures
+- Static pages generated: 10/10
+
+#### Accessibility Note:
+- DialogContent warning is from shadcn/ui CommandDialog component
+- CommandDialog properly implements DialogTitle in sr-only (screen reader only)
+- No actual accessibility issues in rendered components

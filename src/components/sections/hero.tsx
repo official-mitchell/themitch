@@ -43,7 +43,7 @@ export function Hero() {
       >
         <div className="text-center space-y-8">
           {/* Avatar with glow */}
-          <motion.div className="flex justify-center mb-8" variants={itemVariants}>
+          <motion.div className="flex justify-center mb-8 pt-8 md:pt-0" variants={itemVariants}>
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity" />

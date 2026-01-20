@@ -39,8 +39,8 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   name: "Mitchell Opatowsky",
   title: "Full-Stack Engineer & Technical Product Manager",
-  email: "mitchell@themitch.dev",
-  phone: "+1 (512) 555-0123",
+  email: "mitchellopatowsky@gmail.com",
+  phone: "",
   website: "themitch.dev",
   profile:
     "Accomplished full-stack engineer and technical product manager with 9+ years of experience building and scaling innovative products in Web3, SaaS, and fintech. Proven track record of leading cross-functional teams, raising capital, and delivering measurable business impact through strategic product decisions and technical execution.",
