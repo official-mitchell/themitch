@@ -1,3 +1,4 @@
+// Updated: Added favicon.ico (copied from public/themitch icon small.ico)
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
