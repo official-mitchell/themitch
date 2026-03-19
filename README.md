@@ -334,7 +334,7 @@ See `package.json` for complete list. Key packages:
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.0",
     "framer-motion": "^11.0.0",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "gray-matter": "^4.0.0",
     "react-hook-form": "^7.0.0",
     "zod": "^3.0.0",
