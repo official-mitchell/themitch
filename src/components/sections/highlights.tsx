@@ -1,3 +1,4 @@
+// Updated: Replaced profile pic with local asset /assets/who-dat.JPG
 "use client";
 
 import { motion } from "framer-motion";
@@ -54,7 +55,7 @@ export function Highlights() {
             >
               <div className="flex justify-center h-full min-h-[180px] md:min-h-[200px] bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1750535135593-3a8e5def331d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMGlsbHVzdHJhdGlvbnxlbnwxfHx8fDE3Njg0NDk0OTR8MA&ixlib=rb-4.0.0&q=80&w=1080"
+                  src="/assets/who-dat.JPG"
                   alt="Mitchell Opatowsky"
                   className="w-full h-full object-cover"
                 />

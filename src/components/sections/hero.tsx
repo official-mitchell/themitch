@@ -3,6 +3,7 @@
 // "Austin-based innovator focused on reducing execution risk", and mission statement
 // Updated: Fixed extra padding issue by removing top padding (pt-20) from hero section container since main element already handles header spacing
 // Updated: Fixed content centering by using mx-auto on motion.div container for proper horizontal centering
+// Updated: Replaced profile pic with local asset /assets/who-dat.JPG
 "use client";
 
 import { motion } from "framer-motion";
@@ -52,7 +53,7 @@ export function Hero() {
               <div className="relative bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-3xl p-1 backdrop-blur-sm border border-purple-500/30">
                 <div className="bg-gradient-to-br from-[#2C1250] to-[#1a0b2e] rounded-3xl overflow-hidden w-48 h-48">
                   <img
-                    src="https://images.unsplash.com/photo-1750535135593-3a8e5def331d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMGlsbHVzdHJhdGlvbnxlbnwxfHx8fDE3Njg0NDk0OTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src="/assets/who-dat.JPG"
                     alt="Mitchell Opatowsky"
                     className="w-full h-full object-cover"
                   />
